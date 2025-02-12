@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-tw"><head>
+  <meta charset="utf-8">
+  <title>學習筆記</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="config.toml 介紹">
+  <meta name="author" content="Steve">
+    
+  
+  <meta name="theme-name" content="liva-hugo" />
+  
+  <meta name="generator" content="Hugo 0.140.2">
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://ho291ey992.github.io/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://ho291ey992.github.io/images/favicon.png " type="image/x-icon">
+
+  <!-- google analitycs -->
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'Your ID', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+</head>
+<body><!-- navigation -->
+<header class="navigation sticky"> 
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom pl-0">
+      <a class="navbar-brand mobile-view" href="https://ho291ey992.github.io/"><img class="img-fluid"
+          src="https://ho291ey992.github.io/images/favicon1.png" alt="學習筆記"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        
+        
+        
+        <a class="navbar-brand mx-auto desktop-view" href="https://ho291ey992.github.io/"><img class="img-fluid"
+          src="https://ho291ey992.github.io/images/favicon1.png" alt="學習筆記">
+        </a>
+
+        <ul class="navbar-nav">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://ho291ey992.github.io/about/">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              筆記
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" href="https://ho291ey992.github.io/note/hugo">hugo 網站建置</a>
+              
+              <a class="dropdown-item" href="https://ho291ey992.github.io/note/data_analysis">數據分析</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search pl-lg-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="https://ho291ey992.github.io//search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        
+        <a href="/categories/hugo"
+          class="text-primary">Hugo</a>
+        
+        <h2>config.toml 介紹</h2>
+        <div class="mb-3 post-meta">
+          <span>By Steve</span>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2025-01-11</span> 
+          
+        </div>
+        
+        <div class="content mb-5">
+          <h3 id="configtoml-筆記修改紀錄">config.toml 筆記、修改紀錄</h3>
+<p>目前只先介紹這個主題用到的語法設定介紹，還有很設定沒有測試，未來有看到感興趣的功能在做測試。<br></p>
+<h4 id="default-configuration-區域">default configuration 區域</h4>
+<table>
+  <thead>
+      <tr>
+          <th>default configuration  設定</th>
+          <th style="text-align: center">說明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>baseURL</code></td>
+          <td style="text-align: center">網站的根目錄地址，如果部署到 GitHub Pages 須正確設置為主機地址。</td>
+      </tr>
+      <tr>
+          <td><code>languageCode</code></td>
+          <td style="text-align: center">設置網站的主要語言。</td>
+      </tr>
+      <tr>
+          <td><code>title</code></td>
+          <td style="text-align: center">指定 Hugo 網站使用的主題名稱。</td>
+      </tr>
+      <tr>
+          <td><code>theme</code></td>
+          <td style="text-align: center">指定 Hugo 網站使用的主題名稱，簡單來說就是啟動hugo server時指定themes中的[資料夾名稱]。</td>
+      </tr>
+      <tr>
+          <td><code>summaryLength</code></td>
+          <td style="text-align: center">控制每篇文章摘要的行數，如果刪除會到只文章全部展開。</td>
+      </tr>
+      <tr>
+          <td><del>paginate</del></td>
+          <td style="text-align: center">顯示文章數量，**注意：**此功能即將停用，建議使用 pagination.pagerSize 替代。</td>
+      </tr>
+      <tr>
+          <td><code>disqusShortname</code></td>
+          <td style="text-align: center">預留 Disqus 的短名稱，用於啟用文章評論功能。 <br> Disqus 是一個第三方評論系統，網站可以通過它讓用戶進行評論互動。</td>
+      </tr>
+      <tr>
+          <td><code>[pagination]</code></td>
+          <td style="text-align: center">取代原本 <code>paginate</code>。</td>
+      </tr>
+      <tr>
+          <td> <code>disableAliases</code></td>
+          <td style="text-align: center">預設false，沒用到所以移除了，但如果你曾經改變過分頁 URL 路徑，需要將舊的 URL 重定向到新的 URL，避免破壞舊鏈接，就需要開啟。</td>
+      </tr>
+      <tr>
+          <td> <code>pagerSize</code></td>
+          <td style="text-align: center">顯示文章數量，用於控制首頁、分類頁等文章列表頁的內容密度。</td>
+      </tr>
+      <tr>
+          <td> <code>path</code></td>
+          <td style="text-align: center"><a href="https://github.io/%5Bpage%5D/2/">https://github.io/[page]/2/</a>，[]中的名稱。</td>
+      </tr>
+      <tr>
+          <td><code>[outputs]</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td> <code>home</code></td>
+          <td style="text-align: center">目前只想單純用作學習紀錄，所以將&quot;RSS&quot;, &ldquo;JSON&quot;移除。 <br>  HTML：用於普通的網頁內容。 <br>  RSS：用於 RSS 提要，方便用戶訂閱網站內容。 <br>  JSON：用於 API 或動態數據，方便與其他應用整合。</td>
+      </tr>
+  </tbody>
+</table>
+<br>
+<h4 id="plugins-區域">Plugins 區域</h4>
+<ul>
+<li>這個區塊主要設定 hugo 安裝的CSS、JS、JS插件，檔案位置\themes\liva-hugo\static\plugins之中。 <br></li>
+</ul>
+<h4 id="navigation-區域">navigation 區域</h4>
+<ul>
+<li>新增下拉選單
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ff79c6">[[</span>menu.main<span style="color:#ff79c6">]]</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">name</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;筆記&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">URL</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;#&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">weight</span> <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">2</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">[[</span>menu.main<span style="color:#ff79c6">]]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">parent</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;筆記&#34;</span>       <span style="color:#6272a4"># 主目錄</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">name</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;hugo網站建置&#34;</span> <span style="color:#6272a4"># 子目錄名字</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">URL</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;/note/hugo&#34;</span>    <span style="color:#6272a4"># 資料夾位置</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">weight</span> <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>
+</span></span></code></pre></div></li>
+</ul>
+<br>
+<h4 id="default-parameters-區域">default parameters 區域</h4>
+<ul>
+<li>網頁名稱、logo圖片。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ff79c6">[</span>params<span style="color:#ff79c6">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">logo</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;images/logo.png&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">home</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;Note&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># Meta data</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">description</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;學習筆記&#34;</span> <span style="color:#6272a4"># 個人網站簡短介紹</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">author</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;Steve&#34;</span>         <span style="color:#6272a4"># 作者姓名</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># Google Analitycs</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">googleAnalitycsID</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;Your ID&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># params.preloader：網站在加載頁面時展示的一個過渡動畫或圖片效果</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">[</span>params.preloader<span style="color:#ff79c6">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">enable</span> <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">false</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">preloader</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;&#34;</span> <span style="color:#6272a4"># use .png , .svg or .gif format</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># params.search：是否啟用站內搜索功能。</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">[</span>params.search<span style="color:#ff79c6">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">enable</span> <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">true</span>
+</span></span></code></pre></div></li>
+</ul>
+<br>
+<h4 id="news-letter-區域">news letter 區域</h4>
+<ul>
+<li>這兩個功能我都關閉了，但如果要使用 Google Analytics 就需要開啟 cookies 功能。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ff79c6">[</span>params.newsletter<span style="color:#ff79c6">]</span> <span style="color:#6272a4"># 訂閱功能</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">enable</span> <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">false</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">[</span>params.cookies<span style="color:#ff79c6">]</span> <span style="color:#6272a4">#cookies 功能</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">enable</span> <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">expire_days</span> <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">2</span> <span style="color:#6272a4"># 表示 Cookies 的有效期天數。</span>
+</span></span></code></pre></div></li>
+</ul>
+<br>
+<h4 id="social-site-區域">social site 區域</h4>
+<ul>
+<li>個人社群軟體:頁首、頁尾、右側都有小圖示。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ff79c6">[[</span>params.social<span style="color:#ff79c6">]]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">title</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;github&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">icon</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;ti-github&#34;</span> <span style="color:#6272a4"># themify icon : https://themify.me/themify-icons</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">link</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;https://github.com/ho291ey992&#34;</span> 
+</span></span></code></pre></div></li>
+</ul>
+<br>
+<h4 id="其他">其他</h4>
+<ul>
+<li>
+<p>執行 hugo server 警告訊息</p>
+<ul>
+<li>
+<p>警告訊息：Markdown語法中使用HTML語法都會出現此錯誤。<br></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>WARN  Raw HTML omitted <span style="color:#ff79c6">while</span> rendering <span style="color:#f1fa8c">&#34;content/blog/post-12.md&#34;</span>; see https://gohugo.io/getting-started/configuration-markup/#rendererunsafe
+</span></span><span style="display:flex;"><span>You can suppress this warning by adding the following to your site configuration:
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">ignoreLogs</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">[</span><span style="color:#f1fa8c">&#39;warning-goldmark-raw-html&#39;</span><span style="color:#ff79c6">]</span>
+</span></span></code></pre></div><p>解決方法：啟用 Raw HTML 渲染。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[markup]
+</span></span><span style="display:flex;"><span>  [markup.goldmark]
+</span></span><span style="display:flex;"><span>    [markup.goldmark.renderer]
+</span></span><span style="display:flex;"><span>      unsafe = <span style="color:#ff79c6">true</span>
+</span></span></code></pre></div><div class="border-bottom"></div><br>
+</li>
+<li>
+<p>警告訊息：paginate 功能即將停用，建議使用 pagination.pagerSize 替代。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>deprecated: site config key paginate was deprecated in Hugo v0.128.0 and will be removed in Hugo 0.141.0. Use pagination.pagerSize instead.
+</span></span></code></pre></div><p>解決方法：paginate 替換成 pagination 。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ff79c6">[</span>pagination<span style="color:#ff79c6">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">disableAliases</span> <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">false</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">pagerSize</span> <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">6</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">path</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;page&#39;</span>
+</span></span></code></pre></div></li>
+</ul>
+<div class="border-bottom"></div><br>
+</li>
+<li>
+<p>code 主題設定</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ff79c6">[</span>markup.highlight<span style="color:#ff79c6">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">style</span> <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;manni&#34;</span>  <span style="color:#6272a4"># 更改為適合的主題樣式 monokai、manni、tokyonight-day、rose-pine-dawn</span>
+</span></span><span style="display:flex;"><span>                 <span style="color:#6272a4"># 樣板:https://xyproto.github.io/splash/docs/all.html</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">noClasses</span> <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">true</span>  <span style="color:#6272a4"># 如果想要自定義程式區域改成false</span>
+</span></span></code></pre></div><div class="border-bottom"></div><br>
+</li>
+<li>
+<p>youtube 控制功能，剛好看到就拿來測試了。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ff79c6">[</span>privacy<span style="color:#ff79c6">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">[</span>privacy.youtube<span style="color:#ff79c6">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">disable</span> <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">false</span> 
+</span></span></code></pre></div><div class="border-bottom"></div><br>
+</li>
+</ul>
+<h3 id="其他問題">其他問題</h3>
+<h4 id="刪除多餘contentblog網頁">刪除多餘content\blog網頁</h4>
+<h4 id="修正code區域配色問題">修正code區域配色問題</h4>
+<ul>
+<li>
+<p>錯誤原因：_main.scss 中 pre、code 使用到其他顏色，倒置 code 主題顏色設定部分被覆蓋。
+<img src = /images/note/hugo/hugo_1/code_show_err.jpg><br></p>
+</li>
+<li>
+<p>解決方法：自行定義程式區顏色_main.scss 中 pre、code 。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-scss" data-lang="scss"><span style="display:flex;"><span><span style="color:#6272a4">/* 設定 `pre`，適用於多行程式碼區塊 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">pre</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">background-color</span><span style="color:#ff79c6">:</span> <span style="color:#bd93f9">#282c34</span>;  <span style="color:#6272a4">// 設定背景色
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#50fa7b">color</span><span style="color:#ff79c6">:</span> <span style="color:#bd93f9">#abb2bf</span>;  <span style="color:#6272a4">// 預設文字顏色
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#50fa7b">padding</span><span style="color:#ff79c6">:</span> <span style="color:#bd93f9">15</span><span style="color:#8be9fd">px</span>;  <span style="color:#6272a4">// 內邊距
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#50fa7b">margin</span><span style="color:#ff79c6">:</span> <span style="color:#bd93f9">10</span><span style="color:#8be9fd">px</span> <span style="color:#bd93f9">0</span>;  <span style="color:#6272a4">// 上下間距，避免過於擁擠
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#50fa7b">border-radius</span><span style="color:#ff79c6">:</span> <span style="color:#bd93f9">6</span><span style="color:#8be9fd">px</span>;  <span style="color:#6272a4">// 圓角效果
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#50fa7b">overflow</span><span style="color:#ff79c6">:</span> auto;  <span style="color:#6272a4">// 允許滾動條顯示
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/* 設定 `code`，適用於單行內程式碼 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">code</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">background-color</span><span style="color:#ff79c6">:</span> <span style="color:#bd93f9">#f7f7f7</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">color</span><span style="color:#ff79c6">:</span> <span style="color:#bd93f9">#e83e8c</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">padding</span><span style="color:#ff79c6">:</span> <span style="color:#bd93f9">2</span><span style="color:#8be9fd">px</span> <span style="color:#bd93f9">5</span><span style="color:#8be9fd">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#50fa7b">border-radius</span><span style="color:#ff79c6">:</span> <span style="color:#bd93f9">4</span><span style="color:#8be9fd">px</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+</ul>
+
+        </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<script>
+  var indexURL = "https://ho291ey992.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://ho291ey992.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/mark.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://ho291ey992.github.io/js/script.min.js"></script>
+
+
+
+</body>
+</html>

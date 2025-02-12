@@ -1,60 +1,46 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on 程式設計學習實作</title>
+    <title>Tags on 學習筆記</title>
     <link>https://ho291ey992.github.io/tags/</link>
-    <description>Recent content in Tags on 程式設計學習實作</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Tags on 學習筆記</description>
+    <generator>Hugo</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Sat, 06 Apr 2024 10:07:47 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 07 Feb 2025 12:00:00 +0800</lastBuildDate>
     <atom:link href="https://ho291ey992.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Markdown</title>
-      <link>https://ho291ey992.github.io/tags/markdown/</link>
-      <pubDate>Sat, 06 Apr 2024 10:07:47 +0800</pubDate>
-      <guid>https://ho291ey992.github.io/tags/markdown/</guid>
-      <description></description>
-    </item>
     <item>
       <title>Python</title>
       <link>https://ho291ey992.github.io/tags/python/</link>
-      <pubDate>Sat, 06 Apr 2024 10:07:47 +0800</pubDate>
+      <pubDate>Fri, 07 Feb 2025 12:00:00 +0800</pubDate>
       <guid>https://ho291ey992.github.io/tags/python/</guid>
       <description></description>
     </item>
     <item>
-      <title>我是標籤</title>
-      <link>https://ho291ey992.github.io/tags/%E6%88%91%E6%98%AF%E6%A8%99%E7%B1%A4/</link>
-      <pubDate>Sat, 06 Apr 2024 10:07:47 +0800</pubDate>
-      <guid>https://ho291ey992.github.io/tags/%E6%88%91%E6%98%AF%E6%A8%99%E7%B1%A4/</guid>
+      <title>SQL</title>
+      <link>https://ho291ey992.github.io/tags/sql/</link>
+      <pubDate>Fri, 07 Feb 2025 12:00:00 +0800</pubDate>
+      <guid>https://ho291ey992.github.io/tags/sql/</guid>
       <description></description>
     </item>
     <item>
-      <title>Game</title>
-      <link>https://ho291ey992.github.io/tags/game/</link>
-      <pubDate>Tue, 29 Oct 2019 10:07:47 +0600</pubDate>
-      <guid>https://ho291ey992.github.io/tags/game/</guid>
+      <title>Config.toml</title>
+      <link>https://ho291ey992.github.io/tags/config.toml/</link>
+      <pubDate>Sat, 11 Jan 2025 12:00:00 +0800</pubDate>
+      <guid>https://ho291ey992.github.io/tags/config.toml/</guid>
       <description></description>
     </item>
     <item>
-      <title>New</title>
-      <link>https://ho291ey992.github.io/tags/new/</link>
-      <pubDate>Tue, 29 Oct 2019 10:07:47 +0600</pubDate>
-      <guid>https://ho291ey992.github.io/tags/new/</guid>
+      <title>Markdown 語法</title>
+      <link>https://ho291ey992.github.io/tags/markdown-%E8%AA%9E%E6%B3%95/</link>
+      <pubDate>Fri, 10 Jan 2025 13:49:23 +0800</pubDate>
+      <guid>https://ho291ey992.github.io/tags/markdown-%E8%AA%9E%E6%B3%95/</guid>
       <description></description>
     </item>
     <item>
-      <title>Photos</title>
-      <link>https://ho291ey992.github.io/tags/photos/</link>
-      <pubDate>Tue, 29 Oct 2019 10:07:47 +0600</pubDate>
-      <guid>https://ho291ey992.github.io/tags/photos/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>React</title>
-      <link>https://ho291ey992.github.io/tags/react/</link>
-      <pubDate>Tue, 29 Oct 2019 10:07:47 +0600</pubDate>
-      <guid>https://ho291ey992.github.io/tags/react/</guid>
+      <title>Hugo 安裝</title>
+      <link>https://ho291ey992.github.io/tags/hugo-%E5%AE%89%E8%A3%9D/</link>
+      <pubDate>Thu, 09 Jan 2025 12:00:00 +0800</pubDate>
+      <guid>https://ho291ey992.github.io/tags/hugo-%E5%AE%89%E8%A3%9D/</guid>
       <description></description>
     </item>
   </channel>
