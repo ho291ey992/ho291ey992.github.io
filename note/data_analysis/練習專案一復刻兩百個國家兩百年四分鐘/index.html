@@ -221,19 +221,21 @@
 <ul>
 <li>使用 plotly.express 來完成</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>px<span style="color:#ff79c6">.</span>scatter(plotting_df,                       
-</span></span><span style="display:flex;"><span>           x<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;gdp_per_capita&#34;</span>,                <span style="color:#6272a4"># 數據來源的 DataFrame。</span>
-</span></span><span style="display:flex;"><span>           y<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;life_expectancy&#34;</span>,               <span style="color:#6272a4"># 指定 x 軸數據。</span>
-</span></span><span style="display:flex;"><span>           animation_frame<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;dt_year&#34;</span>,         <span style="color:#6272a4"># 指定 y 軸數據。</span>
-</span></span><span style="display:flex;"><span>           animation_group<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;country_name&#34;</span>,    <span style="color:#6272a4"># 設置動畫的時間維度。</span>
-</span></span><span style="display:flex;"><span>           size<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;population&#34;</span>,                 <span style="color:#6272a4"># </span>
-</span></span><span style="display:flex;"><span>           color<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;continent&#34;</span>,                 <span style="color:#6272a4"># </span>
-</span></span><span style="display:flex;"><span>           hover_name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;country_name&#34;</span>,         <span style="color:#6272a4"># </span>
-</span></span><span style="display:flex;"><span>           size_max<span style="color:#ff79c6">=</span><span style="color:#bd93f9">100</span>,                      <span style="color:#6272a4"># </span>
-</span></span><span style="display:flex;"><span>           range_x<span style="color:#ff79c6">=</span>[<span style="color:#bd93f9">500</span>, <span style="color:#bd93f9">100000</span>],             <span style="color:#6272a4"># </span>
-</span></span><span style="display:flex;"><span>           range_y<span style="color:#ff79c6">=</span>[<span style="color:#bd93f9">20</span>, <span style="color:#bd93f9">90</span>],                  <span style="color:#6272a4"># </span>
-</span></span><span style="display:flex;"><span>           log_x<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>,                        <span style="color:#6272a4"># </span>
-</span></span><span style="display:flex;"><span>           title<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Gapminder Clone 1800-2023&#34;</span>) <span style="color:#6272a4"># </span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>px<span style="color:#ff79c6">.</span>scatter(
+</span></span><span style="display:flex;"><span>    df,                             <span style="color:#6272a4"># 數據來源的 DataFrame</span>
+</span></span><span style="display:flex;"><span>    x<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;gdp_per_capita&#34;</span>,             <span style="color:#6272a4"># 設定 x 軸數據（人均 GDP）</span>
+</span></span><span style="display:flex;"><span>    y<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;life_expectancy&#34;</span>,            <span style="color:#6272a4"># 設定 y 軸數據（平均壽命）</span>
+</span></span><span style="display:flex;"><span>    animation_frame<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;dt_year&#34;</span>,      <span style="color:#6272a4"># 設定動畫的時間維度（年份）</span>
+</span></span><span style="display:flex;"><span>    animation_group<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;country_name&#34;</span>, <span style="color:#6272a4"># 指定動畫中不同國家的數據追蹤</span>
+</span></span><span style="display:flex;"><span>    size<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;population&#34;</span>,              <span style="color:#6272a4"># 設定氣泡大小對應人口數量</span>
+</span></span><span style="display:flex;"><span>    color<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;continent&#34;</span>,              <span style="color:#6272a4"># 以洲別來區分顏色</span>
+</span></span><span style="display:flex;"><span>    hover_name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;country_name&#34;</span>,       <span style="color:#6272a4"># 滑鼠懸停時顯示國家名稱</span>
+</span></span><span style="display:flex;"><span>    size_max<span style="color:#ff79c6">=</span><span style="color:#bd93f9">100</span>,                    <span style="color:#6272a4"># 設定氣泡的最大大小</span>
+</span></span><span style="display:flex;"><span>    range_x<span style="color:#ff79c6">=</span>[<span style="color:#bd93f9">500</span>, <span style="color:#bd93f9">100000</span>],           <span style="color:#6272a4"># 設定 x 軸的範圍（GDP 人均值範圍）</span>
+</span></span><span style="display:flex;"><span>    range_y<span style="color:#ff79c6">=</span>[<span style="color:#bd93f9">20</span>, <span style="color:#bd93f9">90</span>],                <span style="color:#6272a4"># 設定 y 軸的範圍（預期壽命範圍）</span>
+</span></span><span style="display:flex;"><span>    log_x<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>,                      <span style="color:#6272a4"># 使 x 軸（GDP）以對數尺度顯示</span>
+</span></span><span style="display:flex;"><span>    title<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Gapminder Clone 1800-2023&#34;</span> <span style="color:#6272a4"># 設定圖表標題</span>
+</span></span><span style="display:flex;"><span>)
 </span></span></code></pre></div><ul>
 <li>成品：上傳Github後就可以呈現了</li>
 </ul>
