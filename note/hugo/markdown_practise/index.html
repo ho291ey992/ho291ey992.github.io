@@ -123,7 +123,7 @@
         <a href="/categories/hugo"
           class="text-primary">Hugo</a>
         
-        <h2>Markdown 語法</h2>
+        <h2>Markdown 語法</h2>  
         <div class="mb-3 post-meta">
           <span>By Steve</span>
           
@@ -153,41 +153,28 @@
 </span></span><span style="display:flex;"><span> h6 
 </span></span><span style="display:flex;"><span> <span style="color:#ff79c6">}</span>
 </span></span></code></pre></div></li>
-</ul>
-<br>
-<ul>
-<li><strong>粗體</strong>
+<li>
+<p><strong>粗體</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>**粗體**
 </span></span><span style="display:flex;"><span>__粗體__
 </span></span></code></pre></div></li>
-</ul>
-<br>
-<ul>
-<li><em>斜體</em>
+<li>
+<p><em>斜體</em></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>*斜體*
 </span></span><span style="display:flex;"><span><span style="text-decoration:underline">_斜體_</span>
 </span></span></code></pre></div></li>
-</ul>
-<br>
-<ul>
-<li><code>網底</code>
+<li>
+<p><code>網底</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#f1fa8c">`網底 `</span>
 </span></span></code></pre></div></li>
-</ul>
-<br>
-<ul>
-<li><del>刪除線</del>
+<li>
+<p><del>刪除線</del></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>~~刪除線~~
 </span></span></code></pre></div></li>
-</ul>
-<br>
-<ul>
-<li>換行
+<li>
+<p>換行</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>&lt;<span style="color:#ff79c6">br</span>&gt;
 </span></span></code></pre></div></li>
-</ul>
-<br>
-<ul>
 <li>
 <p>引用</p>
 <blockquote>
@@ -196,17 +183,15 @@
 <pre tabindex="0"><code class="language-bahs" data-lang="bahs">&gt; 引用內容
 </code></pre></li>
 <li>
-<p>轉義符號 <br>
-*這樣不會變成粗體或斜體*</p>
+<p>轉義符號：*這樣不會變成粗體或斜體*</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>\*這樣不會變成粗體或斜體\*
 </span></span></code></pre></div></li>
-</ul>
-<br>
-<ul>
-<li>註解：&lt;!&ndash; 插入註解 &ndash;&gt; 。
+<li>
+<p>註解：&lt;!&ndash; 插入註解 &ndash;&gt; 。</p>
 <!-- 你看不到我 -->
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&lt;!-- 在這之中的內容都是不會顯示的 --&gt;
-</span></span></code></pre></div>備註：瀏覽器中開啟 <strong>開發者模式(F12)</strong> 會被看到註解。</li>
+</span></span></code></pre></div><p>備註：瀏覽器中開啟 <strong>開發者模式(F12)</strong> 會被看到註解。</p>
+</li>
 </ul>
 <br>
 <div class="border-bottom"></div><br>
@@ -360,7 +345,7 @@ print(&ldquo;hello world!&rdquo;) <br>
   <tbody>
       <tr>
           <td>方法1</td>
-          <td style="text-align: left">![名稱](/檔案位置/檔案名稱)</td>
+          <td style="text-align: left">![名稱](/檔案位置/檔案名稱 &ldquo;可以插入註解&rdquo;)</td>
       </tr>
       <tr>
           <td>方法2</td>
@@ -372,14 +357,29 @@ print(&ldquo;hello world!&rdquo;) <br>
       </tr>
   </tbody>
 </table>
-<p>備註：width 縮小圖片比例，沒有放大功能。</p>
 <ul>
-<li>方法1：  <br>
-<img src="/images/note/hugo/my-2.jpg" alt="方法1"></li>
-<li>方法2 <br>
-<img src="/images/note/hugo/my-2.jpg" width =50% ></li>
-<li>方法3 <br>
-<img src="https://images.pexels.com/photos/1440476/pexels-photo-1440476.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width =50%></li>
+<li>
+<p>備註</p>
+<ul>
+<li>width：縮小圖片比例，沒有放大功能。</li>
+<li>&lt;div align = left&gt;  ：之下所有內容全部靠右</li>
+<li>&lt;div align = center&gt;：之下所有內容全部靠中</li>
+<li>&lt;div align = right&gt; ：之下所有內容全部靠左
+<br><br></li>
+</ul>
+</li>
+<li>
+<p>方法1：<br>
+<img src="/images/note/hugo/my-2.jpg" alt="方法1" title="可以插入註解"></p>
+</li>
+<li>
+<p>方法2：<br>
+<img src="/images/note/hugo/my-2.jpg" width =50% ></p>
+</li>
+<li>
+<p>方法3：<br>
+<img src="https://images.pexels.com/photos/1440476/pexels-photo-1440476.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width =50%></p>
+</li>
 </ul>
 <br>
 <div class="border-bottom"></div><br>
