@@ -5,7 +5,7 @@
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="學習筆記">
+  <meta name="description" content="PowerBi 連線 SQLite">
   <meta name="author" content="Steve">
     
   
@@ -115,100 +115,86 @@
 </header>
 <!-- /navigation -->
 
-
 <section class="section-sm">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8 mb-5 mb-lg-0">
-        <div class="row">
+      <div class="col-lg-10 mx-auto">
+        
+        <a href="/categories/data-analysis"
+          class="text-primary">Data analysis</a>
+        
+        <h2>PowerBi 連線 SQLite</h2>  
+        <div class="mb-3 post-meta">
+          <span>By Steve</span>
           
-          
-          
-           
-          <div class="col-md-10 border-bottom pl-0">  
-            <article class="card">
-              <div class="card-body px-0" >
-                
-                <a href="/categories/hugo"
-                  class="text-primary">Hugo</a>
-                
-                <a href="https://ho291ey992.github.io/note/hugo/config_note/" class="h5 d-block my-3">config.toml 介紹</a>
-                <div class="mb-3 post-meta">
-                  <span>By Steve</span>
-                  
-                  <span class="border-bottom border-primary px-2 mx-1"></span>
-                  <span>2025-01-11</span>
-                  
-                </div>
-              </div>
-            </article>
-          </div>
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2025-02-19</span> 
           
         </div>
-      </div>
+        
+        <div class="content mb-5">
+          <br>
+<h3 id="注意事項">注意事項</h3>
+<ul>
+<li>確認電腦是否有安裝 <a href="https://www.ch-werner.de/sqliteodbc/">SQLite ODBC driver for Win64</a></li>
+</ul>
+<img src=/images/note/data_analysis/powerbi_with_sqlite/0.png>
+<br>
+<div class="border-bottom"></div><br>
+<h3 id="方法1">方法1</h3>
+<ol>
+<li>
+<p>Windwos 搜尋 <strong>&ldquo;ODBC資料來源&rdquo;</strong>
+<img src=/images/note/data_analysis/powerbi_with_sqlite/1_1.png></p>
+</li>
+<li>
+<p>新增 <strong>&ldquo;ODBC 資料來源管理員&rdquo;</strong> SQLite 資料庫。</p>
+<ul>
+<li>Data Source Name：設定資料名稱，可以自己設定。</li>
+<li>Database Name：設定db檔案位置。
+<img src=/images/note/data_analysis/powerbi_with_sqlite/1_2.png></li>
+</ul>
+</li>
+<li>
+<p>設定 <strong>&ldquo;資料來源名稱(DSN)&rdquo;</strong>
+<img src=/images/note/data_analysis/powerbi_with_sqlite/1_3.png></p>
+</li>
+<li>
+<p>匯入 <strong>&ldquo;資料表&rdquo;</strong>
+<img src=/images/note/data_analysis/powerbi_with_sqlite/2_4.png>
+<br></p>
+</li>
+</ol>
+<div class="border-bottom"></div><br>
+<h3 id="方法2">方法2</h3>
+<ol>
+<li>
+<p>找尋<strong>ODBC</strong>
+<img src=/images/note/data_analysis/powerbi_with_sqlite/2_1.png></p>
+</li>
+<li>
+<p>點選<strong>SQLite3 Datasource</strong>
+<img src=/images/note/data_analysis/powerbi_with_sqlite/2_2.png></p>
+</li>
+<li>
+<p><strong>進階</strong> -&gt; 連接字串輸入<strong>database=[檔案位置]</strong>
+<img src=/images/note/data_analysis/powerbi_with_sqlite/2_3.png></p>
+</li>
+<li>
+<p>確定資料表狀態
+<img src=/images/note/data_analysis/powerbi_with_sqlite/2_4.png>
+<br></p>
+</li>
+</ol>
+<div class="border-bottom"></div><br>
+        </div>
 
-      
-      <div class="col-lg-4">
-  <div class="widgets">
-    
-    <div class="widget">
-      
-      <h4 class="widget-title">About Me</h4>
-      
-      <img src="https://ho291ey992.github.io/images/headshot_1.jpg" alt=""
-        class="img-fluid author-thumb-sm d-block mx-auto rounded-circle mb-4">
-      
-      <p></p>
-      <a href="https://ho291ey992.github.io/about/" class="btn btn-outline-primary">Know More</a>
-      
-    </div>
-    
-    <div class="widget">
-      <h4 class="widget-title">Category</h4>
-      <ul class="list-unstyled">
-        <li><a
-            href="/categories/data-analysis/">Data analysis</a>
-        </li>
-        <li><a
-            href="/categories/hugo/">Hugo</a>
-        </li>
-      </ul>
-    </div>
-    
-    <div class="widget">
-      <h4 class="widget-title">Tag</h4>
-      <ul class="list-inline">
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/config.toml/">Config.toml</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/hugo-%e5%ae%89%e8%a3%9d/">Hugo 安裝</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/markdown-%e8%aa%9e%e6%b3%95/">Markdown 語法</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/powerbi/">Powerbi</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/python/">Python</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/sql/">SQL</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/sqlite/">Sqlite</a></li>
-      </ul>
-    </div>
-    
-    
-  </div>
-</div>
-
-      
-
-      
-      <div class="col-12 mt-5">
+        
         
       </div>
     </div>
   </div>
 </section>
-
 
 
 
