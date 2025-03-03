@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on 學習筆記</title>
-    <link>https://ho291ey992.github.io/categories/</link>
+    <link>http://localhost:1313/categories/</link>
     <description>Recent content in Categories on 學習筆記</description>
     <generator>Hugo</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Wed, 19 Feb 2025 12:00:00 +0800</lastBuildDate>
-    <atom:link href="https://ho291ey992.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Feb 2025 12:00:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Data Analysis</title>
-      <link>https://ho291ey992.github.io/categories/data-analysis/</link>
-      <pubDate>Wed, 19 Feb 2025 12:00:00 +0800</pubDate>
-      <guid>https://ho291ey992.github.io/categories/data-analysis/</guid>
+      <link>http://localhost:1313/categories/data-analysis/</link>
+      <pubDate>Wed, 26 Feb 2025 12:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/categories/data-analysis/</guid>
       <description></description>
     </item>
     <item>
       <title>Hugo</title>
-      <link>https://ho291ey992.github.io/categories/hugo/</link>
+      <link>http://localhost:1313/categories/hugo/</link>
       <pubDate>Sat, 11 Jan 2025 12:00:00 +0800</pubDate>
-      <guid>https://ho291ey992.github.io/categories/hugo/</guid>
+      <guid>http://localhost:1313/categories/hugo/</guid>
       <description></description>
     </item>
   </channel>

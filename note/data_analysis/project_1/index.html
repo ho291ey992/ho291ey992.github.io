@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-tw"><head>
+<html lang="zh-tw"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   <title>學習筆記</title>
 
@@ -15,22 +15,22 @@
 
   <!-- plugins -->
   
-  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/bootstrap/bootstrap.min.css ">
+  <link rel="stylesheet" href="http://localhost:1313/plugins/bootstrap/bootstrap.min.css ">
   
-  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/slick/slick.css ">
+  <link rel="stylesheet" href="http://localhost:1313/plugins/slick/slick.css ">
   
-  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/themify-icons/themify-icons.css ">
+  <link rel="stylesheet" href="http://localhost:1313/plugins/themify-icons/themify-icons.css ">
   
-  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/venobox/venobox.css ">
+  <link rel="stylesheet" href="http://localhost:1313/plugins/venobox/venobox.css ">
   
 
   <!-- Main Stylesheet -->
   
-  <link rel="stylesheet" href="https://ho291ey992.github.io/scss/style.min.css" media="screen">
+  <link rel="stylesheet" href="http://localhost:1313/scss/style.min.css" media="screen">
 
   <!--Favicon-->
-  <link rel="shortcut icon" href="https://ho291ey992.github.io/images/favicon.png " type="image/x-icon">
-  <link rel="icon" href="https://ho291ey992.github.io/images/favicon.png " type="image/x-icon">
+  <link rel="shortcut icon" href="http://localhost:1313/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="http://localhost:1313/images/favicon.png " type="image/x-icon">
 
   <!-- google analitycs -->
   <script>
@@ -55,8 +55,8 @@
   <div class="container">
     
     <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom pl-0">
-      <a class="navbar-brand mobile-view" href="https://ho291ey992.github.io/"><img class="img-fluid"
-          src="https://ho291ey992.github.io/images/favicon1.png" alt="學習筆記"></a>
+      <a class="navbar-brand mobile-view" href="http://localhost:1313/"><img class="img-fluid"
+          src="http://localhost:1313/images/favicon1.png" alt="學習筆記"></a>
       <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
         <i class="ti-menu"></i>
       </button>
@@ -65,15 +65,15 @@
         
         
         
-        <a class="navbar-brand mx-auto desktop-view" href="https://ho291ey992.github.io/"><img class="img-fluid"
-          src="https://ho291ey992.github.io/images/favicon1.png" alt="學習筆記">
+        <a class="navbar-brand mx-auto desktop-view" href="http://localhost:1313/"><img class="img-fluid"
+          src="http://localhost:1313/images/favicon1.png" alt="學習筆記">
         </a>
 
         <ul class="navbar-nav">
           
           
           <li class="nav-item">
-            <a class="nav-link" href="https://ho291ey992.github.io/about/">About</a>
+            <a class="nav-link" href="http://localhost:1313/about/">About</a>
           </li>
           
           
@@ -85,9 +85,9 @@
             </a>
             <div class="dropdown-menu">
               
-              <a class="dropdown-item" href="https://ho291ey992.github.io/note/hugo">hugo 網站建置</a>
+              <a class="dropdown-item" href="http://localhost:1313/note/hugo">hugo 網站建置</a>
               
-              <a class="dropdown-item" href="https://ho291ey992.github.io/note/data_analysis">數據分析</a>
+              <a class="dropdown-item" href="http://localhost:1313/note/data_analysis">數據分析</a>
               
             </div>
           </li>
@@ -100,7 +100,7 @@
         <div class="search pl-lg-4">
           <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
           <div class="search-wrapper">
-            <form action="https://ho291ey992.github.io//search" class="h-100">
+            <form action="http://localhost:1313//search" class="h-100">
               <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
             </form>
             <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
@@ -135,6 +135,8 @@
         <div class="content mb-5">
           <br>
 <h4 id="復刻目標hans-roslings-200-countries-200-years-4-minuteshttpsyoutubejbksrlysojosi5wkjooiu_ipukgsr">復刻目標：<a href="https://youtu.be/jbkSRLYSojo?si=5WkjOoiU_IPuKGsR">Hans Rosling&rsquo;s 200 Countries, 200 Years, 4 Minutes</a></h4>
+<p>專案說明：描述了隨人均GDP上升，各國的平均壽命也在不斷提升。<br>
+如何復刻 Hans Rosling&rsquo;s 200 Countries, 200 Years, 4 Minutes<br></p>
 <ul>
 <li>資料需求。
 <ul>
@@ -221,29 +223,47 @@
 <li>使用 plotly.express 來完成</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>px<span style="color:#ff79c6">.</span>scatter(
-</span></span><span style="display:flex;"><span>    df,                             <span style="color:#6272a4"># 數據來源的 DataFrame</span>
-</span></span><span style="display:flex;"><span>    x<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;gdp_per_capita&#34;</span>,             <span style="color:#6272a4"># 設定 x 軸數據（人均 GDP）</span>
-</span></span><span style="display:flex;"><span>    y<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;life_expectancy&#34;</span>,            <span style="color:#6272a4"># 設定 y 軸數據（平均壽命）</span>
-</span></span><span style="display:flex;"><span>    animation_frame<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;dt_year&#34;</span>,      <span style="color:#6272a4"># 設定動畫的時間維度（年份）</span>
-</span></span><span style="display:flex;"><span>    animation_group<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;country_name&#34;</span>, <span style="color:#6272a4"># 指定動畫中不同國家的數據追蹤</span>
-</span></span><span style="display:flex;"><span>    size<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;population&#34;</span>,              <span style="color:#6272a4"># 設定氣泡大小對應人口數量</span>
-</span></span><span style="display:flex;"><span>    color<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;continent&#34;</span>,              <span style="color:#6272a4"># 以洲別來區分顏色</span>
-</span></span><span style="display:flex;"><span>    hover_name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;country_name&#34;</span>,       <span style="color:#6272a4"># 滑鼠懸停時顯示國家名稱</span>
-</span></span><span style="display:flex;"><span>    size_max<span style="color:#ff79c6">=</span><span style="color:#bd93f9">100</span>,                    <span style="color:#6272a4"># 設定氣泡的最大大小</span>
-</span></span><span style="display:flex;"><span>    range_x<span style="color:#ff79c6">=</span>[<span style="color:#bd93f9">500</span>, <span style="color:#bd93f9">100000</span>],           <span style="color:#6272a4"># 設定 x 軸的範圍（GDP 人均值範圍）</span>
-</span></span><span style="display:flex;"><span>    range_y<span style="color:#ff79c6">=</span>[<span style="color:#bd93f9">20</span>, <span style="color:#bd93f9">90</span>],                <span style="color:#6272a4"># 設定 y 軸的範圍（預期壽命範圍）</span>
-</span></span><span style="display:flex;"><span>    log_x<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>,                      <span style="color:#6272a4"># 使 x 軸（GDP）以對數尺度顯示</span>
+</span></span><span style="display:flex;"><span>    df,                               <span style="color:#6272a4"># 數據來源的 DataFrame</span>
+</span></span><span style="display:flex;"><span>    x<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;gdp_per_capita&#34;</span>,               <span style="color:#6272a4"># 設定 x 軸數據（人均 GDP）</span>
+</span></span><span style="display:flex;"><span>    y<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;life_expectancy&#34;</span>,              <span style="color:#6272a4"># 設定 y 軸數據（平均壽命）</span>
+</span></span><span style="display:flex;"><span>    animation_frame<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;dt_year&#34;</span>,        <span style="color:#6272a4"># 設定動畫的時間維度（年份）</span>
+</span></span><span style="display:flex;"><span>    animation_group<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;country_name&#34;</span>,   <span style="color:#6272a4"># 指定動畫中不同國家的數據追蹤</span>
+</span></span><span style="display:flex;"><span>    size<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;population&#34;</span>,                <span style="color:#6272a4"># 設定氣泡大小對應人口數量</span>
+</span></span><span style="display:flex;"><span>    color<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;continent&#34;</span>,                <span style="color:#6272a4"># 以洲別來區分顏色</span>
+</span></span><span style="display:flex;"><span>    hover_name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;country_name&#34;</span>,        <span style="color:#6272a4"># 滑鼠懸停時顯示國家名稱</span>
+</span></span><span style="display:flex;"><span>    size_max<span style="color:#ff79c6">=</span><span style="color:#bd93f9">100</span>,                     <span style="color:#6272a4"># 設定氣泡的最大大小</span>
+</span></span><span style="display:flex;"><span>    range_x<span style="color:#ff79c6">=</span>[<span style="color:#bd93f9">500</span>, <span style="color:#bd93f9">100000</span>],            <span style="color:#6272a4"># 設定 x 軸的範圍（GDP 人均值範圍）</span>
+</span></span><span style="display:flex;"><span>    range_y<span style="color:#ff79c6">=</span>[<span style="color:#bd93f9">20</span>, <span style="color:#bd93f9">90</span>],                 <span style="color:#6272a4"># 設定 y 軸的範圍（預期壽命範圍）</span>
+</span></span><span style="display:flex;"><span>    log_x<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>,                       <span style="color:#6272a4"># 使 x 軸（GDP）以對數尺度顯示</span>
 </span></span><span style="display:flex;"><span>    title<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;Gapminder Clone 1800-2023&#34;</span> <span style="color:#6272a4"># 設定圖表標題</span>
 </span></span><span style="display:flex;"><span>)
 </span></span></code></pre></div><ul>
 <li>成品：上傳Github後就可以呈現了</li>
 </ul>
 <iframe src="https://ho291ey992.github.io/gapminder_clone/gapminder_clone.html" width="800" height="600"  width=90% ></iframe>
-<h4 id="markdown-嵌入html檔安全性">Markdown 嵌入html檔安全性</h4>
-<h4 id="vs-code-預設任何外部資源開頭必須是-https如果是-http則在文件預覽的時候將會無法顯示">VS Code 預設任何外部資源，開頭必須是 https，如果是 http，則在文件預覽的時候，將會無法顯示。</h4>
 <br>
 <ul>
-<li>如果想要調整，步驟如下：
+<li>成品：使用 Power BI 來完成。
+<ul>
+<li>為了達成 X 軸刻度顯示比較明顯， <strong>&ldquo;log_x=True&rdquo;</strong> 的效果 PowerBI 使用 <strong>&ldquo;對數刻度&rdquo;</strong> 來呈現。 <br></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>注意：Power BI 只支援 正數 轉換為對數，因此數據不能包含 0 或負數，否則會導致錯誤，所以 X 軸最小值要設定大於1才能使用 。</p>
+</blockquote>
+<img src="/images/note/data_analysis/project_1/project_1_powerbi.png">
+<br>
+<div class="border-bottom"></div><br>
+<h4 id="markdown-嵌入html檔安全性">Markdown 嵌入html檔安全性</h4>
+<h5 id="vs-code-預覽無法顯示網頁">VS Code 預覽無法顯示網頁。</h5>
+<ul>
+<li>
+<p>原因：預設任何外部資源，開頭必須是 https，如果是 http，則在文件預覽的時候，將會無法顯示。
+<br></p>
+</li>
+<li>
+<p>如果想要調整，步驟如下：</p>
 <ul>
 <li>按下 F1。</li>
 <li>輸入 &gt;markdown change preview security setting。</li>
@@ -283,7 +303,7 @@ dependencies:
 <p>conda install -c conda-forge numpy</p>
 <ul>
 <li>明確指定從 conda-forge 頻道安裝套件。</li>
-<li>這個方式會直接從 conda-forge 獲取 numpy 包。
+<li>這個方式會直接從 conda-forge 獲取 numpy 模組。
 <br></li>
 </ul>
 </li>
@@ -342,28 +362,28 @@ dependencies:
 
 
 <script>
-  var indexURL = "https://ho291ey992.github.io/index.json"
+  var indexURL = "http://localhost:1313/index.json"
 </script>
 
 <!-- JS Plugins -->
 
-<script src="https://ho291ey992.github.io/plugins/jQuery/jquery.min.js"></script>
+<script src="http://localhost:1313/plugins/jQuery/jquery.min.js"></script>
 
-<script src="https://ho291ey992.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+<script src="http://localhost:1313/plugins/bootstrap/bootstrap.min.js"></script>
 
-<script src="https://ho291ey992.github.io/plugins/slick/slick.min.js"></script>
+<script src="http://localhost:1313/plugins/slick/slick.min.js"></script>
 
-<script src="https://ho291ey992.github.io/plugins/venobox/venobox.min.js"></script>
+<script src="http://localhost:1313/plugins/venobox/venobox.min.js"></script>
 
-<script src="https://ho291ey992.github.io/plugins/search/fuse.min.js"></script>
+<script src="http://localhost:1313/plugins/search/fuse.min.js"></script>
 
-<script src="https://ho291ey992.github.io/plugins/search/mark.js"></script>
+<script src="http://localhost:1313/plugins/search/mark.js"></script>
 
-<script src="https://ho291ey992.github.io/plugins/search/search.js"></script>
+<script src="http://localhost:1313/plugins/search/search.js"></script>
 
 <!-- Main Script -->
 
-<script src="https://ho291ey992.github.io/js/script.min.js"></script>
+<script src="http://localhost:1313/js/script.min.js"></script>
 
 
 
