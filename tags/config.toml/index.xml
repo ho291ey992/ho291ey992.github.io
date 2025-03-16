@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Config.toml on 學習筆記</title>
-    <link>https://ho291ey992.github.io/tags/config.toml/</link>
+    <link>http://localhost:1313/tags/config.toml/</link>
     <description>Recent content in Config.toml on 學習筆記</description>
     <generator>Hugo</generator>
     <language>zh-tw</language>
     <lastBuildDate>Sat, 11 Jan 2025 12:00:00 +0800</lastBuildDate>
-    <atom:link href="https://ho291ey992.github.io/tags/config.toml/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/config.toml/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>config.toml 介紹</title>
-      <link>https://ho291ey992.github.io/note/hugo/config_note/</link>
+      <link>http://localhost:1313/note/hugo/config_note/</link>
       <pubDate>Sat, 11 Jan 2025 12:00:00 +0800</pubDate>
-      <guid>https://ho291ey992.github.io/note/hugo/config_note/</guid>
+      <guid>http://localhost:1313/note/hugo/config_note/</guid>
       <description></description>
     </item>
   </channel>
