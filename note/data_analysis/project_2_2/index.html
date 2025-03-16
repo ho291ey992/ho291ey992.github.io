@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-tw"><head>
+  <meta charset="utf-8">
+  <title>學習筆記</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="練習專案二：拿破崙征俄戰爭">
+  <meta name="author" content="Steve">
+    
+  
+  <meta name="theme-name" content="liva-hugo" />
+  
+  <meta name="generator" content="Hugo 0.140.2">
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://ho291ey992.github.io/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://ho291ey992.github.io/images/favicon.png " type="image/x-icon">
+
+  <!-- google analitycs -->
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'Your ID', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+</head>
+<body><!-- navigation -->
+<header class="navigation sticky"> 
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom pl-0">
+      <a class="navbar-brand mobile-view" href="https://ho291ey992.github.io/"><img class="img-fluid"
+          src="https://ho291ey992.github.io/images/favicon1.png" alt="學習筆記"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        
+        
+        
+        <a class="navbar-brand mx-auto desktop-view" href="https://ho291ey992.github.io/"><img class="img-fluid"
+          src="https://ho291ey992.github.io/images/favicon1.png" alt="學習筆記">
+        </a>
+
+        <ul class="navbar-nav">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://ho291ey992.github.io/about/">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              筆記
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" href="https://ho291ey992.github.io/note/hugo">hugo 網站建置</a>
+              
+              <a class="dropdown-item" href="https://ho291ey992.github.io/note/data_analysis">數據分析</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search pl-lg-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="https://ho291ey992.github.io//search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        
+        <a href="/categories/data-analysis"
+          class="text-primary">Data analysis</a>
+        
+        <h2>練習專案二：拿破崙征俄戰爭 2</h2>  
+        <div class="mb-3 post-meta">
+          <span>By Steve</span>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2025-02-26</span> 
+          
+        </div>
+        
+        <div class="content mb-5">
+          <br>
+<h4 id="啟動環境與安裝模組的指令">啟動環境與安裝模組的指令</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  建立新環境
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>base<span style="color:#ff79c6">)</span> conda create -n minard_clone <span style="color:#8be9fd;font-style:italic">python</span><span style="color:#ff79c6">=</span>3.12 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  檢查環境
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>base<span style="color:#ff79c6">)</span> conda env list 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  進入新建力環境
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>base<span style="color:#ff79c6">)</span> conda activate minard_clone 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  安裝模組
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>minard_clone<span style="color:#ff79c6">)</span> conda install pandas
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>minard_clone<span style="color:#ff79c6">)</span> conda install matplotlib
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>minard_clone<span style="color:#ff79c6">)</span> conda install basemap
+</span></span></code></pre></div><div class="border-bottom"></div><br>
+<h4 id="數據準備data-preparation">數據準備（Data Preparation）</h4>
+<h5 id="資料來源">資料來源：</h5>
+<ul>
+<li>來自 <a href="https://www.datavis.ca/gallery/re-minard.php">Re-Visions of Minard</a> 的資料
+<ul>
+<li>是由 York University 的 Michael Friendly 教授建立的教學網站，目的是透過統計資料與軟體，來講解資料視覺化。</li>
+<li>提供了不同來源<strong>資料格式</strong>、呈現結果的 Minard 專案（他所稱的 Minard&rsquo;s Challenge）。
+<ul>
+<li>Mathematica</li>
+<li>SAS/IML</li>
+<li><u> <strong>練習使用：<a href="https://www.cs.uic.edu/~wilkinson/TheGrammarOfGraphics/GOG.html">The Grammar of Graphics</a> 網站所提供的<a href="https://www.datavis.ca/gallery/minard/minard.txt">文字檔</a></strong> </u></li>
+<li>R/ggplot2</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<br>
+<h5 id="數據結構">數據結構：</h5>
+<ul>
+<li>將資料分為 3 個部分<strong>城市資料、氣溫資料、軍隊資料</strong>。
+<ul>
+<li>
+<p>城市資料</p>
+<ul>
+<li>lonc, latc：當前軍隊的位置（經度、緯度）。</li>
+<li>city：城市名稱（如果當前位置有城市）。</li>
+</ul>
+<br>
+</li>
+<li>
+<p>氣溫資料</p>
+<ul>
+<li>lont：經度。</li>
+<li>temp：氣溫（原始資料採用「列氏」溫度）。</li>
+<li>days：天數（間隔幾天）。</li>
+<li>date：日期。</li>
+</ul>
+<br>
+</li>
+<li>
+<p>軍隊資料</p>
+<ul>
+<li>lonp, latp：軍隊行進過的經緯度（用於繪製軍隊的移動路線）。</li>
+<li>surviv：在該地點的倖存士兵數量。</li>
+<li>direc$：軍隊行進方向：
+<ul>
+<li>A（Advance）：前進（入侵俄國）。</li>
+<li>R（Retreat）：撤退（從俄國撤退）。</li>
+</ul>
+</li>
+<li>division：部隊的分隊或編號。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<br>
+<h5 id="數據導入">數據導入：</h5>
+<p>由於數據是 txt 導入後是以每行為一筆資料，之後需要手動分割。</p>
+<ul>
+<li>數據外觀、數據清理
+<ul>
+<li>從外觀可觀察到2個問題需要處理：
+<ol>
+<li>欄位名稱錯誤：欄位名稱包含特殊符號。</li>
+<li>氣溫資料缺失：經觀察可從 days 資料反推。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<img src=/images/note/data_analysis/project_2/資料外關.png>
+<ul>
+<li>
+<p>開啟檔案</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>  <span style="color:#ff79c6">with</span> <span style="color:#8be9fd;font-style:italic">open</span>(<span style="color:#f1fa8c">&#34;minard_clone/data/minard.txt&#34;</span>) <span style="color:#ff79c6">as</span> f:
+</span></span><span style="display:flex;"><span>    lines <span style="color:#ff79c6">=</span> f<span style="color:#ff79c6">.</span>readlines()
+</span></span></code></pre></div></li>
+<li>
+<p>欄位名稱：</p>
+<ul>
+<li>導入第2行欄位名稱，分割後發現欄位包含特殊符號，需要正規畫處理。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>  column_names <span style="color:#ff79c6">=</span> lines[<span style="color:#bd93f9">2</span>]<span style="color:#ff79c6">.</span>split()
+</span></span></code></pre></div><ul>
+<li>數據清理：使用正規化來達成來處理欄位名稱符號問題，提供幾種方法。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># 方法一</span>
+</span></span><span style="display:flex;"><span>column_names_cleaned <span style="color:#ff79c6">=</span> [re<span style="color:#ff79c6">.</span>sub(<span style="color:#f1fa8c">r</span><span style="color:#f1fa8c">&#39;\W+&#39;</span>, <span style="color:#f1fa8c">&#39;&#39;</span>, col) <span style="color:#ff79c6">for</span> col <span style="color:#ff79c6">in</span> column_names]
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># \W+ 表示匹配「非字母、數字、底線」的所有字符，並替換為空字串。</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 方法二</span>
+</span></span><span style="display:flex;"><span>column_names_cleaned <span style="color:#ff79c6">=</span> [col<span style="color:#ff79c6">.</span>strip(<span style="color:#f1fa8c">&#39;(),$&#39;</span>) <span style="color:#ff79c6">for</span> col <span style="color:#ff79c6">in</span> column_names]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">#方法三</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> pandas <span style="color:#ff79c6">as</span> pd
+</span></span><span style="display:flex;"><span>column_names_cleaned <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>DataFrame({<span style="color:#f1fa8c">&#34;name&#34;</span>:column_names})<span style="color:#ff79c6">.</span>map(<span style="color:#ff79c6">lambda</span> x: re<span style="color:#ff79c6">.</span>sub(<span style="color:#f1fa8c">r</span><span style="color:#f1fa8c">&#39;\W+&#39;</span>, <span style="color:#f1fa8c">&#39;&#39;</span>, x))
+</span></span></code></pre></div><ul>
+<li>方法一：完全去除特殊符號最通用。</li>
+<li>方法二：只除特定符號（如 $、,)。</li>
+<li>方法三：如果數據量很大（幾萬到幾百萬筆）建議使用 Pandas，更快更有效率！</li>
+</ul>
+<br>
+</li>
+<li>
+<p>載入模組</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> re
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> pandas <span style="color:#ff79c6">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> sqlite3
+</span></span></code></pre></div></li>
+<li>
+<p>城市資料</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">creata_city_df</span>(self):
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 分割資料</span>
+</span></span><span style="display:flex;"><span>    column_names_city <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(self<span style="color:#ff79c6">.</span>column_names_cleaned<span style="color:#ff79c6">.</span>name[:<span style="color:#bd93f9">3</span>])  
+</span></span><span style="display:flex;"><span>    longitudes, latitudes, cities <span style="color:#ff79c6">=</span> [], [], []  
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> df <span style="color:#ff79c6">in</span> self<span style="color:#ff79c6">.</span>lines[<span style="color:#bd93f9">6</span>:<span style="color:#bd93f9">26</span>]: 
+</span></span><span style="display:flex;"><span>        long, lat, city <span style="color:#ff79c6">=</span> df<span style="color:#ff79c6">.</span>split()[:<span style="color:#bd93f9">3</span>] 
+</span></span><span style="display:flex;"><span>        longitudes<span style="color:#ff79c6">.</span>append(<span style="color:#8be9fd;font-style:italic">float</span>(long)) 
+</span></span><span style="display:flex;"><span>        latitudes<span style="color:#ff79c6">.</span>append(<span style="color:#8be9fd;font-style:italic">float</span>(lat)) 
+</span></span><span style="display:flex;"><span>        cities<span style="color:#ff79c6">.</span>append(city) 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 合併資料</span>
+</span></span><span style="display:flex;"><span>    city_data <span style="color:#ff79c6">=</span> (longitudes, latitudes, cities) 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 建立空的 DataFrame，準備填入整理後的數據</span>
+</span></span><span style="display:flex;"><span>    city_df <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>DataFrame()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 將 city_data 的內容對應到相應的欄位名稱</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> column_name, data <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">zip</span>(column_names_city, city_data):
+</span></span><span style="display:flex;"><span>        city_df[column_name] <span style="color:#ff79c6">=</span> data 
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> city_df
+</span></span></code></pre></div></li>
+<li>
+<p>氣溫資料</p>
+<ul>
+<li>備註：這邊需要處理缺失資料。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">creata_temperature_df</span>(self):
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 分割資料</span>
+</span></span><span style="display:flex;"><span>    column_names_temp <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(self<span style="color:#ff79c6">.</span>column_names_cleaned<span style="color:#ff79c6">.</span>name[<span style="color:#bd93f9">3</span>:<span style="color:#bd93f9">7</span>])
+</span></span><span style="display:flex;"><span>    lontvalues, tempvalues, days, dates <span style="color:#ff79c6">=</span> [], [], [], []
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> df <span style="color:#ff79c6">in</span> self<span style="color:#ff79c6">.</span>lines[<span style="color:#bd93f9">6</span>:<span style="color:#bd93f9">15</span>]:
+</span></span><span style="display:flex;"><span>        lont, temp, day  <span style="color:#ff79c6">=</span> df<span style="color:#ff79c6">.</span>split()[<span style="color:#bd93f9">3</span>:<span style="color:#bd93f9">6</span>]
+</span></span><span style="display:flex;"><span>        lontvalues<span style="color:#ff79c6">.</span>append(<span style="color:#8be9fd;font-style:italic">float</span>(lont))
+</span></span><span style="display:flex;"><span>        tempvalues<span style="color:#ff79c6">.</span>append(<span style="color:#8be9fd;font-style:italic">int</span>(temp))
+</span></span><span style="display:flex;"><span>        days<span style="color:#ff79c6">.</span>append(<span style="color:#8be9fd;font-style:italic">int</span>(day))
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># 資料缺失處理</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> day <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#34;10&#34;</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4"># 這行需要特殊處理，因為資料會將軍隊資料納入。</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4"># [&#34;29.2&#34;, &#34;-11&#34;, &#34;10&#34;, &#34;缺失日期資料&#34; , &#34;27.0&#34;, &#34;54.8&#34;]。</span>
+</span></span><span style="display:flex;"><span>            dates<span style="color:#ff79c6">.</span>append(<span style="color:#f1fa8c">&#34;Nov 24&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4"># 由於是以空白為分割點，所以需要將資料重新合併。</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4"># [&#34;Oct&#34;, &#34;18&#34;] 日期被分成兩筆資料。</span>
+</span></span><span style="display:flex;"><span>            dates<span style="color:#ff79c6">.</span>append(df<span style="color:#ff79c6">.</span>split()[<span style="color:#bd93f9">6</span>] <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34; &#34;</span> <span style="color:#ff79c6">+</span> df<span style="color:#ff79c6">.</span>split()[<span style="color:#bd93f9">7</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 合併資料</span>
+</span></span><span style="display:flex;"><span>    temp_data <span style="color:#ff79c6">=</span> (lontvalues, tempvalues, days, dates)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 建立空的 DataFrame，準備填入整理後的數據</span>
+</span></span><span style="display:flex;"><span>    temperature_df <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>DataFrame()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 將 city_data 的內容對應到相應的欄位名稱</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> column_name, data <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">zip</span>(column_names_temp, temp_data):
+</span></span><span style="display:flex;"><span>        temperature_df[column_name] <span style="color:#ff79c6">=</span> data
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> temperature_df
+</span></span></code></pre></div></li>
+<li>
+<p>軍隊資料</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">create_troop_df</span>(self):
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 分割資料，由於資料欄位不同所以，直接倒入最後 5 攔是比要好的選擇。</span>
+</span></span><span style="display:flex;"><span>    column_names_troop <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(self<span style="color:#ff79c6">.</span>column_names_cleaned<span style="color:#ff79c6">.</span>name)[<span style="color:#ff79c6">-</span><span style="color:#bd93f9">5</span>:]
+</span></span><span style="display:flex;"><span>    lonp_values, latp_values, surviv_values, direc_values, ivision_values <span style="color:#ff79c6">=</span> [], [], [], [], []
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> df <span style="color:#ff79c6">in</span> self<span style="color:#ff79c6">.</span>lines[<span style="color:#bd93f9">6</span>:<span style="color:#ff79c6">-</span><span style="color:#bd93f9">3</span>]:
+</span></span><span style="display:flex;"><span>        lonp, latp, surviv, direc, division <span style="color:#ff79c6">=</span> df<span style="color:#ff79c6">.</span>split()[<span style="color:#ff79c6">-</span><span style="color:#bd93f9">5</span>:]
+</span></span><span style="display:flex;"><span>        lonp_values<span style="color:#ff79c6">.</span>append(lonp)
+</span></span><span style="display:flex;"><span>        latp_values<span style="color:#ff79c6">.</span>append(latp)
+</span></span><span style="display:flex;"><span>        surviv_values<span style="color:#ff79c6">.</span>append(surviv)
+</span></span><span style="display:flex;"><span>        direc_values<span style="color:#ff79c6">.</span>append(direc)
+</span></span><span style="display:flex;"><span>        division_values<span style="color:#ff79c6">.</span>append(division)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 合併資料</span>
+</span></span><span style="display:flex;"><span>    troop_data <span style="color:#ff79c6">=</span> (lonp_values, latp_values, surviv_values, irec_values, division_values)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 建立空的 DataFrame，準備填入整理後的數據</span>
+</span></span><span style="display:flex;"><span>    troop_df <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>DataFrame()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 將 troop_data 的內容對應到相應的欄位名稱</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> column_name, data <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">zip</span>(column_names_troop, troop_data):
+</span></span><span style="display:flex;"><span>        troop_df[column_name] <span style="color:#ff79c6">=</span> data
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> troop_df
+</span></span></code></pre></div></li>
+<li>
+<p>導入 SQLite</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">create_database</span>(self):
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 載入資料</span>
+</span></span><span style="display:flex;"><span>    city_df <span style="color:#ff79c6">=</span> self<span style="color:#ff79c6">.</span>creata_city_df()
+</span></span><span style="display:flex;"><span>    temperature_df <span style="color:#ff79c6">=</span> self<span style="color:#ff79c6">.</span>creata_temperature_df()
+</span></span><span style="display:flex;"><span>    troop_df <span style="color:#ff79c6">=</span> self<span style="color:#ff79c6">.</span>create_troop_df()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 建立 SQLite</span>
+</span></span><span style="display:flex;"><span>    connection <span style="color:#ff79c6">=</span> sqlite3<span style="color:#ff79c6">.</span>connect(<span style="color:#f1fa8c">&#34;minard_clone/data/minard.db&#34;</span>)
+</span></span><span style="display:flex;"><span>    df_dict <span style="color:#ff79c6">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#34;cities&#34;</span>: city_df,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#34;temperatures&#34;</span>: temperature_df,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#34;troops&#34;</span>: troop_df
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> k, v <span style="color:#ff79c6">in</span> df_dict<span style="color:#ff79c6">.</span>items():
+</span></span><span style="display:flex;"><span>        v<span style="color:#ff79c6">.</span>to_sql(name<span style="color:#ff79c6">=</span>k, con<span style="color:#ff79c6">=</span>connection, index<span style="color:#ff79c6">=</span><span style="color:#ff79c6">False</span>, f_exists<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;replace&#34;</span>) 
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># v.to_sql(name=資料表名稱, con=檔案位置, index=是否載入 pd 排, if_exists=&#34;replace&#34; 若同名檔案存在蓋) </span>
+</span></span><span style="display:flex;"><span>    connection<span style="color:#ff79c6">.</span>close()
+</span></span></code></pre></div></li>
+</ul>
+<div class="border-bottom"></div><br>
+<h4 id="其他">其他</h4>
+<ul>
+<li>
+<p>使用 tuple 合併資料：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># 將資料 list 合併為 tuple</span>
+</span></span><span style="display:flex;"><span>city_data <span style="color:#ff79c6">=</span> (longitudes, latitudes, cities) 
+</span></span><span style="display:flex;"><span>temp_data <span style="color:#ff79c6">=</span> (lontvalues, tempvalues, days, dates)
+</span></span><span style="display:flex;"><span>troop_data <span style="color:#ff79c6">=</span> (lonp_values, latp_values, surviv_values, direc_values, division_values)
+</span></span></code></pre></div><ul>
+<li>
+<p>使用 tuple 的好處。</p>
+<ol>
+<li>資料安全性：Tuple 是不可變（Immutable）的，防止後續誤修改</li>
+<li>效能更好：在 zip() 時，Tuple 能提供更快的索引存取，在不需要修改內容的情況下，效能優於 List。</li>
+<li>內存管理：Tuple 佔用的內存通常比 List 少，當需要處理大量數據時，這能節省資源。</li>
+</ol>
+</li>
+<li>
+<p>總結：Tuple 適用於固定內容且不需要修改的情境，而 List 更適合可變數據。這裡的資料是一組固定的數組合，因此用 Tuple 會更好！</p>
+</li>
+</ul>
+</li>
+<li>
+<p>正規畫補充</p>
+<ul>
+<li>
+<p>數據量大時（幾萬到幾百萬筆）</p>
+<ul>
+<li>建議使用 Pandas（向量化運算）</li>
+<li>Pandas 內部用 Cython（C 語言優化），比 for 迴圈快 數十到數百- 倍。</li>
+</ul>
+</li>
+<li>
+<p>什麼時候 for 迴圈比較好？</p>
+<ol>
+<li>
+<p>每次處理的內容都不同（無法向量化）
+如果每一筆資料的處理方式不同，Pandas 向量化 可能不適用。</p>
+</li>
+<li>
+<p>複雜的條件判斷</p>
+</li>
+</ol>
+<ul>
+<li>如果條件太複雜（例如 if-else 太多），apply() 可能 不比 for 迴圈快。</li>
+</ul>
+<ol start="3">
+<li>數據量小時（幾百筆以內），寫 for 迴圈更直觀</li>
+</ol>
+<ul>
+<li>如果只是 10 筆數據，寫 for 迴圈 對效能沒什麼影響，但有時候可能比 apply&gt; () 更容易理解。</li>
+</ul>
+</li>
+<li>
+<p>結論：</p>
+<ul>
+<li>大數據 Pandas 向量化方法（效能最好）</li>
+<li>小數據 for 迴圈 也可以（影響不大，但 Pandas 可讀性更高）</li>
+<li>當數據量大時，避免 for 迴圈，否則會變慢！</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="border-bottom"></div><br> 
+
+        </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<script>
+  var indexURL = "https://ho291ey992.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://ho291ey992.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/mark.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://ho291ey992.github.io/js/script.min.js"></script>
+
+
+
+</body>
+</html>
