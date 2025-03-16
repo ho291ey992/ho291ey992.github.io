@@ -2,59 +2,59 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on 學習筆記</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://ho291ey992.github.io/tags/</link>
     <description>Recent content in Tags on 學習筆記</description>
     <generator>Hugo</generator>
     <language>zh-tw</language>
     <lastBuildDate>Wed, 19 Feb 2025 12:00:00 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ho291ey992.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PowerBI</title>
-      <link>http://localhost:1313/tags/powerbi/</link>
+      <link>https://ho291ey992.github.io/tags/powerbi/</link>
       <pubDate>Wed, 19 Feb 2025 12:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/tags/powerbi/</guid>
+      <guid>https://ho291ey992.github.io/tags/powerbi/</guid>
       <description></description>
     </item>
     <item>
       <title>SQLite</title>
-      <link>http://localhost:1313/tags/sqlite/</link>
+      <link>https://ho291ey992.github.io/tags/sqlite/</link>
       <pubDate>Wed, 19 Feb 2025 12:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/tags/sqlite/</guid>
+      <guid>https://ho291ey992.github.io/tags/sqlite/</guid>
       <description></description>
     </item>
     <item>
       <title>Python</title>
-      <link>http://localhost:1313/tags/python/</link>
+      <link>https://ho291ey992.github.io/tags/python/</link>
       <pubDate>Fri, 07 Feb 2025 12:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/tags/python/</guid>
+      <guid>https://ho291ey992.github.io/tags/python/</guid>
       <description></description>
     </item>
     <item>
       <title>SQL</title>
-      <link>http://localhost:1313/tags/sql/</link>
+      <link>https://ho291ey992.github.io/tags/sql/</link>
       <pubDate>Fri, 07 Feb 2025 12:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/tags/sql/</guid>
+      <guid>https://ho291ey992.github.io/tags/sql/</guid>
       <description></description>
     </item>
     <item>
       <title>Config.toml</title>
-      <link>http://localhost:1313/tags/config.toml/</link>
+      <link>https://ho291ey992.github.io/tags/config.toml/</link>
       <pubDate>Sat, 11 Jan 2025 12:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/tags/config.toml/</guid>
+      <guid>https://ho291ey992.github.io/tags/config.toml/</guid>
       <description></description>
     </item>
     <item>
       <title>Markdown 語法</title>
-      <link>http://localhost:1313/tags/markdown-%E8%AA%9E%E6%B3%95/</link>
+      <link>https://ho291ey992.github.io/tags/markdown-%E8%AA%9E%E6%B3%95/</link>
       <pubDate>Fri, 10 Jan 2025 13:49:23 +0800</pubDate>
-      <guid>http://localhost:1313/tags/markdown-%E8%AA%9E%E6%B3%95/</guid>
+      <guid>https://ho291ey992.github.io/tags/markdown-%E8%AA%9E%E6%B3%95/</guid>
       <description></description>
     </item>
     <item>
       <title>Hugo 安裝</title>
-      <link>http://localhost:1313/tags/hugo-%E5%AE%89%E8%A3%9D/</link>
+      <link>https://ho291ey992.github.io/tags/hugo-%E5%AE%89%E8%A3%9D/</link>
       <pubDate>Thu, 09 Jan 2025 12:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/tags/hugo-%E5%AE%89%E8%A3%9D/</guid>
+      <guid>https://ho291ey992.github.io/tags/hugo-%E5%AE%89%E8%A3%9D/</guid>
       <description></description>
     </item>
   </channel>
