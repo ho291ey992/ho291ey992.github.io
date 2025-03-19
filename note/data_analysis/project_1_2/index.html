@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-tw"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <title>學習筆記</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="練習專案一：復刻兩百個國家、兩百年、四分鐘">
+  <meta name="author" content="Steve">
+    
+  
+  <meta name="theme-name" content="liva-hugo" />
+  
+  <meta name="generator" content="Hugo 0.140.2">
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="http://localhost:1313/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="http://localhost:1313/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="http://localhost:1313/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="http://localhost:1313/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="http://localhost:1313/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="http://localhost:1313/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="http://localhost:1313/images/favicon.png " type="image/x-icon">
+
+  <!-- google analitycs -->
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'Your ID', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+</head>
+<body><!-- navigation -->
+<header class="navigation sticky"> 
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom pl-0">
+      <a class="navbar-brand mobile-view" href="http://localhost:1313/"><img class="img-fluid"
+          src="http://localhost:1313/images/favicon1.png" alt="學習筆記"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        
+        
+        
+        <a class="navbar-brand mx-auto desktop-view" href="http://localhost:1313/"><img class="img-fluid"
+          src="http://localhost:1313/images/favicon1.png" alt="學習筆記">
+        </a>
+
+        <ul class="navbar-nav">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:1313/about/">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              筆記
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" href="http://localhost:1313/note/hugo">hugo 網站建置</a>
+              
+              <a class="dropdown-item" href="http://localhost:1313/note/data_analysis">數據分析</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search pl-lg-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="http://localhost:1313//search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        
+        <a href="/categories/data-analysis"
+          class="text-primary">Data analysis</a>
+        
+        <h2>練習專案一：復刻兩百個國家、兩百年、四分鐘 2</h2>  
+        <div class="mb-3 post-meta">
+          <span>By Steve</span>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2025-02-09</span> 
+          
+        </div>
+        
+        <div class="content mb-5">
+          <br>
+<h4 id="啟動環境與安裝模組的指令">啟動環境與安裝模組的指令</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  建立新環境
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>base<span style="color:#ff79c6">)</span> conda create -n gapminder_clone <span style="color:#8be9fd;font-style:italic">python</span><span style="color:#ff79c6">=</span>3.12 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  檢查環境
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>base<span style="color:#ff79c6">)</span> conda env list 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  進入新建力環境
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>base<span style="color:#ff79c6">)</span> conda activate minard_clone 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  安裝模組
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>minard_clone<span style="color:#ff79c6">)</span> conda install pandas
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>minard_clone<span style="color:#ff79c6">)</span> conda install matplotlib
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>minard_clone<span style="color:#ff79c6">)</span> conda install plotly
+</span></span></code></pre></div><div class="border-bottom"></div><br>
+<h4 id="數據準備data-preparation">數據準備（Data Preparation）</h4>
+<h5 id="數據結構">數據結構</h5>
+<ul>
+<li>人均 GDP：ddf&ndash;datapoints&ndash;gdp_pcap&ndash;by&ndash;country&ndash;time.csv。
+<ul>
+<li>country：國家代碼。</li>
+<li>time：年份。</li>
+<li>gdp_pcap：人均 GDP。</li>
+</ul>
+</li>
+</ul>
+<br>
+<ul>
+<li>預期壽命：ddf&ndash;datapoints&ndash;lex&ndash;by&ndash;country&ndash;time.csv。
+<ul>
+<li>country：國家代碼。</li>
+<li>time：年份。</li>
+<li>lex：預期壽命。</li>
+</ul>
+</li>
+</ul>
+<br>
+<ul>
+<li>人口數：ddf&ndash;datapoints&ndash;pop&ndash;by&ndash;country&ndash;time.csv。
+<ul>
+<li>country：國家代碼。</li>
+<li>time：年份。</li>
+<li>pop：該年該國的 總人口數。</li>
+</ul>
+</li>
+</ul>
+<br>
+<ul>
+<li>地理資訊：ddf&ndash;entities&ndash;geo&ndash;country.csv。
+<ul>
+<li>country：國家代碼。</li>
+<li>name：國家名稱。</li>
+<li>world_4region：洲別。</li>
+</ul>
+</li>
+</ul>
+<br>
+<ul>
+<li>資料來源：Gapminder 提供，主要用於描述和分析全球的社會、經濟、環境等多方面統計數據。
+<ul>
+<li>Systema Globalis</li>
+<li><a href="https://github.com/open-numbers/ddf--gapminder--fasttrack">Fast Track</a> &lt;- 這次使用的資料</li>
+<li>World Development Indicators</li>
+</ul>
+</li>
+</ul>
+<br>
+<img src=/images/note/data_analysis/project_1/Gapminder資料介紹.jpg>
+<div class="border-bottom"></div><br>
+<h5 id="數據導入">數據導入</h5>
+<ul>
+<li>開啟檔案。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># 載入當案名稱。</span>
+</span></span><span style="display:flex;"><span>file_name <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#34;ddf--datapoints--gdp_pcap--by--country--time&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#34;ddf--datapoints--lex--by--country--time&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#34;ddf--datapoints--pop--by--country--time&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#34;ddf--entities--geo--country&#34;</span>]
+</span></span><span style="display:flex;"><span>table_name <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#34;gdp_per_capita&#34;</span>, <span style="color:#f1fa8c">&#34;life_expectancy&#34;</span>, <span style="color:#f1fa8c">&#34;population&#34;</span>, <span style="color:#f1fa8c">&#34;geography&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 讀取 CSV 檔案並存入字典。</span>
+</span></span><span style="display:flex;"><span>df_dict <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">dict</span>()
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">for</span> file_name, table_name <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">zip</span>(file_name, table_name):
+</span></span><span style="display:flex;"><span>    file_path <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;Data/</span><span style="color:#f1fa8c">{</span>file_name<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">.csv&#34;</span>
+</span></span><span style="display:flex;"><span>    df <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>read_csv(file_path)
+</span></span><span style="display:flex;"><span>    df_dict[table_name] <span style="color:#ff79c6">=</span> df
+</span></span></code></pre></div></li>
+</ul>
+<br>
+<ul>
+<li>建立 SQLite 資料庫並匯入資料。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>connection <span style="color:#ff79c6">=</span> sqlite3<span style="color:#ff79c6">.</span>connect(<span style="color:#f1fa8c">&#34;Data/gapminder.db&#34;</span>) <span style="color:#6272a4"># 連線或創建 SQLite 資料庫</span>
+</span></span><span style="display:flex;"><span>df_dict <span style="color:#ff79c6">=</span> data_to_dict()
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">for</span> k, v <span style="color:#ff79c6">in</span> df_dict<span style="color:#ff79c6">.</span>items():
+</span></span><span style="display:flex;"><span>    v<span style="color:#ff79c6">.</span>to_sql(name<span style="color:#ff79c6">=</span>k, con<span style="color:#ff79c6">=</span>connection, index<span style="color:#ff79c6">=</span><span style="color:#ff79c6">False</span>, if_exists<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;replace&#34;</span>) <span style="color:#6272a4"># 匯入資料表</span>
+</span></span><span style="display:flex;"><span>create_view()
+</span></span></code></pre></div></li>
+</ul>
+<br>
+<ul>
+<li>建立視圖（View），整合多個資料表的數據。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>drop_view_sql <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;DROP VIEW IF EXISTS plotting;          -- 檢查是否有plotting資料表, 若已存在則刪除&#34;</span>
+</span></span><span style="display:flex;"><span>create_view_sql <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">                  CREATE VIEW plotting AS               -- 建立虛擬資料表
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">                  SELECT g.name AS country_name,        -- 國家名稱
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">                        g.world_4region AS continent,  -- 洲別
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">                        gpc.time as dt_year,           -- 年
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">                        gpc.gdp_pcap AS gdp_per_capita,-- 平均GDP
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">                        le.lex AS life_expectancy,     -- 平均壽命
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">                        p.pop AS population            -- 人口數
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">                  FROM gdp_per_capita gpc 
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">                  JOIN geography g 
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">                    ON g.country = gpc.country 
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">                  JOIN life_expectancy le 
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">                    ON le.country = gpc.country AND 
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">                        le.time  = gpc.time 
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">                  JOIN population p 
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">                    ON p.country = gpc.country AND 
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">                        p.time = gpc.time 
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">                  WHERE gpc.time &lt; 2024;               -- 篩選 2024 年以前的數據
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">                  &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># connection.execute():對資料庫執行 SQL 指令</span>
+</span></span><span style="display:flex;"><span>connection<span style="color:#ff79c6">.</span>execute(drop_view_sql) <span style="color:#6272a4"># 執行 SQL 指令，如有刪除舊視圖。</span>
+</span></span><span style="display:flex;"><span>connection<span style="color:#ff79c6">.</span>execute(create_view_sql) <span style="color:#6272a4"># 執行 SQL 指令，建立新視圖。</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 關閉資料庫連線，釋放資源</span>
+</span></span><span style="display:flex;"><span>connection<span style="color:#ff79c6">.</span>close()
+</span></span></code></pre></div></li>
+</ul>
+<br>
+<div class="border-bottom"></div><br>
+
+        </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<script>
+  var indexURL = "http://localhost:1313/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="http://localhost:1313/plugins/jQuery/jquery.min.js"></script>
+
+<script src="http://localhost:1313/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="http://localhost:1313/plugins/slick/slick.min.js"></script>
+
+<script src="http://localhost:1313/plugins/venobox/venobox.min.js"></script>
+
+<script src="http://localhost:1313/plugins/search/fuse.min.js"></script>
+
+<script src="http://localhost:1313/plugins/search/mark.js"></script>
+
+<script src="http://localhost:1313/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="http://localhost:1313/js/script.min.js"></script>
+
+
+
+</body>
+</html>

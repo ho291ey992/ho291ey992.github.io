@@ -145,9 +145,10 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>base<span style="color:#ff79c6">)</span> conda activate minard_clone 
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  安裝模組
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>minard_clone<span style="color:#ff79c6">)</span> conda install pandas
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>minard_clone<span style="color:#ff79c6">)</span> conda install matplotlib
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>minard_clone<span style="color:#ff79c6">)</span> conda install basemap
-</span></span></code></pre></div><div class="border-bottom"></div><br> 
+</span></span></code></pre></div><div class="border-bottom"></div><br>
 <h4 id="數據準備data-preparation">數據準備（Data Preparation）</h4>
 <h5 id="資料來源">資料來源：</h5>
 <ul>
@@ -165,27 +166,33 @@
 </ul>
 </li>
 </ul>
+<br>
 <h5 id="數據結構">數據結構：</h5>
 <ul>
 <li>將資料分為 3 個部分<strong>城市資料、氣溫資料、軍隊資料</strong>。
 <ul>
-<li>城市資料
+<li>
+<p>城市資料</p>
 <ul>
 <li>lonc, latc：當前軍隊的位置（經度、緯度）。</li>
-<li>city：城市名稱（如果當前位置有城市）。<br></li>
+<li>city：城市名稱（如果當前位置有城市）。</li>
 </ul>
+<br>
 </li>
-<li>氣溫資料
+<li>
+<p>氣溫資料</p>
 <ul>
-<li>lont：當前位置的溫度（攝氏）。</li>
-<li>temp：氣溫（可能與 lont 相同或類似）。<br></li>
+<li>lont：經度。</li>
+<li>temp：氣溫（原始資料採用「列氏」溫度）。</li>
+<li>days：天數（間隔幾天）。</li>
+<li>date：日期。</li>
 </ul>
+<br>
 </li>
-<li>軍隊資料
+<li>
+<p>軍隊資料</p>
 <ul>
-<li>days：軍隊在該地點停留的天數。</li>
-<li>date：日期，表示軍隊到達該地點的日期。</li>
-<li>lonp, latp：前一個位置的經緯度（用於繪製軍隊的移動路線）。</li>
+<li>lonp, latp：軍隊行進過的經緯度（用於繪製軍隊的移動路線）。</li>
 <li>surviv：在該地點的倖存士兵數量。</li>
 <li>direc$：軍隊行進方向：
 <ul>
@@ -199,8 +206,9 @@
 </ul>
 </li>
 </ul>
+<br>
 <h5 id="數據導入">數據導入：</h5>
-<p>數據是 txt 檔，導入後是以每行為一筆資料，需要分割才能使用。</p>
+<p>由於數據是 txt 導入後是以每行為一筆資料，之後需要手動分割。</p>
 <ul>
 <li>數據外觀、數據清理
 <ul>
@@ -217,7 +225,7 @@
 <ul>
 <li>
 <p>開啟檔案</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>  <span style="color:#ff79c6">with</span> <span style="color:#8be9fd;font-style:italic">open</span>(<span style="color:#f1fa8c">&#34;/minard_clone/data/minard.txt&#34;</span>) <span style="color:#ff79c6">as</span> f:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>  <span style="color:#ff79c6">with</span> <span style="color:#8be9fd;font-style:italic">open</span>(<span style="color:#f1fa8c">&#34;minard_clone/data/minard.txt&#34;</span>) <span style="color:#ff79c6">as</span> f:
 </span></span><span style="display:flex;"><span>    lines <span style="color:#ff79c6">=</span> f<span style="color:#ff79c6">.</span>readlines()
 </span></span></code></pre></div></li>
 <li>
@@ -227,7 +235,7 @@
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>  column_names <span style="color:#ff79c6">=</span> lines[<span style="color:#bd93f9">2</span>]<span style="color:#ff79c6">.</span>split()
 </span></span></code></pre></div><ul>
-<li>數據清理：提供兩個方法。</li>
+<li>數據清理：使用正規化來達成來處理欄位名稱符號問題，提供幾種方法。</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># 方法一</span>
 </span></span><span style="display:flex;"><span>column_names_cleaned <span style="color:#ff79c6">=</span> [re<span style="color:#ff79c6">.</span>sub(<span style="color:#f1fa8c">r</span><span style="color:#f1fa8c">&#39;\W+&#39;</span>, <span style="color:#f1fa8c">&#39;&#39;</span>, col) <span style="color:#ff79c6">for</span> col <span style="color:#ff79c6">in</span> column_names]
@@ -244,106 +252,116 @@
 <li>方法二：只除特定符號（如 $、,)。</li>
 <li>方法三：如果數據量很大（幾萬到幾百萬筆）建議使用 Pandas，更快更有效率！</li>
 </ul>
+<br>
 </li>
 <li>
+<p>載入模組</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> re
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> pandas <span style="color:#ff79c6">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> sqlite3
+</span></span></code></pre></div></li>
+<li>
 <p>城市資料</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>  <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">creata_city_df</span>(self):
-</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># 分割資料</span>
-</span></span><span style="display:flex;"><span>        column_names_city <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(self<span style="color:#ff79c6">.</span>column_names_cleaned<span style="color:#ff79c6">.</span>name[:<span style="color:#bd93f9">3</span>])  
-</span></span><span style="display:flex;"><span>        longitudes, latitudes, cities <span style="color:#ff79c6">=</span> [], [], []  
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> df <span style="color:#ff79c6">in</span> self<span style="color:#ff79c6">.</span>lines[<span style="color:#bd93f9">6</span>:<span style="color:#bd93f9">26</span>]: 
-</span></span><span style="display:flex;"><span>            long, lat, city <span style="color:#ff79c6">=</span> df<span style="color:#ff79c6">.</span>split()[:<span style="color:#bd93f9">3</span>] 
-</span></span><span style="display:flex;"><span>            longitudes<span style="color:#ff79c6">.</span>append(<span style="color:#8be9fd;font-style:italic">float</span>(long)) 
-</span></span><span style="display:flex;"><span>            latitudes<span style="color:#ff79c6">.</span>append(<span style="color:#8be9fd;font-style:italic">float</span>(lat)) 
-</span></span><span style="display:flex;"><span>            cities<span style="color:#ff79c6">.</span>append(city) 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">creata_city_df</span>(self):
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 分割資料</span>
+</span></span><span style="display:flex;"><span>    column_names_city <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(self<span style="color:#ff79c6">.</span>column_names_cleaned<span style="color:#ff79c6">.</span>name[:<span style="color:#bd93f9">3</span>])  
+</span></span><span style="display:flex;"><span>    longitudes, latitudes, cities <span style="color:#ff79c6">=</span> [], [], []  
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> df <span style="color:#ff79c6">in</span> self<span style="color:#ff79c6">.</span>lines[<span style="color:#bd93f9">6</span>:<span style="color:#bd93f9">26</span>]: 
+</span></span><span style="display:flex;"><span>        long, lat, city <span style="color:#ff79c6">=</span> df<span style="color:#ff79c6">.</span>split()[:<span style="color:#bd93f9">3</span>] 
+</span></span><span style="display:flex;"><span>        longitudes<span style="color:#ff79c6">.</span>append(<span style="color:#8be9fd;font-style:italic">float</span>(long)) 
+</span></span><span style="display:flex;"><span>        latitudes<span style="color:#ff79c6">.</span>append(<span style="color:#8be9fd;font-style:italic">float</span>(lat)) 
+</span></span><span style="display:flex;"><span>        cities<span style="color:#ff79c6">.</span>append(city) 
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># 合併資料</span>
-</span></span><span style="display:flex;"><span>        city_data <span style="color:#ff79c6">=</span> (longitudes, latitudes, cities) 
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 合併資料</span>
+</span></span><span style="display:flex;"><span>    city_data <span style="color:#ff79c6">=</span> (longitudes, latitudes, cities) 
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># 建立空的 DataFrame，準備填入整理後的數據</span>
-</span></span><span style="display:flex;"><span>        city_df <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>DataFrame()
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 建立空的 DataFrame，準備填入整理後的數據</span>
+</span></span><span style="display:flex;"><span>    city_df <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>DataFrame()
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># 將 city_data 的內容對應到相應的欄位名稱</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> column_name, data <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">zip</span>(column_names_city, city_data):
-</span></span><span style="display:flex;"><span>            city_df[column_name] <span style="color:#ff79c6">=</span> data 
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> city_df
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 將 city_data 的內容對應到相應的欄位名稱</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> column_name, data <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">zip</span>(column_names_city, city_data):
+</span></span><span style="display:flex;"><span>        city_df[column_name] <span style="color:#ff79c6">=</span> data 
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> city_df
 </span></span></code></pre></div></li>
 <li>
 <p>氣溫資料</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>  <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">creata_temperature_df</span>(self):
-</span></span><span style="display:flex;"><span>      <span style="color:#6272a4"># 分割資料</span>
-</span></span><span style="display:flex;"><span>      column_names_temp <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(self<span style="color:#ff79c6">.</span>column_names_cleaned<span style="color:#ff79c6">.</span>name[<span style="color:#bd93f9">3</span>:<span style="color:#bd93f9">7</span>])
-</span></span><span style="display:flex;"><span>      lontvalues, tempvalues, days, dates <span style="color:#ff79c6">=</span> [], [], [], []
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">for</span> df <span style="color:#ff79c6">in</span> self<span style="color:#ff79c6">.</span>lines[<span style="color:#bd93f9">6</span>:<span style="color:#bd93f9">15</span>]:
-</span></span><span style="display:flex;"><span>          lont, temp, day  <span style="color:#ff79c6">=</span> df<span style="color:#ff79c6">.</span>split()[<span style="color:#bd93f9">3</span>:<span style="color:#bd93f9">6</span>]
-</span></span><span style="display:flex;"><span>          lontvalues<span style="color:#ff79c6">.</span>append(<span style="color:#8be9fd;font-style:italic">float</span>(lont))
-</span></span><span style="display:flex;"><span>          tempvalues<span style="color:#ff79c6">.</span>append(<span style="color:#8be9fd;font-style:italic">int</span>(temp))
-</span></span><span style="display:flex;"><span>          days<span style="color:#ff79c6">.</span>append(<span style="color:#8be9fd;font-style:italic">int</span>(day))
-</span></span><span style="display:flex;"><span>          <span style="color:#6272a4"># 資料缺失處理</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">if</span> day <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#34;10&#34;</span>:
-</span></span><span style="display:flex;"><span>              <span style="color:#6272a4"># 這行需要特殊處理，因為資料會將軍隊資料納入。</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#6272a4"># [&#34;29.2&#34;, &#34;-11&#34;, &#34;10&#34;, &#34;27.0&#34;, &#34;54.8&#34;]。</span>
-</span></span><span style="display:flex;"><span>              dates<span style="color:#ff79c6">.</span>append(<span style="color:#f1fa8c">&#34;Nov 24&#34;</span>)
-</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">else</span>:
-</span></span><span style="display:flex;"><span>              <span style="color:#6272a4"># 由於是以空白為分割點，所以需要將資料重新合併。</span>
-</span></span><span style="display:flex;"><span>              <span style="color:#6272a4"># [&#34;37.6&#34;, &#34;0&#34;, &#34;6&#34;, &#34;Oct&#34;, &#34;18&#34;] 日期被分成兩筆資料。</span>
-</span></span><span style="display:flex;"><span>              dates<span style="color:#ff79c6">.</span>append(df<span style="color:#ff79c6">.</span>split()[<span style="color:#bd93f9">6</span>] <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34; &#34;</span> <span style="color:#ff79c6">+</span> df<span style="color:#ff79c6">.</span>split()[<span style="color:#bd93f9">7</span>])
+<ul>
+<li>備註：這邊需要處理缺失資料。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">creata_temperature_df</span>(self):
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 分割資料</span>
+</span></span><span style="display:flex;"><span>    column_names_temp <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(self<span style="color:#ff79c6">.</span>column_names_cleaned<span style="color:#ff79c6">.</span>name[<span style="color:#bd93f9">3</span>:<span style="color:#bd93f9">7</span>])
+</span></span><span style="display:flex;"><span>    lontvalues, tempvalues, days, dates <span style="color:#ff79c6">=</span> [], [], [], []
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> df <span style="color:#ff79c6">in</span> self<span style="color:#ff79c6">.</span>lines[<span style="color:#bd93f9">6</span>:<span style="color:#bd93f9">15</span>]:
+</span></span><span style="display:flex;"><span>        lont, temp, day  <span style="color:#ff79c6">=</span> df<span style="color:#ff79c6">.</span>split()[<span style="color:#bd93f9">3</span>:<span style="color:#bd93f9">6</span>]
+</span></span><span style="display:flex;"><span>        lontvalues<span style="color:#ff79c6">.</span>append(<span style="color:#8be9fd;font-style:italic">float</span>(lont))
+</span></span><span style="display:flex;"><span>        tempvalues<span style="color:#ff79c6">.</span>append(<span style="color:#8be9fd;font-style:italic">int</span>(temp))
+</span></span><span style="display:flex;"><span>        days<span style="color:#ff79c6">.</span>append(<span style="color:#8be9fd;font-style:italic">int</span>(day))
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># 資料缺失處理</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> day <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#34;10&#34;</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4"># 這行需要特殊處理，因為資料會將軍隊資料納入。</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4"># [&#34;29.2&#34;, &#34;-11&#34;, &#34;10&#34;, &#34;缺失日期資料&#34; , &#34;27.0&#34;, &#34;54.8&#34;]。</span>
+</span></span><span style="display:flex;"><span>            dates<span style="color:#ff79c6">.</span>append(<span style="color:#f1fa8c">&#34;Nov 24&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4"># 由於是以空白為分割點，所以需要將資料重新合併。</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4"># [&#34;Oct&#34;, &#34;18&#34;] 日期被分成兩筆資料。</span>
+</span></span><span style="display:flex;"><span>            dates<span style="color:#ff79c6">.</span>append(df<span style="color:#ff79c6">.</span>split()[<span style="color:#bd93f9">6</span>] <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34; &#34;</span> <span style="color:#ff79c6">+</span> df<span style="color:#ff79c6">.</span>split()[<span style="color:#bd93f9">7</span>])
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#6272a4"># 合併資料</span>
-</span></span><span style="display:flex;"><span>      temp_data <span style="color:#ff79c6">=</span> (lontvalues, tempvalues, days, dates)
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 合併資料</span>
+</span></span><span style="display:flex;"><span>    temp_data <span style="color:#ff79c6">=</span> (lontvalues, tempvalues, days, dates)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#6272a4"># 建立空的 DataFrame，準備填入整理後的數據</span>
-</span></span><span style="display:flex;"><span>      temperature_df <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>DataFrame()
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 建立空的 DataFrame，準備填入整理後的數據</span>
+</span></span><span style="display:flex;"><span>    temperature_df <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>DataFrame()
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#6272a4"># 將 city_data 的內容對應到相應的欄位名稱</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">for</span> column_name, data <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">zip</span>(column_names_temp, temp_data):
-</span></span><span style="display:flex;"><span>          temperature_df[column_name] <span style="color:#ff79c6">=</span> data
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> temperature_df
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 將 city_data 的內容對應到相應的欄位名稱</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> column_name, data <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">zip</span>(column_names_temp, temp_data):
+</span></span><span style="display:flex;"><span>        temperature_df[column_name] <span style="color:#ff79c6">=</span> data
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> temperature_df
 </span></span></code></pre></div></li>
 <li>
 <p>軍隊資料</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>  <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">create_troop_df</span>(self):
-</span></span><span style="display:flex;"><span>      <span style="color:#6272a4"># 分割資料，由於資料欄位不同所以，直接倒入最後 5 攔是比要好的選擇。</span>
-</span></span><span style="display:flex;"><span>      column_names_troop <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(self<span style="color:#ff79c6">.</span>column_names_cleaned<span style="color:#ff79c6">.</span>name)[<span style="color:#ff79c6">-</span><span style="color:#bd93f9">5</span>:]
-</span></span><span style="display:flex;"><span>      lonp_values, latp_values, surviv_values, direc_values, ivision_values <span style="color:#ff79c6">=</span> [], [], [], [], []
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">for</span> df <span style="color:#ff79c6">in</span> self<span style="color:#ff79c6">.</span>lines[<span style="color:#bd93f9">6</span>:<span style="color:#ff79c6">-</span><span style="color:#bd93f9">3</span>]:
-</span></span><span style="display:flex;"><span>          lonp, latp, surviv, direc, division <span style="color:#ff79c6">=</span> df<span style="color:#ff79c6">.</span>split()[<span style="color:#ff79c6">-</span><span style="color:#bd93f9">5</span>:]
-</span></span><span style="display:flex;"><span>          lonp_values<span style="color:#ff79c6">.</span>append(lonp)
-</span></span><span style="display:flex;"><span>          latp_values<span style="color:#ff79c6">.</span>append(latp)
-</span></span><span style="display:flex;"><span>          surviv_values<span style="color:#ff79c6">.</span>append(surviv)
-</span></span><span style="display:flex;"><span>          direc_values<span style="color:#ff79c6">.</span>append(direc)
-</span></span><span style="display:flex;"><span>          division_values<span style="color:#ff79c6">.</span>append(division)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">create_troop_df</span>(self):
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 分割資料，由於資料欄位不同所以，直接倒入最後 5 攔是比要好的選擇。</span>
+</span></span><span style="display:flex;"><span>    column_names_troop <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">list</span>(self<span style="color:#ff79c6">.</span>column_names_cleaned<span style="color:#ff79c6">.</span>name)[<span style="color:#ff79c6">-</span><span style="color:#bd93f9">5</span>:]
+</span></span><span style="display:flex;"><span>    lonp_values, latp_values, surviv_values, direc_values, ivision_values <span style="color:#ff79c6">=</span> [], [], [], [], []
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> df <span style="color:#ff79c6">in</span> self<span style="color:#ff79c6">.</span>lines[<span style="color:#bd93f9">6</span>:<span style="color:#ff79c6">-</span><span style="color:#bd93f9">3</span>]:
+</span></span><span style="display:flex;"><span>        lonp, latp, surviv, direc, division <span style="color:#ff79c6">=</span> df<span style="color:#ff79c6">.</span>split()[<span style="color:#ff79c6">-</span><span style="color:#bd93f9">5</span>:]
+</span></span><span style="display:flex;"><span>        lonp_values<span style="color:#ff79c6">.</span>append(lonp)
+</span></span><span style="display:flex;"><span>        latp_values<span style="color:#ff79c6">.</span>append(latp)
+</span></span><span style="display:flex;"><span>        surviv_values<span style="color:#ff79c6">.</span>append(surviv)
+</span></span><span style="display:flex;"><span>        direc_values<span style="color:#ff79c6">.</span>append(direc)
+</span></span><span style="display:flex;"><span>        division_values<span style="color:#ff79c6">.</span>append(division)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#6272a4"># 合併資料</span>
-</span></span><span style="display:flex;"><span>      troop_data <span style="color:#ff79c6">=</span> (lonp_values, latp_values, surviv_values, irec_values, division_values)
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 合併資料</span>
+</span></span><span style="display:flex;"><span>    troop_data <span style="color:#ff79c6">=</span> (lonp_values, latp_values, surviv_values, irec_values, division_values)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#6272a4"># 建立空的 DataFrame，準備填入整理後的數據</span>
-</span></span><span style="display:flex;"><span>      troop_df <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>DataFrame()
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 建立空的 DataFrame，準備填入整理後的數據</span>
+</span></span><span style="display:flex;"><span>    troop_df <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>DataFrame()
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#6272a4"># 將 troop_data 的內容對應到相應的欄位名稱</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">for</span> column_name, data <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">zip</span>(column_names_troop, troop_data):
-</span></span><span style="display:flex;"><span>          troop_df[column_name] <span style="color:#ff79c6">=</span> data
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> troop_df
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 將 troop_data 的內容對應到相應的欄位名稱</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> column_name, data <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">zip</span>(column_names_troop, troop_data):
+</span></span><span style="display:flex;"><span>        troop_df[column_name] <span style="color:#ff79c6">=</span> data
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> troop_df
 </span></span></code></pre></div></li>
 <li>
 <p>導入 SQLite</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>  <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">create_database</span>(self):
-</span></span><span style="display:flex;"><span>      <span style="color:#6272a4"># 載入資料</span>
-</span></span><span style="display:flex;"><span>      city_df <span style="color:#ff79c6">=</span> self<span style="color:#ff79c6">.</span>creata_city_df()
-</span></span><span style="display:flex;"><span>      temperature_df <span style="color:#ff79c6">=</span> self<span style="color:#ff79c6">.</span>creata_temperature_df()
-</span></span><span style="display:flex;"><span>      troop_df <span style="color:#ff79c6">=</span> self<span style="color:#ff79c6">.</span>create_troop_df()
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">create_database</span>(self):
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 載入資料</span>
+</span></span><span style="display:flex;"><span>    city_df <span style="color:#ff79c6">=</span> self<span style="color:#ff79c6">.</span>creata_city_df()
+</span></span><span style="display:flex;"><span>    temperature_df <span style="color:#ff79c6">=</span> self<span style="color:#ff79c6">.</span>creata_temperature_df()
+</span></span><span style="display:flex;"><span>    troop_df <span style="color:#ff79c6">=</span> self<span style="color:#ff79c6">.</span>create_troop_df()
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#6272a4"># 建立 SQLite</span>
-</span></span><span style="display:flex;"><span>      connection <span style="color:#ff79c6">=</span> sqlite3<span style="color:#ff79c6">.</span>connect(<span style="color:#f1fa8c">&#34;minard_clone/data/minard.db&#34;</span>)
-</span></span><span style="display:flex;"><span>      df_dict <span style="color:#ff79c6">=</span> {
-</span></span><span style="display:flex;"><span>          <span style="color:#f1fa8c">&#34;cities&#34;</span>: city_df,
-</span></span><span style="display:flex;"><span>          <span style="color:#f1fa8c">&#34;temperatures&#34;</span>: temperature_df,
-</span></span><span style="display:flex;"><span>          <span style="color:#f1fa8c">&#34;troops&#34;</span>: troop_df
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">for</span> k, v <span style="color:#ff79c6">in</span> df_dict<span style="color:#ff79c6">.</span>items():
-</span></span><span style="display:flex;"><span>          v<span style="color:#ff79c6">.</span>to_sql(name<span style="color:#ff79c6">=</span>k, con<span style="color:#ff79c6">=</span>connection, index<span style="color:#ff79c6">=</span><span style="color:#ff79c6">False</span>, f_exists<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;replace&#34;</span>) 
-</span></span><span style="display:flex;"><span>          <span style="color:#6272a4"># v.to_sql(name=資料表名稱, con=檔案位置, index=是否載入 pd 排, if_exists=&#34;replace&#34; 若同名檔案存在覆蓋) </span>
-</span></span><span style="display:flex;"><span>      connection<span style="color:#ff79c6">.</span>close()
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 建立 SQLite</span>
+</span></span><span style="display:flex;"><span>    connection <span style="color:#ff79c6">=</span> sqlite3<span style="color:#ff79c6">.</span>connect(<span style="color:#f1fa8c">&#34;minard_clone/data/minard.db&#34;</span>)
+</span></span><span style="display:flex;"><span>    df_dict <span style="color:#ff79c6">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#34;cities&#34;</span>: city_df,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#34;temperatures&#34;</span>: temperature_df,
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#34;troops&#34;</span>: troop_df
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> k, v <span style="color:#ff79c6">in</span> df_dict<span style="color:#ff79c6">.</span>items():
+</span></span><span style="display:flex;"><span>        v<span style="color:#ff79c6">.</span>to_sql(name<span style="color:#ff79c6">=</span>k, con<span style="color:#ff79c6">=</span>connection, index<span style="color:#ff79c6">=</span><span style="color:#ff79c6">False</span>, f_exists<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;replace&#34;</span>) 
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># v.to_sql(name=資料表名稱, con=檔案位置, index=是否載入 pd 排, if_exists=&#34;replace&#34; 若同名檔案存在蓋) </span>
+</span></span><span style="display:flex;"><span>    connection<span style="color:#ff79c6">.</span>close()
 </span></span></code></pre></div></li>
 </ul>
 <div class="border-bottom"></div><br>

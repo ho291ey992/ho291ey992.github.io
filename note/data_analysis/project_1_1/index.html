@@ -5,7 +5,7 @@
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="練習專案二：拿破崙征俄戰爭">
+  <meta name="description" content="練習專案一：復刻兩百個國家、兩百年、四分鐘">
   <meta name="author" content="Steve">
     
   
@@ -123,45 +123,37 @@
         <a href="/categories/data-analysis"
           class="text-primary">Data analysis</a>
         
-        <h2>練習專案二：拿破崙征俄戰爭 1</h2>  
+        <h2>練習專案一：復刻兩百個國家、兩百年、四分鐘 1</h2>  
         <div class="mb-3 post-meta">
           <span>By Steve</span>
           
           <span class="border-bottom border-primary px-2 mx-1"></span>
-          <span>2025-02-25</span> 
+          <span>2025-02-08</span> 
           
         </div>
         
         <div class="content mb-5">
           <br>
 <h4 id="專案介紹introduction">專案介紹（Introduction）</h4>
-<p>Minard 的 1812 年拿破崙俄國戰役圖是一個經典的數據視覺化案例。
-本專案的目標是復刻<a href="https://en.wikipedia.org/wiki/Charles_Joseph_Minard#/media/File:Minard.png"><u><strong>Charles Minard&rsquo;s Napoleon&rsquo;s disastrous Russian campaign of 1812</strong></u></a>這份視覺化，並使用現代工具（Python、Matplotlib 等）。
-描述法軍在<strong>長距離的路線</strong>、<strong>天氣變化</strong>及<strong>人員傷亡</strong>狀況。可視化後能清楚呈現拿破崙軍隊如何在惡劣條件下大幅減少兵力。</p>
+<p>Hans Rosling 的 <strong>200 個國家, 200 年, 4 分鐘</strong> 是一部經典的資料視覺化影片，透過 <strong>氣泡圖</strong> 呈現** 1800 年至 2009 年間 200 個國家的「人均壽命」與「人均 GDP」變化**。每個氣泡代表一個國家，大小則對應其人口數，讓觀眾能直觀理解全球發展的趨勢。
+<br></p>
+<p>本專案的目標是復刻<u><a href="https://youtu.be/jbkSRLYSojo?si=5WkjOoiU_IPuKGsR">Hans Rosling&rsquo;s 200 Countries, 200 Years, 4 Minutes</a></u>，重現這段具啟發性的數據動畫。
+<br></p>
+<p>Hans Rosling 致力於打破大眾對世界的誤解，推動「<strong>基於事實的世界觀</strong>」。他於 2005 年創立 <strong>Gapminder</strong>，推廣數據視覺化，讓資訊更容易理解，幫助人們擺脫過時的刻板印象，以更科學的方式認識世界。</p>
+<p><br> <iframe src="https://www.gapminder.org/tools/#$chart-type=bubbles&url=v2" width="800" height="600" width=90%></iframe></p>
+<br>
 <ul>
-<li>Minard 圖（Minard’s Map） 是 19 世紀法國土木工程師 Charles Joseph Minard 在 1869 年製作的一張著名資訊視覺化地圖。這張圖表描述了 拿破崙 1812 年遠征俄國 時，法軍的 行軍路線、兵力變化、氣溫 和 時間 等重要資訊，被譽為歷史上最偉大的資訊視覺化之一。</li>
-</ul>
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Minard.png">
+<li><strong>圖表的軸與資訊</strong>
 <ul>
-<li>Minard 圖的特點
+<li>X 軸 (橫軸)：人均 GDP（以國際美元調整通膨），表示一個國家平均每人的收入水平。從左到右，貧窮到富裕。</li>
+<li>Y 軸 (縱軸)：人均壽命（歲），表示一個國家的健康狀況。從下到上，短命到長壽。</li>
+<li>氣泡大小：該國的人口數，人口越多氣泡越大。</li>
+<li>氣泡顏色：代表地區。
 <ul>
-<li>
-<p>軍隊移動路徑（厚度代表兵力）</p>
-<ul>
-<li>軍隊從 <strong>法國 → 俄國莫斯科</strong>（前進：淺棕色），再 <strong>撤退回法國</strong>（回程：黑色）。</li>
-<li>線條的寬度表示軍隊人數的變化，<strong>可以看到撤退時士兵數量急劇減少</strong>。</li>
-</ul>
-</li>
-<li>
-<p>地理資訊（地圖與地名）</p>
-<ul>
-<li>X 軸與 Y 軸對應軍隊在歐洲的 經緯度。</li>
-</ul>
-</li>
-<li>
-<p>氣溫變化（折線圖）</p>
-<ul>
-<li>圖下方用折線圖標示 <strong>撤退</strong>期間的氣溫，顯示 12 月時軍隊面臨極寒（-30°C 以下）。</li>
+<li>藍色：非洲 (Africa)</li>
+<li>紅色：亞洲 (Asia)</li>
+<li>黃色：歐洲 (Europe)</li>
+<li>綠色：美洲 (Americas)</li>
 </ul>
 </li>
 </ul>
@@ -169,57 +161,69 @@
 </ul>
 <br>
 <ul>
-<li>Minard 圖的意義
-<ul>
 <li>
-<p>清楚呈現災難性損失</p>
+<p><strong>這張圖想表達什麼？</strong> <br>
+Hans Rosling 的這張視覺化圖表 <strong>打破了人們對世界發展的刻板印象</strong>，用數據證明 <strong>全球經濟與健康狀況在過去 200 年發生了巨大變化</strong>。它傳達了幾個核心訊息：</p>
+<ol>
+<li>打破舊有思維。</li>
+</ol>
 <ul>
-<li>法軍從 42 萬人 出發，最後只有 1 萬人 生還！這張圖一眼就能讓人理解這場戰役的毀滅性結果。</li>
+<li>過去 200 年，許多開發中國家的 壽命與收入大幅提升，顛覆了「富國長壽、窮國短命」的刻板印象。</li>
+<li>世界不再是「富國長壽、窮國短命」的二分法。</li>
 </ul>
+  <br>
+<ol start="2">
+<li>推廣「數據視覺化」。</li>
+</ol>
+<ul>
+<li>透過氣泡圖的呈現方式，複雜的歷史數據變得清晰易懂，幫助人們 基於事實理解世界的變化，而非依賴舊有印象。</li>
+</ul>
+  <br>
+<ol start="3">
+<li>全球經濟與健康狀況的變化。</li>
+</ol>
+<ul>
+<li>壽命提升不僅來自經濟發展，還與醫療技術的進步有關。</li>
+</ul>
+  <br>
 </li>
-<li>
-<p>結合多維數據（地理 + 數量 + 時間 + 氣溫）</p>
+</ul>
+<div class="border-bottom"></div><br> 
 <ul>
-<li>這張圖同時顯示了 地點、兵力、時間、天氣，被視為 資訊視覺化的經典範例。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<br>
-<ul>
-<li>Minard 圖的現代應用<br>
-<ul>
-<li>歷史戰爭分析</li>
-<li>疫情擴散路線圖</li>
-<li>物流與供應鏈</li>
-<li>移民與人口變遷</li>
-</ul>
+<li><strong>應用領域</strong> <br>
+這種 時序氣泡圖 (Animated Bubble Chart) 在許多領域都很有價值，包括：
+<ol>
+<li><strong>經濟與發展研究</strong></li>
+<li><strong>公共衛生與醫療</strong></li>
+<li><strong>金融與投資</strong></li>
+<li><strong>教育與科學傳播</strong></li>
+<li><strong>商業策略與市場分析</strong></li>
+</ol>
 </li>
 </ul>
 <br>
 <div class="border-bottom"></div><br> 
-<h4 id="如何復刻-charles-minards-napoleons-disastrous-russian-campaign-of-1812">如何復刻 Charles Minard&rsquo;s Napoleon&rsquo;s disastrous Russian campaign of 1812</h4>
+<h4 id="如何復刻hans-roslings-200-countries-200-years-4-minuteshttpsyoutubejbksrlysojosi5wkjooiu_ipukgsr">如何復刻：<a href="https://youtu.be/jbkSRLYSojo?si=5WkjOoiU_IPuKGsR">Hans Rosling&rsquo;s 200 Countries, 200 Years, 4 Minutes</a></h4>
+<p>專案說明：描述了隨人均GDP上升，各國的平均壽命也在不斷提升。<br>
+如何復刻 Hans Rosling&rsquo;s 200 Countries, 200 Years, 4 Minutes<br></p>
 <ul>
 <li>資料需求。
 <ul>
-<li>X 軸：經度。</li>
-<li>Y 軸：緯度。</li>
-<li>顏色：進攻/撤退。</li>
-<li>粗細：軍隊人數。</li>
-<li>時間軸：資料日期。</li>
-<li>折線：氣溫。</li>
+<li>X 軸：    人均 GDP</li>
+<li>Y 軸：    預期壽命。</li>
+<li>顏色：    洲別。</li>
+<li>氣泡大小：人口數。</li>
+<li>時間軸：  年份。</li>
 </ul>
 </li>
 <li>視覺化需求。
 <ul>
-<li>概念驗證：matplotlib, basemap</li>
-<li>成品：matplotlib, basemap</li>
+<li>概念驗證：matplotlib、PowerBi。</li>
+<li>成品：plotly.express、PowerBi。</li>
 </ul>
 </li>
 </ul>
 <div class="border-bottom"></div><br> 
-
         </div>
 
         

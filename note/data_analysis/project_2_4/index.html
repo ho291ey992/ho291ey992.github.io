@@ -123,103 +123,144 @@
         <a href="/categories/data-analysis"
           class="text-primary">Data analysis</a>
         
-        <h2>練習專案二：拿破崙征俄戰爭 1</h2>  
+        <h2>練習專案二：拿破崙征俄戰爭 4</h2>  
         <div class="mb-3 post-meta">
           <span>By Steve</span>
           
           <span class="border-bottom border-primary px-2 mx-1"></span>
-          <span>2025-02-25</span> 
+          <span>2025-03-10</span> 
           
         </div>
         
         <div class="content mb-5">
           <br>
-<h4 id="專案介紹introduction">專案介紹（Introduction）</h4>
-<p>Minard 的 1812 年拿破崙俄國戰役圖是一個經典的數據視覺化案例。
-本專案的目標是復刻<a href="https://en.wikipedia.org/wiki/Charles_Joseph_Minard#/media/File:Minard.png"><u><strong>Charles Minard&rsquo;s Napoleon&rsquo;s disastrous Russian campaign of 1812</strong></u></a>這份視覺化，並使用現代工具（Python、Matplotlib 等）。
-描述法軍在<strong>長距離的路線</strong>、<strong>天氣變化</strong>及<strong>人員傷亡</strong>狀況。可視化後能清楚呈現拿破崙軍隊如何在惡劣條件下大幅減少兵力。</p>
-<ul>
-<li>Minard 圖（Minard’s Map） 是 19 世紀法國土木工程師 Charles Joseph Minard 在 1869 年製作的一張著名資訊視覺化地圖。這張圖表描述了 拿破崙 1812 年遠征俄國 時，法軍的 行軍路線、兵力變化、氣溫 和 時間 等重要資訊，被譽為歷史上最偉大的資訊視覺化之一。</li>
-</ul>
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Minard.png">
+<img src="/images/note/data_analysis/project_2/minard_clone.png">
+<br>
+<h4 id="圖片介紹">圖片介紹</h4>
 <ul>
 <li>Minard 圖的特點
 <ul>
-<li>
-<p>軍隊移動路徑（厚度代表兵力）</p>
+<li>軍隊移動路徑（厚度代表兵力）
 <ul>
 <li>軍隊從 <strong>法國 → 俄國莫斯科</strong>（前進：淺棕色），再 <strong>撤退回法國</strong>（回程：黑色）。</li>
 <li>線條的寬度表示軍隊人數的變化，<strong>可以看到撤退時士兵數量急劇減少</strong>。</li>
 </ul>
 </li>
-<li>
-<p>地理資訊（地圖與地名）</p>
+</ul>
+</li>
+</ul>
+<br>
+<ul>
+<li>地理資訊（地圖與地名）
 <ul>
 <li>X 軸與 Y 軸對應軍隊在歐洲的 經緯度。</li>
 </ul>
 </li>
-<li>
-<p>氣溫變化（折線圖）</p>
+</ul>
+<br>
+<ul>
+<li>氣溫變化（折線圖）
 <ul>
 <li>圖下方用折線圖標示 <strong>撤退</strong>期間的氣溫，顯示 12 月時軍隊面臨極寒（-30°C 以下）。</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
 <br>
+<h4 id="分析">分析</h4>
+<ol>
+<li><strong>軍隊規模變化（士兵數量驟減）</strong></li>
+</ol>
 <ul>
-<li>Minard 圖的意義
+<li>入侵與撤退的對比：
 <ul>
-<li>
-<p>清楚呈現災難性損失</p>
-<ul>
-<li>法軍從 42 萬人 出發，最後只有 1 萬人 生還！這張圖一眼就能讓人理解這場戰役的毀滅性結果。</li>
+<li><strong>棕色線</strong>代表法軍入侵俄國時的路線，<strong>黑色線</strong>代表撤退時的路線。</li>
+<li>線條的 <strong>寬度代表軍隊的規模</strong>，可以看到撤退時士兵數量急劇減少。</li>
+<li><strong>進入莫斯科時約 10-12 萬人，但撤退到俄羅斯邊境時僅剩數千人</strong>，顯示軍隊幾乎全滅。</li>
 </ul>
 </li>
-<li>
-<p>結合多維數據（地理 + 數量 + 時間 + 氣溫）</p>
+<li>死亡率極高
 <ul>
-<li>這張圖同時顯示了 地點、兵力、時間、天氣，被視為 資訊視覺化的經典範例。</li>
-</ul>
-</li>
+<li>撤退結束、回到法國時，僅存不足 2 萬人，死亡率超過 95%。這樣的損失規模<strong>在戰爭史上極為罕見</strong>。</li>
 </ul>
 </li>
 </ul>
 <br>
+<ol start="2">
+<li><strong>氣溫對軍隊的影響</strong></li>
+</ol>
 <ul>
-<li>Minard 圖的現代應用<br>
+<li>底部的折線圖顯示撤退過程中的氣溫變化：
 <ul>
-<li>歷史戰爭分析</li>
-<li>疫情擴散路線圖</li>
-<li>物流與供應鏈</li>
-<li>移民與人口變遷</li>
+<li>可觀察到，<strong>隨著氣溫越來越低，士兵人數迅速減少</strong>。</li>
+<li>在 <strong>-9°C（11 月初）時，軍隊已減至 3.7 萬人</strong>，顯示氣候對士兵存活率的嚴重影響。</li>
+<li>到 12 月時，氣溫下降至 <strong>-30°C 以下</strong>，加速了軍隊的崩潰。</li>
 </ul>
 </li>
 </ul>
 <br>
-<div class="border-bottom"></div><br> 
-<h4 id="如何復刻-charles-minards-napoleons-disastrous-russian-campaign-of-1812">如何復刻 Charles Minard&rsquo;s Napoleon&rsquo;s disastrous Russian campaign of 1812</h4>
+<ol start="3">
+<li><strong>路線與戰略決策分析</strong></li>
+</ol>
 <ul>
-<li>資料需求。
+<li>錯誤的進攻計畫
 <ul>
-<li>X 軸：經度。</li>
-<li>Y 軸：緯度。</li>
-<li>顏色：進攻/撤退。</li>
-<li>粗細：軍隊人數。</li>
-<li>時間軸：資料日期。</li>
-<li>折線：氣溫。</li>
+<li>拿破崙的軍隊 <strong>深入俄國境內，直到莫斯科</strong>，但俄軍選擇不正面交戰，而是採取「<strong>焦土政策</strong>」，撤退並燒毀物資，讓法軍無法獲得補給。</li>
 </ul>
 </li>
-<li>視覺化需求。
+<li>撤退的困境
 <ul>
-<li>概念驗證：matplotlib, basemap</li>
-<li>成品：matplotlib, basemap</li>
+<li><strong>撤退時的路線與進攻時不同</strong>，部分原因是<strong>避開俄軍圍堵</strong>，<strong>並嘗試撤回較容易獲得補給的地區（如波蘭）</strong>，但由於敵軍騷擾、後勤崩潰，仍然失敗。</li>
+<li><strong>當軍隊撤退時，俄軍開始騷擾攻擊，加上寒冷天氣，使士兵死亡率更高。</strong></li>
 </ul>
 </li>
 </ul>
-<div class="border-bottom"></div><br> 
-
+<br>
+<h4 id="總結">總結</h4>
+<ul>
+<li><strong>主要失敗因素</strong>：
+<ul>
+<li><strong>補給不足</strong>（深入俄國後沒有足夠物資）。</li>
+<li><strong>氣候極端</strong>（士兵死於低溫）。</li>
+<li><strong>俄軍戰術</strong>（焦土政策 + 騷擾戰）。</li>
+</ul>
+</li>
+</ul>
+<div class="border-bottom"></div><br>
+<h4 id="專案復原">專案復原</h4>
+<h5 id="語言及模組">語言及模組</h5>
+<ul>
+<li>dependencies：
+<ul>
+<li>python 3.12</li>
+<li>matplotlib 3.8</li>
+<li>basemap 1.4</li>
+<li>pandas 2.2</li>
+</ul>
+</li>
+</ul>
+<img src="/images/note/data_analysis/project_2/backup_1.jpg">
+<div class="border-bottom"></div><br>
+<h5 id="建立environmentyml">建立environment.yml</h5>
+<p>目的重現專案環境。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>REM 方法1 <span style="color:#ff79c6">(</span>當前目錄建立environment.yml<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>conda env <span style="color:#8be9fd;font-style:italic">export</span> &gt; environment.yml 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>REM 方法2 <span style="color:#ff79c6">(</span>指定目錄建立environment.yml<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>conda env <span style="color:#8be9fd;font-style:italic">export</span> &gt; D:<span style="color:#f1fa8c">\m</span>inard_clone<span style="color:#f1fa8c">\e</span>nvironment.yml
+</span></span></code></pre></div><div class="border-bottom"></div><br>
+<h5 id="如何重現">如何重現</h5>
+<ul>
+<li>安裝 <a href="https://www.anaconda.com/docs/getting-started/miniconda/main">Miniconda</a>。</li>
+<li>使用 environment.yml 建立新環境。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>conda env create -f environment.yml
+</span></span></code></pre></div></li>
+<li>建立資料 <code>minard_clone/</code>。</li>
+<li>使用 <code>VScode</code> 將資料夾新增到工作區。</li>
+<li>將 <code>data/</code> 資料夾中 <code>minard.txt</code> 檔案置放於工作目錄中的 <code>data/</code> 資料夾。</li>
+<li>啟動環境並執行 <code>python create_minard_db.py</code> 就能在 <code>data/</code> 資料夾中建立 <code>minard.db</code></li>
+<li>啟動環境並執行 <code>python plot_with_basemap.py</code> 就能生成 <code>minard_clone.png</code></li>
+</ul>
+<div class="border-bottom"></div><br>
         </div>
 
         

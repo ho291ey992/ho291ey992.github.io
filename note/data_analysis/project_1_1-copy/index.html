@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-tw"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <title>學習筆記</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="練習專案一：復刻兩百個國家、兩百年、四分鐘">
+  <meta name="author" content="Steve">
+    
+  
+  <meta name="theme-name" content="liva-hugo" />
+  
+  <meta name="generator" content="Hugo 0.140.2">
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="http://localhost:1313/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="http://localhost:1313/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="http://localhost:1313/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="http://localhost:1313/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="http://localhost:1313/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="http://localhost:1313/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="http://localhost:1313/images/favicon.png " type="image/x-icon">
+
+  <!-- google analitycs -->
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'Your ID', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+</head>
+<body><!-- navigation -->
+<header class="navigation sticky"> 
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom pl-0">
+      <a class="navbar-brand mobile-view" href="http://localhost:1313/"><img class="img-fluid"
+          src="http://localhost:1313/images/favicon1.png" alt="學習筆記"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        
+        
+        
+        <a class="navbar-brand mx-auto desktop-view" href="http://localhost:1313/"><img class="img-fluid"
+          src="http://localhost:1313/images/favicon1.png" alt="學習筆記">
+        </a>
+
+        <ul class="navbar-nav">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:1313/about/">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              筆記
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" href="http://localhost:1313/note/hugo">hugo 網站建置</a>
+              
+              <a class="dropdown-item" href="http://localhost:1313/note/data_analysis">數據分析</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search pl-lg-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="http://localhost:1313//search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        
+        <a href="/categories/data-analysis"
+          class="text-primary">Data analysis</a>
+        
+        <h2>練習專案一：復刻兩百個國家、兩百年、四分鐘 1</h2>  
+        <div class="mb-3 post-meta">
+          <span>By Steve</span>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2025-02-07</span> 
+          
+        </div>
+        
+        <div class="content mb-5">
+          <br>
+<h4 id="專案介紹introduction">專案介紹（Introduction）</h4>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/5WkjOoiU_IPuKGsR?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p>Hans Rosling 的 200 Countries, 200 Years, 4 Minutes 是一部經典的資料視覺化影片。
+本專案的目標是復刻<u><a href="https://youtu.be/jbkSRLYSojo?si=5WkjOoiU_IPuKGsR">Hans Rosling&rsquo;s 200 Countries, 200 Years, 4 Minutes</a></u>，這段影片使用 <strong>氣泡圖</strong> 來呈現，描述了 1800 年至 2009 年間 200 個國家的 <strong>人均壽命</strong> 和 <strong>人均 GDP</strong>  的變化。每個氣泡代表一個國家，氣泡的大小代表該國的人口數。
+<br></p>
+<ul>
+<li>
+<p>圖表的軸與資訊</p>
+<ul>
+<li>X 軸 (橫軸)：人均 GDP（以國際美元調整通膨），表示一個國家平均每人的收入水平。從左到右，貧窮到富裕。</li>
+<li>Y 軸 (縱軸)：人均壽命（歲），表示一個國家的健康狀況。從下到上，短命到長壽。</li>
+<li>氣泡大小：該國的人口數，人口越多氣泡越大。</li>
+<li>氣泡顏色：代表地區。
+<ul>
+<li>藍色：非洲 (Africa)</li>
+<li>紅色：亞洲 (Asia)</li>
+<li>黃色：歐洲 (Europe)</li>
+<li>綠色：美洲 (Americas)
+<br></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>圖表的動態變化
+這張圖最特別的是 動畫呈現，顯示了 1800 年到 2009 年的變化：</p>
+<ul>
+<li>1800 年：幾乎所有國家都處於 貧窮且低壽命（左下角）。</li>
+<li>1900 年左右：工業革命讓歐洲和北美的部分國家開始往右移（收入增加）。</li>
+<li>1950 年後：醫療進步讓壽命大幅提升（往上移）。</li>
+<li>1980-2000 年：中國和印度等亞洲國家經濟騰飛，迅速向右移動。</li>
+<li>2009 年：多數國家已經提升到更富裕且長壽的狀態，但一些非洲國家仍然受疾病和貧困影響，落後於其他地區。
+<br></li>
+</ul>
+</li>
+<li>
+<p>這張圖的意義與想表達的內容<br>
+Hans Rosling 的這個視覺化圖表 打破了人們對世界發展的刻板印象，並用數據來證明 全球經濟與健康狀況的巨大變化，具體來說，它想傳達幾個核心訊息：</p>
+<ol>
+<li>世界並非「西方 vs. 其他地區」的二元對立</li>
+</ol>
+<ul>
+<li>許多人認為「富國＝長壽，窮國＝短命」，但實際上，許多開發中國家（特別是亞洲國家，如中國、印度）在過去 200 年裡大幅進步，壽命與收入都提高了。</li>
+<li>這顯示世界不再只有「已開發國家 vs. 開發中國家」，而是一個持續發展與變化的光譜。
+<br></li>
+</ul>
+<ol start="2">
+<li>全球發展速度加快，但仍然不均衡</li>
+</ol>
+<ul>
+<li>雖然整體趨勢是「更富裕、更長壽」，但不同國家的發展速度不一樣。例如：
+<ul>
+<li>19 世紀工業革命讓西方國家（歐美）最早變富有。</li>
+<li>20 世紀中葉後，亞洲（中國、印度等）快速追趕。</li>
+<li>但一些非洲國家仍然面臨經濟發展遲緩、疾病問題（如愛滋病影響壽命）。</li>
+</ul>
+</li>
+<li>這揭示了全球發展的 機會與挑戰。
+<br></li>
+</ul>
+<ol start="3">
+<li>醫療與經濟發展密切相關</li>
+</ol>
+<ul>
+<li>壽命提升不僅來自經濟發展，還來自醫療技術的進步。</li>
+<li>例如，1950 年後，許多國家的人均收入尚未大幅提升，但因為疫苗、抗生素、公共衛生改善，壽命明顯提高。</li>
+<li>這說明 「提高健康水平」不一定需要先變富有，政策選擇也很重要。
+<br></li>
+</ul>
+</li>
+<li>
+<p>這張圖的應用領域
+這種 時序氣泡圖 (Animated Bubble Chart) 在許多領域都很有價值，包括：</p>
+<ol>
+<li><strong>經濟與發展研究</strong></li>
+</ol>
+<ul>
+<li>幫助理解國家發展的長期趨勢，分析經濟增長與健康水平的關係。</li>
+<li>政府或國際組織（如聯合國、世界銀行）可用來制定發展政策。
+<br></li>
+</ul>
+<ol start="2">
+<li><strong>公共衛生與醫療</strong></li>
+</ol>
+<ul>
+<li>研究不同地區的健康變化趨勢，找出影響壽命的關鍵因素（如疾病、醫療基礎設施）。</li>
+<li>可用來分析疫苗、醫療技術對壽命的影響。
+<br></li>
+</ul>
+<ol start="3">
+<li><strong>金融與投資</strong></li>
+</ol>
+<ul>
+<li>了解哪些國家經濟成長較快，進而影響投資決策。</li>
+<li>例如，透過此圖，我們可以發現 亞洲新興市場（如中國、印度）成長速度驚人，這對投資人來說是重要的訊號。
+<br></li>
+</ul>
+<ol start="4">
+<li><strong>教育與科學傳播</strong></li>
+</ol>
+<ul>
+<li>這種視覺化能讓數據變得直觀易懂，使公眾更容易理解全球發展的趨勢。</li>
+<li>Hans Rosling 本人就是個很棒的科學傳播者，他利用這種方式打破誤解，讓數據「說話」。
+<br></li>
+</ul>
+<ol start="5">
+<li><strong>商業策略與市場分析</strong></li>
+</ol>
+<ul>
+<li>企業可以用來分析市場發展趨勢，例如：
+<ul>
+<li>哪些地區的消費力正在提升？</li>
+<li>哪些國家的壽命增加，意味著老年市場將擴大？
+<br></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="border-bottom"></div><br> 
+<h4 id="如何復刻hans-roslings-200-countries-200-years-4-minuteshttpsyoutubejbksrlysojosi5wkjooiu_ipukgsr">如何復刻：<a href="https://youtu.be/jbkSRLYSojo?si=5WkjOoiU_IPuKGsR">Hans Rosling&rsquo;s 200 Countries, 200 Years, 4 Minutes</a></h4>
+<p>專案說明：描述了隨人均GDP上升，各國的平均壽命也在不斷提升。<br>
+如何復刻 Hans Rosling&rsquo;s 200 Countries, 200 Years, 4 Minutes<br></p>
+<ul>
+<li>資料需求。
+<ul>
+<li>X 軸：    人均 GDP</li>
+<li>Y 軸：    預期壽命。</li>
+<li>顏色：    洲別。</li>
+<li>氣泡大小：人口數。</li>
+<li>時間軸：  年份。</li>
+</ul>
+</li>
+<li>視覺化需求。
+<ul>
+<li>概念驗證：matplotlib</li>
+<li>成品：plotly.express</li>
+</ul>
+</li>
+</ul>
+<div class="border-bottom"></div><br> 
+        </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<script>
+  var indexURL = "http://localhost:1313/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="http://localhost:1313/plugins/jQuery/jquery.min.js"></script>
+
+<script src="http://localhost:1313/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="http://localhost:1313/plugins/slick/slick.min.js"></script>
+
+<script src="http://localhost:1313/plugins/venobox/venobox.min.js"></script>
+
+<script src="http://localhost:1313/plugins/search/fuse.min.js"></script>
+
+<script src="http://localhost:1313/plugins/search/mark.js"></script>
+
+<script src="http://localhost:1313/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="http://localhost:1313/js/script.min.js"></script>
+
+
+
+</body>
+</html>
