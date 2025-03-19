@@ -142,14 +142,13 @@
 <li>Minard 圖（Minard’s Map） 是 19 世紀法國土木工程師 Charles Joseph Minard 在 1869 年製作的一張著名資訊視覺化地圖。這張圖表描述了 拿破崙 1812 年遠征俄國 時，法軍的 行軍路線、兵力變化、氣溫 和 時間 等重要資訊，被譽為歷史上最偉大的資訊視覺化之一。</li>
 </ul>
 <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Minard.png">
-<ul>
-<li>Minard 圖的特點
+<h5 id="圖表構成chart-composition">圖表構成（Chart Composition）</h5>
 <ul>
 <li>
 <p>軍隊移動路徑（厚度代表兵力）</p>
 <ul>
-<li>軍隊從 <strong>法國 → 俄國莫斯科</strong>（前進：淺棕色），再 <strong>撤退回法國</strong>（回程：黑色）。</li>
-<li>線條的寬度表示軍隊人數的變化，<strong>可以看到撤退時士兵數量急劇減少</strong>。</li>
+<li>軍隊從 法國→俄國莫斯科（前進：淺棕色），再 撤退回法國（回程：黑色）。</li>
+<li>線條的寬度表示軍隊人數的變化，兵力逐漸減少。</li>
 </ul>
 </li>
 <li>
@@ -161,15 +160,18 @@
 <li>
 <p>氣溫變化（折線圖）</p>
 <ul>
-<li>圖下方用折線圖標示 <strong>撤退</strong>期間的氣溫，顯示 12 月時軍隊面臨極寒（-30°C 以下）。</li>
+<li>圖下方用折線圖標示 <strong>撤退期間的氣溫</strong>，顯示 12 月時軍隊面臨極寒（-30°C 以下）。</li>
 </ul>
 </li>
-</ul>
-</li>
-</ul>
-<br>
+<li>
+<p>時間軸</p>
 <ul>
-<li>Minard 圖的意義
+<li>軍隊在各個地點的日期被標示出來，讓人能夠追蹤進度。
+<br></li>
+</ul>
+</li>
+</ul>
+<h5 id="圖表意義chart-significance">圖表意義（Chart Significance）</h5>
 <ul>
 <li>
 <p>清楚呈現災難性損失</p>
@@ -180,26 +182,22 @@
 <li>
 <p>結合多維數據（地理 + 數量 + 時間 + 氣溫）</p>
 <ul>
-<li>這張圖同時顯示了 地點、兵力、時間、天氣，被視為 資訊視覺化的經典範例。</li>
+<li>這張圖同時顯示了 地點、兵力、時間、天氣，被視為 資訊視覺化的經典範例。
+<br></li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-<br>
-<ul>
-<li>Minard 圖的現代應用<br>
+<h5 id="圖表應用modern-applications">圖表應用（Modern Applications）</h5>
+<p>現在，這種 多變數資訊視覺化方法 被廣泛應用於：</p>
 <ul>
 <li>歷史戰爭分析</li>
 <li>疫情擴散路線圖</li>
 <li>物流與供應鏈</li>
 <li>移民與人口變遷</li>
 </ul>
-</li>
-</ul>
 <br>
 <div class="border-bottom"></div><br> 
-<h4 id="如何復刻-charles-minards-napoleons-disastrous-russian-campaign-of-1812">如何復刻 Charles Minard&rsquo;s Napoleon&rsquo;s disastrous Russian campaign of 1812</h4>
+<h4 id="如何復刻how-to-reproduce">如何復刻（How to Reproduce）</h4>
 <ul>
 <li>資料需求。
 <ul>
@@ -213,13 +211,12 @@
 </li>
 <li>視覺化需求。
 <ul>
-<li>概念驗證：matplotlib, basemap</li>
+<li>概念驗證：matplotlib</li>
 <li>成品：matplotlib, basemap</li>
 </ul>
 </li>
 </ul>
 <div class="border-bottom"></div><br> 
-
         </div>
 
         

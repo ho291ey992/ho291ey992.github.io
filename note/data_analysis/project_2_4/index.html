@@ -134,18 +134,15 @@
         
         <div class="content mb-5">
           <br>
+<h4 id="結果分析results">結果分析（Results）</h4>
 <img src="/images/note/data_analysis/project_2/minard_clone.png">
 <br>
-<h4 id="圖片介紹">圖片介紹</h4>
-<ul>
-<li>Minard 圖的特點
+<h5 id="成品介紹final-product-overview">成品介紹（Final Product Overview）</h5>
 <ul>
 <li>軍隊移動路徑（厚度代表兵力）
 <ul>
 <li>軍隊從 <strong>法國 → 俄國莫斯科</strong>（前進：淺棕色），再 <strong>撤退回法國</strong>（回程：黑色）。</li>
 <li>線條的寬度表示軍隊人數的變化，<strong>可以看到撤退時士兵數量急劇減少</strong>。</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -166,7 +163,8 @@
 </li>
 </ul>
 <br>
-<h4 id="分析">分析</h4>
+<div class="border-bottom"></div><br>
+<h5 id="數據分析data-analysis">數據分析（Data Analysis）</h5>
 <ol>
 <li><strong>軍隊規模變化（士兵數量驟減）</strong></li>
 </ol>
@@ -215,7 +213,7 @@
 </li>
 </ul>
 <br>
-<h4 id="總結">總結</h4>
+<h5 id="總結conclusion">總結（Conclusion）</h5>
 <ul>
 <li><strong>主要失敗因素</strong>：
 <ul>
@@ -226,8 +224,8 @@
 </li>
 </ul>
 <div class="border-bottom"></div><br>
-<h4 id="專案復原">專案復原</h4>
-<h5 id="語言及模組">語言及模組</h5>
+<h4 id="專案復原project-replication">專案復原（Project Replication）</h4>
+<h6 id="語言與模組languages--modules">語言與模組（Languages &amp; Modules）</h6>
 <ul>
 <li>dependencies：
 <ul>
@@ -240,7 +238,7 @@
 </ul>
 <img src="/images/note/data_analysis/project_2/backup_1.jpg">
 <div class="border-bottom"></div><br>
-<h5 id="建立environmentyml">建立environment.yml</h5>
+<h6 id="建立-environmentymlcreating-environmentyml">建立 environment.yml（Creating environment.yml）</h6>
 <p>目的重現專案環境。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>REM 方法1 <span style="color:#ff79c6">(</span>當前目錄建立environment.yml<span style="color:#ff79c6">)</span>
 </span></span><span style="display:flex;"><span>conda env <span style="color:#8be9fd;font-style:italic">export</span> &gt; environment.yml 
@@ -248,7 +246,7 @@
 </span></span><span style="display:flex;"><span>REM 方法2 <span style="color:#ff79c6">(</span>指定目錄建立environment.yml<span style="color:#ff79c6">)</span>
 </span></span><span style="display:flex;"><span>conda env <span style="color:#8be9fd;font-style:italic">export</span> &gt; D:<span style="color:#f1fa8c">\m</span>inard_clone<span style="color:#f1fa8c">\e</span>nvironment.yml
 </span></span></code></pre></div><div class="border-bottom"></div><br>
-<h5 id="如何重現">如何重現</h5>
+<h6 id="如何重現how-to-reproduce">如何重現（How to Reproduce）</h6>
 <ul>
 <li>安裝 <a href="https://www.anaconda.com/docs/getting-started/miniconda/main">Miniconda</a>。</li>
 <li>使用 environment.yml 建立新環境。
