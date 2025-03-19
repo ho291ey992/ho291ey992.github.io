@@ -5,7 +5,7 @@
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="學習筆記">
+  <meta name="description" content="Hugo Install">
   <meta name="author" content="Steve">
     
   
@@ -115,120 +115,98 @@
 </header>
 <!-- /navigation -->
 
-
 <section class="section-sm">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8 mb-5 mb-lg-0">
-        <div class="row">
+      <div class="col-lg-10 mx-auto">
+        
+        <a href="/categories/hugo"
+          class="text-primary">Hugo</a>
+        
+        <h2>安裝、設定 Hugo 環境</h2>  
+        <div class="mb-3 post-meta">
+          <span>By Steve</span>
           
-          
-          
-           
-          <div class="col-md-10 border-bottom pl-0">  
-            <article class="card">
-              <div class="card-body px-0" >
-                
-                <a href="/categories/hugo"
-                  class="text-primary">Hugo</a>
-                
-                <a href="http://localhost:1313/note/hugo/hugo_install/" class="h5 d-block my-3">安裝 Hugo、建立新網站</a>
-                <div class="mb-3 post-meta">
-                  <span>By Steve</span>
-                  
-                  <span class="border-bottom border-primary px-2 mx-1"></span>
-                  <span>2025-01-09</span>
-                  
-                </div>
-              </div>
-            </article>
-          </div>
-          
-           
-          <div class="col-md-10 border-bottom pl-0">  
-            <article class="card">
-              <div class="card-body px-0" >
-                
-                <a href="/categories/hugo"
-                  class="text-primary">Hugo</a>
-                
-                <a href="http://localhost:1313/note/hugo/%E5%AE%89%E8%A3%9Dhugo/" class="h5 d-block my-3">安裝、設定 Hugo 環境</a>
-                <div class="mb-3 post-meta">
-                  <span>By Steve</span>
-                  
-                  <span class="border-bottom border-primary px-2 mx-1"></span>
-                  <span>2025-01-09</span>
-                  
-                </div>
-              </div>
-            </article>
-          </div>
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2025-01-09</span> 
           
         </div>
-      </div>
+        
+        <div class="content mb-5">
+          <h3 id="安裝hugo">安裝Hugo</h3>
+<ol>
+<li>
+<p>下載hugo</p>
+<ul>
+<li>進入hugo官網 -&gt; 往下拉找到 &ldquo;See the Getting Started Guide for other methods&rdquo; &gt; 選擇系統 &gt; Prebuilt binaries &gt; latest release</li>
+<li>下載 hugo_extended_0.140.2_windows-amd64.zip</li>
+<li>下載網址：<a href="https://github.com/gohugoio/hugo/releases/">Hugo Releases</a></li>
+</ul>
+</li>
+<li>
+<p>在C:\Program Files建立hugo資料夾</p>
+</li>
+<li>
+<p>將壓縮中的hugo.exe放入C:\Program Files\hugo中</p>
+</li>
+<li>
+<p>設定環境變數 -&gt; 系統變數 -&gt; Path 編輯 -&gt; 新增 &ldquo;C:\Program Files\hugo&rdquo;
+<img src= /images/note/hugo/hugo_install/Environment-Variable1.png></p>
+</li>
+<li>
+<p>使用命令字元確認安裝 <code>hugo version</code>
+<img src= /images/note/hugo/hugo_install/check-hugo-version.png></p>
+</li>
+</ol>
+<h4 id="建議選擇">建議選擇</h4>
+<ul>
+<li>
+<p>一般 Windows 使用者（大多數情況）：</p>
+<blockquote>
+<p>hugo_extended_0.140.2_Windows-amd64.zip</p>
+</blockquote>
+</li>
+<li>
+<p>如果你確定不需要 SCSS（例如使用簡單主題或純 HTML/CSS）：</p>
+<blockquote>
+<p>hugo_0.140.2_Windows-amd64.zip</p>
+</blockquote>
+  <img src= /images/note/hugo/hugo_install/Compare.png width =80%>
+</li>
+</ul>
+<h3 id="建立新網站">建立新網站</h3>
+<ol>
+<li>
+<p>新增資料夾並且開啟命令字元：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir D:<span style="color:#f1fa8c">\m</span>y_new_website 
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">cd</span> my_new_website
+</span></span></code></pre></div></li>
+<li>
+<p>在終端機建立一個新網站，如果是直接下載現有的 Hugo 主題，直接跳到第3步。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new site my-website
+</span></span></code></pre></div><p>初始化一個全新的網站，這會在當前目錄下建立一個名為 my-website 的資料夾。</p>
+</li>
+<li>
+<p>下載主題：git clone [github網頁] themes/diary</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/AmazingRise/hugo-theme-diary.git themes/diary
+</span></span></code></pre></div></li>
+<li>
+<p>將D:\website\themes\diary\exampleSite\中內容剪下，貼到website資料夾中，每一個主題都不太一樣要研究一下。</p>
+</li>
+<li>
+<p>啟動 Hugo 伺服器，檢查是否正常運作。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server
+</span></span></code></pre></div></li>
+</ol>
 
-      
-      <div class="col-lg-4">
-  <div class="widgets">
-    
-    <div class="widget">
-      
-      <h4 class="widget-title">About Me</h4>
-      
-      <img src="http://localhost:1313/images/headshot_1.jpg" alt=""
-        class="img-fluid author-thumb-sm d-block mx-auto rounded-circle mb-4">
-      
-      <p></p>
-      <a href="http://localhost:1313/about/" class="btn btn-outline-primary">Know More</a>
-      
-    </div>
-    
-    <div class="widget">
-      <h4 class="widget-title">Category</h4>
-      <ul class="list-unstyled">
-        <li><a
-            href="/categories/data-analysis/">Data analysis</a>
-        </li>
-        <li><a
-            href="/categories/hugo/">Hugo</a>
-        </li>
-      </ul>
-    </div>
-    
-    <div class="widget">
-      <h4 class="widget-title">Tag</h4>
-      <ul class="list-inline">
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/config.toml/">Config.toml</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/hugo-%e5%ae%89%e8%a3%9d/">Hugo 安裝</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/markdown-%e8%aa%9e%e6%b3%95/">Markdown 語法</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/powerbi/">Powerbi</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/python/">Python</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/sql/">SQL</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/sqlite/">Sqlite</a></li>
-      </ul>
-    </div>
-    
-    
-  </div>
-</div>
+        </div>
 
-      
-
-      
-      <div class="col-12 mt-5">
+        
         
       </div>
     </div>
   </div>
 </section>
-
 
 
 
