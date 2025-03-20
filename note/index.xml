@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Notes on 學習筆記</title>
-    <link>http://localhost:1313/note/</link>
+    <link>https://ho291ey992.github.io/note/</link>
     <description>Recent content in Notes on 學習筆記</description>
     <generator>Hugo</generator>
     <language>zh-tw</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="http://localhost:1313/note/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ho291ey992.github.io/note/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
