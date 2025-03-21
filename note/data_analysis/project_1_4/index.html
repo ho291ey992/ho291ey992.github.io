@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-tw"><head>
+  <meta charset="utf-8">
+  <title>學習筆記</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="練習專案一：復刻兩百個國家、兩百年、四分鐘">
+  <meta name="author" content="Steve">
+    
+  
+  <meta name="theme-name" content="liva-hugo" />
+  
+  <meta name="generator" content="Hugo 0.140.2">
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://ho291ey992.github.io/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://ho291ey992.github.io/images/favicon.png " type="image/x-icon">
+
+  <!-- google analitycs -->
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'Your ID', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+</head>
+<body><!-- navigation -->
+<header class="navigation sticky"> 
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom pl-0">
+      <a class="navbar-brand mobile-view" href="https://ho291ey992.github.io/"><img class="img-fluid"
+          src="https://ho291ey992.github.io/images/favicon1.png" alt="學習筆記"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        
+        
+        
+        <a class="navbar-brand mx-auto desktop-view" href="https://ho291ey992.github.io/"><img class="img-fluid"
+          src="https://ho291ey992.github.io/images/favicon1.png" alt="學習筆記">
+        </a>
+
+        <ul class="navbar-nav">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://ho291ey992.github.io/about/">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              筆記
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" href="https://ho291ey992.github.io/note/hugo">hugo 網站建置</a>
+              
+              <a class="dropdown-item" href="https://ho291ey992.github.io/note/data_analysis">數據分析</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search pl-lg-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="https://ho291ey992.github.io//search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        
+        <a href="/categories/data-analysis"
+          class="text-primary">Data analysis</a>
+        
+        <h2>練習專案一：復刻兩百個國家、兩百年、四分鐘 4</h2>  
+        <div class="mb-3 post-meta">
+          <span>By Steve</span>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2025-02-11</span> 
+          
+        </div>
+        
+        <div class="content mb-5">
+          <br>
+<h3 id="成品介紹">成品介紹</h3>
+<iframe src="https://ho291ey992.github.io/gapminder_clone/gapminder_clone.html" width="800" height="600"  width=90% ></iframe>
+<div class="border-bottom"></div><br>
+<h4 id="成品介紹final-product-overview">成品介紹（Final Product Overview）</h4>
+<ul>
+<li><strong>X 軸 <code>gdp_per_capita</code></strong> (橫軸)： 人均 GDP（以國際美元調整通膨），表示一個國家平均每人的收入水平。從左到右，貧窮到富裕。</li>
+<li><strong>Y 軸 <code>life_expectancy</code></strong> (縱軸)：人均壽命（歲），表示一個國家的健康狀況。從下到上，短命到長壽。</li>
+<li><strong>時間軸</strong>：1800 ~ 2023 年</li>
+<li><strong>氣泡大小</strong>：該國的人口數，人口越多氣泡越大。</li>
+<li><strong>氣泡顏色</strong>：代表地區。
+<ul>
+<li>紅色：非洲 (Africa)</li>
+<li>藍色：亞洲 (Asia)</li>
+<li>綠色：歐洲 (Europe)</li>
+<li>紫色：美洲 (Americas)</li>
+</ul>
+</li>
+</ul>
+<br>
+<h4 id="數據分析data-analysis">數據分析（Data Analysis）</h4>
+<ol>
+<li><strong>全球趨勢分析</strong></li>
+</ol>
+<ul>
+<li>觀察到隨時間推進，人均 GDP 和 人均壽命 整體都在提升。</li>
+</ul>
+<br>
+<ol start="2">
+<li><strong>地區與發展差異</strong></li>
+</ol>
+<ul>
+<li>發展不均，<strong>已開發國家、開發中國家、未開發國家</strong> 之間的收入差距明顯。</li>
+<li>但也能發現例外，同地區的部分國家發展迅速，甚至超越部分已開發國家。</li>
+</ul>
+<br>
+<ol start="3">
+<li><strong>人均壽命提升</strong></li>
+</ol>
+<ul>
+<li>令人意外的 <strong>平均壽命</strong> 不完全與 <strong>經濟成長</strong> 成正相關。</li>
+<li>例如，非洲部分地區 <strong>人均 GDP</strong> 並無太大成長，但 <strong>平均壽命</strong> 仍然顯著提升。</li>
+<li>整體來看，較高的 GDP 確實與較高的壽命相關，但仍有例外。</li>
+</ul>
+<br>
+<h4 id="總結conclusion">總結（Conclusion）</h4>
+<ol>
+<li><strong>全球發展趨勢</strong></li>
+</ol>
+<ul>
+<li>數據顯示，整體而言，<strong>經濟</strong> 與 <strong>壽命</strong> 持續提升。</li>
+<li>但 <strong>平均壽命</strong> 似乎已到達某個瓶頸，增長速度減緩。</li>
+</ul>
+<br>
+<ol start="2">
+<li><strong>發展速度不均</strong></li>
+</ol>
+<ul>
+<li>雖然全球 GDP 提升，但發展不均衡，部分國家（如中國、印度）增長極快，而部分地區（如非洲某些國家）仍然面臨經濟困境。</li>
+</ul>
+<br>
+<ol start="3">
+<li><strong>人均壽命持續提升</strong></li>
+</ol>
+<ul>
+<li><strong>打破傳統刻板印象</strong>，許多開發中國家在醫療和社會進步下，即使經濟成長有限，壽命仍顯著提高。</li>
+<li>除了<strong>經濟成長</strong>外，<strong>政府政策、醫療進步、教育普及</strong> 也是影響壽命的關鍵因素。</li>
+<li>有些國家雖然 GDP 不高，但因為公共衛生與醫療政策得當，人民壽命依然較長。</li>
+</ul>
+<br>
+<div class="border-bottom"></div><br>
+<h3 id="專案復原project-replication">專案復原（Project Replication）</h3>
+<h4 id="語言與模組languages--modules">語言與模組（Languages &amp; Modules）</h4>
+<ul>
+<li>dependencies:
+<ul>
+<li>python=3.12.8</li>
+<li>pandas=2.2.3</li>
+<li>matplotlib=3.9.2</li>
+<li>plotly=5.24.1</li>
+<li>這邊使用conda list | findstr $module_name (windows Anaconda Prompt)
+<img src="/static/images/note/data_analysis/project_1/conda_list_findstr.png"></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>指定模組下載頻道</strong>：</p>
+<ul>
+<li>
+<p>conda install numpy</p>
+<ul>
+<li>不指定頻道，會使用 Conda 的 默認頻道（Default Channels）。</li>
+<li>默認頻道的套件通常是由 Anaconda 官方維護，穩定性較高，但更新速度可能較慢。</li>
+</ul>
+</li>
+<li>
+<p>conda install -c conda-forge numpy</p>
+<ul>
+<li>明確指定從 <code>conda-forge</code> 頻道安裝套件。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<br>
+<h4 id="建立environmentyml">建立environment.yml</h4>
+<p>目的重現專案環境。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>REM 方法 <span style="color:#ff79c6">(</span>當前目錄建立environment.yml<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>conda env <span style="color:#8be9fd;font-style:italic">export</span> &gt; environment.yml 
+</span></span></code></pre></div><br>
+<h4 id="如何重現">如何重現</h4>
+<ul>
+<li>
+<p>安裝 <a href="https://www.anaconda.com/docs/getting-started/miniconda/main">Miniconda</a></p>
+</li>
+<li>
+<p>使用 environment.yml 建立新環境。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>conda env create -f environment.yml
+</span></span></code></pre></div></li>
+<li>
+<p>建立資料 <code>gapminder_clone/</code>。</p>
+</li>
+<li>
+<p>使用 <code>VScode</code> 將資料夾新增到工作區。</p>
+</li>
+<li>
+<p>將 <code>data/</code> 資料夾中的四個 CSV 檔案置放於工作目錄中的 <code>data/</code> 資料夾。</p>
+</li>
+<li>
+<p>啟動環境並執行 <code>python create_gapminder_db.py</code> 就能在 <code>data/</code> 資料夾中建立 <code>gapminder.db</code></p>
+</li>
+<li>
+<p>啟動環境並執行 <code>python plot_with_px.py</code> 產生 <code>gapminder_clone.html</code></p>
+</li>
+</ul>
+<br>
+<div class="border-bottom"></div><br>
+<h3 id="心得">心得</h3>
+<ul>
+<li>這次的分析確實提供了一些有用的資訊，主要是基於數據結合個人觀察與查閱的資料，以自己的口吻整理出來。例如：
+<ul>
+<li><strong>全球趨勢</strong>：全球 GDP 和壽命整體提升。</li>
+<li><strong>區域對比</strong>：經濟發展不均，部分國家發展迅速，部分國家仍處於低收入狀態。</li>
+<li><strong>打破傳統觀點</strong>：壽命提升不完全取決於 GDP，醫療、教育、政策等因素同樣影響深遠。</li>
+</ul>
+</li>
+</ul>
+<br>
+<ul>
+<li><strong>然而，回顧這次的分析，我發現它的「實際應用價值」仍然有限</strong>。 雖然數據呈現了一些趨勢，但缺少了更深入的個人觀點，特別是在這些趨勢能如何影響決策方面，還有很大的提升空間。</li>
+</ul>
+<br>
+<ul>
+<li>我認為 <strong>資料分析師的目標，不只是「我們觀察到了什麼」，而是「這些資訊如何影響決策，並帶來實際價值」</strong>。 下一步，我希望能進一步探索如何從數據中提取更具策略性的洞察，使分析結果更具行動意義。</li>
+</ul>
+<br>
+<div class="border-bottom"></div><br>
+        </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<script>
+  var indexURL = "https://ho291ey992.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://ho291ey992.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/mark.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://ho291ey992.github.io/js/script.min.js"></script>
+
+
+
+</body>
+</html>
