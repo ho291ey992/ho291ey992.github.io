@@ -164,7 +164,7 @@
 </ul>
 <hr>
 <h4 id="數據結構data-structure">數據結構（Data Structure）</h4>
-<p>原始資料是以 <strong>寬資料表</strong> 的形式儲存，每個問題佔一欄。為了方便後續分析，我們會將資料轉換為 <strong>長資料表</strong>，將每筆資料拆解為 <strong>「問題」</strong> 與 <strong>「回答」</strong> 兩個資料表，並移除 <strong>空值（Null）</strong>。
+<p>原始資料是以 <strong>寬資料表</strong> 的形式儲存，每個問題佔一欄。為了方便後續分析，我們會將資料轉換為 <strong>長資料表</strong>，將每筆資料拆解為 <strong>「問題」</strong> 與 <strong>「回覆」</strong> 兩個資料表，並移除 <strong>空值（Null）</strong>。
 接著，為了觀察資料在三年間的變化，我們需要先找出三年間的 <strong>共通問題</strong>，才能進行後續比較分析。</p>
 <ul>
 <li>
@@ -188,7 +188,7 @@
 <br>
 </li>
 <li>
-<p>回答 ( <strong>長表格</strong> )</p>
+<p>回覆 ( <strong>長表格</strong> )</p>
 <ul>
 <li>responses
 <ul>
@@ -207,11 +207,11 @@
 <h4 id="寬表格--長表格介紹">寬表格 &amp; 長表格介紹：</h4>
 <p>當資料結構簡單、只想針對單一題目做統計時，使用寬表就已足夠，不需特別轉換格式。</p>
 <ul>
-<li><strong>寬表格（Wide Format）</strong> <br> 每一列有多個觀測值（即多個題目的回答），每一欄代表不同的變數（題目）。 <br> <strong>適合觀察個體，資料較直觀、方便人工閱讀</strong>。</li>
+<li><strong>寬表格（Wide Format）</strong> <br> 每一列有多個觀測值（即多個題目的回覆），每一欄代表不同的變數（題目）。 <br> <strong>適合觀察個體，資料較直觀、方便人工閱讀</strong>。</li>
 </ul>
 <br>
 <ul>
-<li><strong>長表格 （Long Format）</strong> <br> 每一列只包含一個觀測值（回答），其餘欄位則標示這筆資料來自哪一個變數（題目）。 <br> <strong>適合程式設計、SQL查詢、合併多表資料、進行類別比較或視覺化分析</strong>。</li>
+<li><strong>長表格 （Long Format）</strong> <br> 每一列只包含一個觀測值（回覆），其餘欄位則標示這筆資料來自哪一個變數（題目）。 <br> <strong>適合程式設計、SQL查詢、合併多表資料、進行類別比較或視覺化分析</strong>。</li>
 </ul>
 <br>
 <h5 id="為什麼要轉長表">為什麼要轉長表？</h5>
@@ -326,7 +326,7 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 解決方法：low_memory=False：讓 pandas 讀取整個檔案後，再判斷數據類型，而不是只根據部分數據來推測。</span>
 </span></span><span style="display:flex;"><span>  df <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>read_csv(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;data_scientists_toolbox/data/kaggle_survey_</span><span style="color:#f1fa8c">{</span>year<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">_responses.csv&#34;</span>, low_memory<span style="color:#ff79c6">=</span><span style="color:#ff79c6">False</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 匯入&#34;回答資料&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 匯入&#34;回覆資料&#34;</span>
 </span></span><span style="display:flex;"><span>  df_dict[year, <span style="color:#f1fa8c">&#34;responses&#34;</span>] <span style="color:#ff79c6">=</span> df<span style="color:#ff79c6">.</span>iloc[<span style="color:#bd93f9">1</span>:, :]
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 讀取&#34;題目敘述&#34;</span>
@@ -398,7 +398,7 @@
 </span></span><span style="display:flex;"><span>  response_df_reset_index <span style="color:#ff79c6">=</span> response_df<span style="color:#ff79c6">.</span>reset_index()
 </span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 將 &#34;寬資料表&#34; 轉為 &#34;長資料表&#34;</span>
 </span></span><span style="display:flex;"><span>  response_df_melted <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>melt(response_df_reset_index, id_vars<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;index&#34;</span>, var_name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;question_index&#34;</span>, value_name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;response&#34;</span>)
-</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 回答年分</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 回覆年分</span>
 </span></span><span style="display:flex;"><span>  response_df_melted[<span style="color:#f1fa8c">&#34;responded_in&#34;</span>] <span style="color:#ff79c6">=</span> survey_year
 </span></span><span style="display:flex;"><span>  response_df_melted <span style="color:#ff79c6">=</span> response_df_melted<span style="color:#ff79c6">.</span>rename(columns<span style="color:#ff79c6">=</span>{<span style="color:#f1fa8c">&#34;index&#34;</span>: <span style="color:#f1fa8c">&#34;respondent_id&#34;</span>})
 </span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 清除Null(空)的回覆資料</span>
@@ -407,7 +407,7 @@
 </span></span></code></pre></div></li>
 </ul>
 <blockquote>
-<p><strong>回復資料處裡</strong> 和 <strong>題目資料處理</strong> ，是寫在 <strong>def tidy_data(year)</strong> 之中 。</p>
+<p><strong>回覆資料處理</strong> 和 <strong>題目資料處理</strong> ，是寫在 <strong>def tidy_data(year)</strong> 之中 。</p>
 </blockquote>
 <ul>
 <li>Step 4：儲存為 SQLite 資料庫，準備進行查詢分析。
