@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-tw"><head>
+  <meta charset="utf-8">
+  <title>學習筆記</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="練習專案三：資料科學家的工具箱">
+  <meta name="author" content="Steve">
+    
+  
+  <meta name="theme-name" content="liva-hugo" />
+  
+  <meta name="generator" content="Hugo 0.140.2">
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://ho291ey992.github.io/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://ho291ey992.github.io/images/favicon.png " type="image/x-icon">
+
+  <!-- google analitycs -->
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'Your ID', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+</head>
+<body><!-- navigation -->
+<header class="navigation sticky"> 
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom pl-0">
+      <a class="navbar-brand mobile-view" href="https://ho291ey992.github.io/"><img class="img-fluid"
+          src="https://ho291ey992.github.io/images/favicon1.png" alt="學習筆記"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        
+        
+        
+        <a class="navbar-brand mx-auto desktop-view" href="https://ho291ey992.github.io/"><img class="img-fluid"
+          src="https://ho291ey992.github.io/images/favicon1.png" alt="學習筆記">
+        </a>
+
+        <ul class="navbar-nav">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://ho291ey992.github.io/about/">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              筆記
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" href="https://ho291ey992.github.io/note/hugo">hugo 網站建置</a>
+              
+              <a class="dropdown-item" href="https://ho291ey992.github.io/note/data_analysis">數據分析</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search pl-lg-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="https://ho291ey992.github.io//search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        
+        <a href="/categories/data-analysis"
+          class="text-primary">Data analysis</a>
+        
+        <h2>練習專案三：資料科學家的工具箱 2</h2>  
+        <div class="mb-3 post-meta">
+          <span>By Steve</span>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2025-04-08</span> 
+          
+        </div>
+        
+        <div class="content mb-5">
+          <br>
+<h3 id="環境設定environment-setup">環境設定（Environment Setup）</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  建立新環境
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>base<span style="color:#ff79c6">)</span> conda create -n data_scientists_toolbox <span style="color:#8be9fd;font-style:italic">python</span><span style="color:#ff79c6">=</span>3.12 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  檢查環境
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>base<span style="color:#ff79c6">)</span> conda env list 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  進入新建力環境
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>base<span style="color:#ff79c6">)</span> conda activate data_scientists_toolbox
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  安裝模組
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>minard_clone<span style="color:#ff79c6">)</span> conda install pandas
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>minard_clone<span style="color:#ff79c6">)</span> conda install matplotlib
+</span></span></code></pre></div>   <br>
+<hr>
+<h3 id="數據準備data-preparation">數據準備（Data Preparation）</h3>
+<h4 id="數據來源data-sources">數據來源（Data Sources）</h4>
+<ul>
+<li>
+<p>來自 kaggle.com 的競賽</p>
+<ul>
+<li><a href="https://www.kaggle.com/competitions/kaggle-survey-2020">2020 Kaggle Machine Learning &amp; Data Science Survey</a></li>
+<li><a href="https://www.kaggle.com/competitions/kaggle-survey-2021">2021 Kaggle Machine Learning &amp; Data Science Survey</a></li>
+<li><a href="https://www.kaggle.com/competitions/kaggle-survey-2022">2022 Kaggle Machine Learning &amp; Data Science Survey</a></li>
+</ul>
+ <br>
+</li>
+</ul>
+<hr>
+<h4 id="數據結構data-structure">數據結構（Data Structure）</h4>
+<p>原始資料是以 <strong>寬資料表</strong> 的形式儲存，每個問題佔一欄。為了方便後續分析，我們會將資料轉換為 <strong>長資料表</strong>，將每筆資料拆解為 <strong>「問題」</strong> 與 <strong>「回答」</strong> 兩個資料表，並移除 <strong>空值（Null）</strong>。
+接著，為了觀察資料在三年間的變化，我們需要先找出三年間的 <strong>共通問題</strong>，才能進行後續比較分析。</p>
+<ul>
+<li>
+<p>原始資料 ( <strong>寬表格</strong> )
+<img src='/images/note/data_analysis/project_3/資料外觀.png'></p>
+ <br>
+</li>
+<li>
+<p>問題 ( <strong>長表格</strong> )</p>
+<ul>
+<li>questions
+<ul>
+<li>question_index</li>
+<li>question_type</li>
+<li>question_description</li>
+<li>surveyed_in <br>
+<img src='/images/note/data_analysis/project_3/問題.png' width = 80%></li>
+</ul>
+</li>
+</ul>
+<br>
+</li>
+<li>
+<p>回答 ( <strong>長表格</strong> )</p>
+<ul>
+<li>responses
+<ul>
+<li>respondent_id</li>
+<li>question_index</li>
+<li>response</li>
+<li>response_in <br>
+<img src='/images/note/data_analysis/project_3/回答.png' width = 80%></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+ <br>
+<hr>
+<h4 id="寬表格--長表格介紹">寬表格 &amp; 長表格介紹：</h4>
+<p>當資料結構簡單、只想針對單一題目做統計時，使用寬表就已足夠，不需特別轉換格式。</p>
+<ul>
+<li><strong>寬表格（Wide Format）</strong> <br> 每一列有多個觀測值（即多個題目的回答），每一欄代表不同的變數（題目）。 <br> <strong>適合觀察個體，資料較直觀、方便人工閱讀</strong>。</li>
+</ul>
+<br>
+<ul>
+<li><strong>長表格 （Long Format）</strong> <br> 每一列只包含一個觀測值（回答），其餘欄位則標示這筆資料來自哪一個變數（題目）。 <br> <strong>適合程式設計、SQL查詢、合併多表資料、進行類別比較或視覺化分析</strong>。</li>
+</ul>
+<br>
+<h5 id="為什麼要轉長表">為什麼要轉長表？</h5>
+<p>這份資料橫跨 2020–2022 三年，不同年份的欄位命名略有差異（如 Q5, Q23），若採用寬表格查詢會造成程式碼冗長、不易維護。</p>
+<br>
+<ul>
+<li>
+<p>轉換為 <strong>長表格</strong> 的優點：</p>
+<ol>
+<li>查詢更簡潔</li>
+<li>便於合併多年份資料</li>
+<li>程式碼更具可讀性與擴充性</li>
+</ol>
+<br>
+</li>
+</ul>
+<p>以這個問題為例：</p>
+<blockquote>
+<ul>
+<li>Select the title most similar to your current role.
+<ul>
+<li>2020: Q5</li>
+<li>2021: Q5</li>
+<li>2022: Q23</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>無論是否轉為 <strong>長表格</strong> 都可以完成分析，但若使用 <strong>長表格</strong> ，只需要一半的程式碼即可達成同樣效果。</p>
+<ul>
+<li><strong>寬表格查詢範例：</strong>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#ff79c6">select</span> <span style="color:#bd93f9">2020</span> <span style="color:#ff79c6">as</span> surveyed_in,
+</span></span><span style="display:flex;"><span>       Q5 <span style="color:#ff79c6">as</span> response,
+</span></span><span style="display:flex;"><span>       <span style="color:#ff79c6">count</span>(Q5) <span style="color:#ff79c6">as</span> response_count
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> kaggle_survey_2020
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">where</span> Q5 <span style="color:#ff79c6">is</span> <span style="color:#ff79c6">not</span> <span style="color:#ff79c6">NULL</span> <span style="color:#ff79c6">and</span> <span style="color:#ff79c6">LENGTH</span>(Q5)<span style="color:#ff79c6">&gt;</span><span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">group</span> <span style="color:#ff79c6">by</span> Q5 
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">having</span> response_count <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">UNION</span> 
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">select</span> <span style="color:#bd93f9">2021</span> <span style="color:#ff79c6">as</span> surveyed_in,
+</span></span><span style="display:flex;"><span>       Q5 <span style="color:#ff79c6">as</span> response,
+</span></span><span style="display:flex;"><span>       <span style="color:#ff79c6">count</span>(Q5) <span style="color:#ff79c6">as</span> response_count
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> kaggle_survey_2021
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">where</span> Q5 <span style="color:#ff79c6">is</span> <span style="color:#ff79c6">not</span> <span style="color:#ff79c6">NULL</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">group</span> <span style="color:#ff79c6">by</span> Q5 
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">having</span> response_count <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">UNION</span> 
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">select</span> <span style="color:#bd93f9">2022</span> <span style="color:#ff79c6">as</span> surveyed_in,
+</span></span><span style="display:flex;"><span>       Q23 <span style="color:#ff79c6">as</span> response,
+</span></span><span style="display:flex;"><span>       <span style="color:#ff79c6">count</span>(Q23) <span style="color:#ff79c6">as</span> response_count
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> kaggle_survey_2022
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">where</span> Q23 <span style="color:#ff79c6">is</span> <span style="color:#ff79c6">not</span> <span style="color:#ff79c6">NULL</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">group</span> <span style="color:#ff79c6">by</span> Q23
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">having</span> response_count <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">order</span> <span style="color:#ff79c6">by</span> surveyed_in,response_count <span style="color:#ff79c6">desc</span>;
+</span></span></code></pre></div><blockquote>
+<p>每年欄位都不盡相同（如 Q5 與 Q23），每次都得「改欄位、改表名」，非常不利於維護與重複利用。</p>
+</blockquote>
+</li>
+</ul>
+<br>
+<ul>
+<li><strong>長表格查詢範例：</strong>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#ff79c6">select</span> surveyed_in ,
+</span></span><span style="display:flex;"><span>       response ,
+</span></span><span style="display:flex;"><span>       response_count 
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> aggregated_responses
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">where</span> (surveyed_in <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">2022</span> <span style="color:#ff79c6">and</span> question_index <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;Q5&#39;</span>) 
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">or</span> (surveyed_in <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">2022</span> <span style="color:#ff79c6">and</span> question_index <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;Q23&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">order</span> <span style="color:#ff79c6">by</span> surveyed_in ,
+</span></span><span style="display:flex;"><span>      response_count <span style="color:#ff79c6">desc</span>;
+</span></span></code></pre></div><blockquote>
+<p>優點一目了然：</p>
+<ul>
+<li>只需改 WHERE 條件，就能篩選不同題目。</li>
+<li>可將查詢寫成函式，自動化處理多題目。</li>
+<li>更方便串接視覺化工具、或應用於批次繪圖腳本中。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<br>
+<h5 id="查詢解果">查詢解果</h5>
+<p>兩段程式碼皆可達成相同效果。
+<img src='/images/note/data_analysis/project_3/查詢結果.png' width = 80%></p>
+<br>
+<h5 id="總結">總結：</h5>
+<ul>
+<li><strong>寬表格</strong> 適合簡單瀏覽與單一題目查詢，但在欄位多樣、時間跨度大時，會造成程式碼繁瑣。</li>
+<li><strong>長表格</strong> 更具彈性與可維護性，無論在查詢、視覺化還是跨表整合時，都能大幅簡化操作。</li>
+</ul>
+<br>
+<hr>
+<h4 id="數據導入data-import">數據導入（Data Import）</h4>
+<ul>
+<li>Step 1：載入與整理原始問卷資料。
+<ul>
+<li>
+<p>df_dict</p>
+<ul>
+<li>df_dict[2020, &ldquo;responses&rdquo;]</li>
+<li>df_dict[2020, &ldquo;question_descriptions&rdquo;]</li>
+<li>df_dict[2021, &ldquo;responses&rdquo;]</li>
+<li>df_dict[2021, &ldquo;question_descriptions&rdquo;]</li>
+<li>df_dict[2022, &ldquo;responses&rdquo;]</li>
+<li>df_dict[2022, &ldquo;question_descriptions&rdquo;]</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>survey_years <span style="color:#ff79c6">=</span> [<span style="color:#bd93f9">2020</span>, <span style="color:#bd93f9">2021</span>, <span style="color:#bd93f9">2022</span>]
+</span></span><span style="display:flex;"><span>df_dict <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">dict</span>()
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">for</span> year <span style="color:#ff79c6">in</span> survey_years:
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># read_csv 出現 DtypeWarning，表示 CSV 檔案中 某些欄位的數據類型不一致（mixed types）。</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 解決方法：low_memory=False：讓 pandas 讀取整個檔案後，再判斷數據類型，而不是只根據部分數據來推測。</span>
+</span></span><span style="display:flex;"><span>  df <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>read_csv(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;data_scientists_toolbox/data/kaggle_survey_</span><span style="color:#f1fa8c">{</span>year<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">_responses.csv&#34;</span>, low_memory<span style="color:#ff79c6">=</span><span style="color:#ff79c6">False</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 匯入&#34;回答資料&#34;</span>
+</span></span><span style="display:flex;"><span>  df_dict[year, <span style="color:#f1fa8c">&#34;responses&#34;</span>] <span style="color:#ff79c6">=</span> df<span style="color:#ff79c6">.</span>iloc[<span style="color:#bd93f9">1</span>:, :]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 讀取&#34;題目敘述&#34;</span>
+</span></span><span style="display:flex;"><span>  question_descriptions <span style="color:#ff79c6">=</span> df<span style="color:#ff79c6">.</span>iloc[<span style="color:#bd93f9">0</span>, :]<span style="color:#ff79c6">.</span>values
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 題目處裡資料會使用zip，所以事先將資料轉換成一維 (355,)。</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 如果沒有做這個動作資料會是 (1, 355)，在使用zip 會出現錯誤。</span>
+</span></span><span style="display:flex;"><span>  df_dict[year, <span style="color:#f1fa8c">&#34;question_descriptions&#34;</span>] <span style="color:#ff79c6">=</span> question_descriptions
+</span></span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+<br>
+<ul>
+<li>
+<p>Step 2：分割題目欄位，提取題號與類型。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>  <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">tidy_data</span>(year):
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># ----------- 題目資料處理--------------</span>
+</span></span><span style="display:flex;"><span>    column_names <span style="color:#ff79c6">=</span> df_dict[survey_year, <span style="color:#f1fa8c">&#34;responses&#34;</span>]<span style="color:#ff79c6">.</span>columns
+</span></span><span style="display:flex;"><span>    descriptions <span style="color:#ff79c6">=</span> df_dict[survey_year, <span style="color:#f1fa8c">&#34;question_descriptions&#34;</span>]
+</span></span><span style="display:flex;"><span>    question_indexes, question_types, question_descriptions <span style="color:#ff79c6">=</span> [], [], []
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> column_name, question_description <span style="color:#ff79c6">in</span> <span style="color:#8be9fd;font-style:italic">zip</span>(column_names, descriptions):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># 分割 &#34;題號資料&#34;，共有 4 種資料型態 ( Q1、Q7_Part_1、Q35_B_Part_1、Q7_1)。</span>
+</span></span><span style="display:flex;"><span>        column_name_split <span style="color:#ff79c6">=</span> column_name<span style="color:#ff79c6">.</span>split(<span style="color:#f1fa8c">&#34;_&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># 分割 &#34;題目資料&#34;，資料型態 (問題 - Selected Choice -  回覆 )</span>
+</span></span><span style="display:flex;"><span>        question_description_split <span style="color:#ff79c6">=</span> question_description<span style="color:#ff79c6">.</span>split(<span style="color:#f1fa8c">&#34; - &#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># 單選題_處理</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(column_name_split) <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">1</span>:
+</span></span><span style="display:flex;"><span>            question_index <span style="color:#ff79c6">=</span> column_name_split[<span style="color:#bd93f9">0</span>]
+</span></span><span style="display:flex;"><span>            question_indexes<span style="color:#ff79c6">.</span>append(question_index)
+</span></span><span style="display:flex;"><span>            question_types<span style="color:#ff79c6">.</span>append(<span style="color:#f1fa8c">&#34;Single Choice&#34;</span>)
+</span></span><span style="display:flex;"><span>            question_descriptions<span style="color:#ff79c6">.</span>append(question_description_split[<span style="color:#bd93f9">0</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># 多選題_處理</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4"># 處理有大寫字母( Q35_B_Part_1 )資料，只有2020-2021年的資料有大寫字母，所以2022年的資料會直接通過。</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> column_name_split[<span style="color:#bd93f9">1</span>] <span style="color:#ff79c6">in</span> string<span style="color:#ff79c6">.</span>ascii_uppercase:
+</span></span><span style="display:flex;"><span>                question_index <span style="color:#ff79c6">=</span> column_name_split[<span style="color:#bd93f9">0</span>] <span style="color:#ff79c6">+</span> column_name_split[<span style="color:#bd93f9">1</span>]
+</span></span><span style="display:flex;"><span>                question_indexes<span style="color:#ff79c6">.</span>append(question_index)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4"># 處理複選( Q7_Part_1、Q7_1 )資料。</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>                question_index <span style="color:#ff79c6">=</span> column_name_split[<span style="color:#bd93f9">0</span>]
+</span></span><span style="display:flex;"><span>                question_indexes<span style="color:#ff79c6">.</span>append(question_index)
+</span></span><span style="display:flex;"><span>            question_types<span style="color:#ff79c6">.</span>append(<span style="color:#f1fa8c">&#34;Multiple selection&#34;</span>)
+</span></span><span style="display:flex;"><span>            question_descriptions<span style="color:#ff79c6">.</span>append(question_description_split[<span style="color:#bd93f9">0</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    question_df <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>DataFrame()
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 新增 &#34;題號&#34; 資料</span>
+</span></span><span style="display:flex;"><span>    question_df[<span style="color:#f1fa8c">&#34;question_index&#34;</span>] <span style="color:#ff79c6">=</span> question_indexes
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 新增 &#34;單複選&#34; 資料</span>
+</span></span><span style="display:flex;"><span>    question_df[<span style="color:#f1fa8c">&#34;question_type&#34;</span>] <span style="color:#ff79c6">=</span> question_types
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 新增 &#34;問題敘述&#34; 資料</span>
+</span></span><span style="display:flex;"><span>    question_df[<span style="color:#f1fa8c">&#34;question_description&#34;</span>] <span style="color:#ff79c6">=</span> question_descriptions
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 新增 &#34;年份&#34; 資料</span>
+</span></span><span style="display:flex;"><span>    question_df[<span style="color:#f1fa8c">&#34;surveyed_in&#34;</span>] <span style="color:#ff79c6">=</span> survey_year
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 移除重複資料</span>
+</span></span><span style="display:flex;"><span>    question_df <span style="color:#ff79c6">=</span> question_df<span style="color:#ff79c6">.</span>groupby([<span style="color:#f1fa8c">&#34;question_index&#34;</span>, <span style="color:#f1fa8c">&#34;question_type&#34;</span>, <span style="color:#f1fa8c">&#34;question_description&#34;</span>, <span style="color:#f1fa8c">&#34;surveyed_in&#34;</span>])<span style="color:#ff79c6">.</span>count()<span style="color:#ff79c6">.</span>reset_index()
+</span></span></code></pre></div><br>
+</li>
+<li>
+<p>Step 3：轉換回覆格式，讓資料更適合分析。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>  response_df <span style="color:#ff79c6">=</span> df_dict[survey_year, <span style="color:#f1fa8c">&#34;responses&#34;</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 將分割好的 &#34;題目資料&#34; 導入，取代 &#34;題目columns&#34;。</span>
+</span></span><span style="display:flex;"><span>  response_df<span style="color:#ff79c6">.</span>columns <span style="color:#ff79c6">=</span> question_indexes
+</span></span><span style="display:flex;"><span>  response_df_reset_index <span style="color:#ff79c6">=</span> response_df<span style="color:#ff79c6">.</span>reset_index()
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 將 &#34;寬資料表&#34; 轉為 &#34;長資料表&#34;</span>
+</span></span><span style="display:flex;"><span>  response_df_melted <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>melt(response_df_reset_index, id_vars<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;index&#34;</span>, var_name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;question_index&#34;</span>, value_name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;response&#34;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 回答年分</span>
+</span></span><span style="display:flex;"><span>  response_df_melted[<span style="color:#f1fa8c">&#34;responded_in&#34;</span>] <span style="color:#ff79c6">=</span> survey_year
+</span></span><span style="display:flex;"><span>  response_df_melted <span style="color:#ff79c6">=</span> response_df_melted<span style="color:#ff79c6">.</span>rename(columns<span style="color:#ff79c6">=</span>{<span style="color:#f1fa8c">&#34;index&#34;</span>: <span style="color:#f1fa8c">&#34;respondent_id&#34;</span>})
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 清除Null(空)的回覆資料</span>
+</span></span><span style="display:flex;"><span>  response_df_melted <span style="color:#ff79c6">=</span> response_df_melted<span style="color:#ff79c6">.</span>dropna()<span style="color:#ff79c6">.</span>reset_index(drop<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> question_df, response_df_melted
+</span></span></code></pre></div></li>
+</ul>
+<blockquote>
+<p><strong>回復資料處裡</strong> 和 <strong>題目資料處理</strong> ，是寫在 <strong>def tidy_data(year)</strong> 之中 。</p>
+</blockquote>
+<ul>
+<li>Step 4：儲存為 SQLite 資料庫，準備進行查詢分析。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>  question_df <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>DataFrame()
+</span></span><span style="display:flex;"><span>  response_df <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>DataFrame()
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> year <span style="color:#ff79c6">in</span> survey_years:
+</span></span><span style="display:flex;"><span>      q_df, r_df <span style="color:#ff79c6">=</span> tidy_data(year)
+</span></span><span style="display:flex;"><span>      question_df <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>concat([question_df, q_df], ignore_index<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>)
+</span></span><span style="display:flex;"><span>      response_df <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>concat([response_df, r_df], ignore_index<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 全部資料</span>
+</span></span><span style="display:flex;"><span>  connection <span style="color:#ff79c6">=</span> sqlite3<span style="color:#ff79c6">.</span>connect(<span style="color:#f1fa8c">&#34;data_scientists_toolbox/data/kaggle_survey.db&#34;</span>)
+</span></span><span style="display:flex;"><span>  question_df<span style="color:#ff79c6">.</span>to_sql(<span style="color:#f1fa8c">&#34;questions&#34;</span>, con<span style="color:#ff79c6">=</span>connection, if_exists<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;replace&#34;</span>, index<span style="color:#ff79c6">=</span><span style="color:#ff79c6">False</span>)
+</span></span><span style="display:flex;"><span>  response_df<span style="color:#ff79c6">.</span>to_sql(<span style="color:#f1fa8c">&#34;responses&#34;</span>, con<span style="color:#ff79c6">=</span>connection, if_exists<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;replace&#34;</span>, index<span style="color:#ff79c6">=</span><span style="color:#ff79c6">False</span>)
+</span></span><span style="display:flex;"><span>  cur <span style="color:#ff79c6">=</span> connection<span style="color:#ff79c6">.</span>cursor()
+</span></span><span style="display:flex;"><span>  drop_view_sql <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">  drop view if exists aggregated_responses;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">  &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>  create_view_sql <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">  create view aggregated_responses as
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">  select q.surveyed_in,
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        q.question_index,
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        q.question_type,
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        q.question_description,
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        r.response,
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        count(r.response) as response_count
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    from questions q
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    join responses r
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">      on q.surveyed_in = r.responded_in and
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">        q.question_index = r.question_index
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">  group by q.surveyed_in,
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">            q.question_description,
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">            r.response;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">  &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>  cur<span style="color:#ff79c6">.</span>execute(drop_view_sql)
+</span></span><span style="display:flex;"><span>  cur<span style="color:#ff79c6">.</span>execute(create_view_sql)
+</span></span><span style="display:flex;"><span>  connection<span style="color:#ff79c6">.</span>close()
+</span></span></code></pre></div></li>
+</ul>
+<br>
+<ul>
+<li>Step 5：找出三年間共通的題目。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#ff79c6">select</span> q2022.question_description,
+</span></span><span style="display:flex;"><span>    q2022.question_index <span style="color:#ff79c6">as</span> <span style="color:#f1fa8c">&#39;2022_question_index&#39;</span>,
+</span></span><span style="display:flex;"><span>      q2021.question_index <span style="color:#ff79c6">as</span> <span style="color:#f1fa8c">&#39;2021_question_index&#39;</span>,
+</span></span><span style="display:flex;"><span>      q2020.question_index <span style="color:#ff79c6">as</span> <span style="color:#f1fa8c">&#39;2020_question_index&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> questions q2022
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">join</span> questions q2021
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">on</span> q2022.question_description <span style="color:#ff79c6">=</span> q2021.question_description <span style="color:#ff79c6">and</span>
+</span></span><span style="display:flex;"><span>      q2021.surveyed_in <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">2021</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">join</span> questions q2020
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">on</span> q2022.question_description <span style="color:#ff79c6">=</span> q2020.question_description <span style="color:#ff79c6">and</span>
+</span></span><span style="display:flex;"><span>      q2020.surveyed_in <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">2020</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">where</span> q2022.surveyed_in <span style="color:#ff79c6">=</span><span style="color:#bd93f9">2022</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">group</span> <span style="color:#ff79c6">by</span> q2022.question_description 
+</span></span></code></pre></div></li>
+</ul>
+<br>
+<hr>
+<h3 id="備註notes">備註（Notes）</h3>
+<ul>
+<li>這次 dict 使用 tuple 作為 key。 <br>
+[(2020, &lsquo;responses&rsquo;), <br>
+(2020, &lsquo;question_descriptions&rsquo;), <br>
+(2021, &lsquo;responses&rsquo;), <br>
+(2021, &lsquo;question_descriptions&rsquo;), <br>
+(2022, &lsquo;responses&rsquo;), <br>
+(2022, &lsquo;question_descriptions&rsquo;)]<br>
+<ul>
+<li>Python 字典的 key 必須是 不可變 (immutable) 的對象，例如：int, str, tuple, bool 可以當 key。</li>
+<li>list, dict, set 不能當 key（因為它們是可變的）。</li>
+<li>元組 (2020, &ldquo;responses&rdquo;) 是 不可變 (immutable)，所以可以作為 key。</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+        </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<script>
+  var indexURL = "https://ho291ey992.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://ho291ey992.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/mark.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://ho291ey992.github.io/js/script.min.js"></script>
+
+
+
+</body>
+</html>
