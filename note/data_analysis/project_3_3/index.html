@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-tw"><head>
+  <meta charset="utf-8">
+  <title>學習筆記</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="練習專案三：資料科學家的工具箱">
+  <meta name="author" content="Steve">
+    
+  
+  <meta name="theme-name" content="liva-hugo" />
+  
+  <meta name="generator" content="Hugo 0.140.2">
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://ho291ey992.github.io/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://ho291ey992.github.io/images/favicon.png " type="image/x-icon">
+
+  <!-- google analitycs -->
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'Your ID', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+</head>
+<body><!-- navigation -->
+<header class="navigation sticky"> 
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom pl-0">
+      <a class="navbar-brand mobile-view" href="https://ho291ey992.github.io/"><img class="img-fluid"
+          src="https://ho291ey992.github.io/images/favicon1.png" alt="學習筆記"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        
+        
+        
+        <a class="navbar-brand mx-auto desktop-view" href="https://ho291ey992.github.io/"><img class="img-fluid"
+          src="https://ho291ey992.github.io/images/favicon1.png" alt="學習筆記">
+        </a>
+
+        <ul class="navbar-nav">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://ho291ey992.github.io/about/">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              筆記
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" href="https://ho291ey992.github.io/note/hugo">hugo 網站建置</a>
+              
+              <a class="dropdown-item" href="https://ho291ey992.github.io/note/data_analysis">數據分析</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search pl-lg-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="https://ho291ey992.github.io//search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        
+        <a href="/categories/data-analysis"
+          class="text-primary">Data analysis</a>
+        
+        <h2>練習專案三：資料科學家的工具箱 3</h2>  
+        <div class="mb-3 post-meta">
+          <span>By Steve</span>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2025-06-25</span> 
+          
+        </div>
+        
+        <div class="content mb-5">
+          <br>
+<h3 id="數據清理data-clean">數據清理（Data Clean）</h3>
+<h4 id="資料說明">資料說明</h4>
+<ul>
+<li>本次的數據清理是以上一篇<code>《練習專案三：資料科學家的工具箱（二）》</code>中的 <code>kaggle_survey.db</code> 為基礎，並在後續分析過程中，根據實際需求逐步進行調整與清理，例如：正規化題目與選項、修正錯誤資訊、建立群組等。</li>
+<li>最終將資料表拆分為以下幾個子資料表：
+<ol>
+<li><strong>kaggle_question_reference_table</strong>：統一題號與欄位分類</li>
+<li><strong>responses</strong>：所有回覆資料（長表格式）</li>
+<li><strong>responses_single_choice_group</strong>：單選題整理與群組資料 (寬表資料格式)</li>
+<li><strong>prog_lang_skill_group</strong>：統計各人使用的程式語言數量（多選題轉統計值）</li>
+<li><strong>salary_order</strong>：薪資分級與排序</li>
+<li><strong>country_area</strong>：將國家對應至洲別</li>
+<li><strong>coding_exp_years_order</strong>：將文字敘述的經驗年數進行排序與分群</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>參考資料：<a href="https://hahow.in/courses/667242066282be4de9eabf8f?utm_source=share&amp;utm_medium=link">資料分析的七個練習專案：累積個人作品集</a>
+由於程式碼較為複雜，此處不提供程式碼，有興趣的讀者可前往我的 <a href="https://github.com/ho291ey992/data_scientists_toolbox/blob/main/keggle_to_db.py">GitHub</a> 下載。</p>
+</blockquote>
+<hr>
+<br>
+<h4 id="一kaggle_question_reference_table">一、kaggle_question_reference_table</h4>
+<ul>
+<li>
+<p>這張資料表是在分析開始前，為了方便觀察各年度問卷中的<strong>共通題目</strong>而建立的（初期使用 Excel 編輯）。其主要目的包括：</p>
+<ul>
+<li>確定主要分析的題目。</li>
+<li>分類題目類型</li>
+<li>確認各題的分析方向</li>
+<li>統一各年度中相同題目的欄位名稱</li>
+</ul>
+</li>
+<li>
+<p>此表是分析初期的重要基礎資料，後續在轉換資料格式、建構分析資料表時，都會參考這張表進行欄位統一與題目篩選。
+<br><br></p>
+</li>
+<li>
+<p><strong>欄位說明：</strong></p>
+<ul>
+<li><strong>分類：</strong> 將題目依主題分類，例如：<strong>基礎輪廓分析</strong>、<strong>技能與工具分析</strong>、<strong>學習資源</strong>與<strong>學習經歷</strong>…等，用於分組觀察與呈現。</li>
+<li><strong>排序：</strong> 主要用於 Power BI 中標籤順序排序。若無此欄，Power BI 會自動依字母排序，影響視覺呈現的邏輯順序（此欄在其他分析中不一定會用到）。</li>
+<li><strong>欄位：</strong> 為該題設計的中文欄位名稱，方便後續交叉分析與圖表標示使用。</li>
+<li><strong>欄位英文(col_eng)：</strong> 統一命名的英文欄位（如 <code>age</code>、<code>salary</code>、<code>ml_algo</code>），可作為資料欄位名稱對應的主鍵。</li>
+<li><strong>question_type：</strong> 表示該題是單選（S）或多選（M），遇到多選題時需額外轉為<strong>長表進行處理</strong>。</li>
+<li><strong>分析方向：</strong> 初步規劃的分析切入點與用途，例如：與工作型態、學習資源、工具偏好等的關聯。</li>
+<li><strong>2022、2021、2020：</strong> 各年度該題目在原始問卷中的編號（如 Q1、Q5 等）。</li>
+<li><strong>question_description：</strong> 該題的英文原文描述，保留作為查找或驗證用途。</li>
+<li><strong>中文翻譯：</strong> 自我翻譯的中文題目說明，用於題目分類與理解輔助。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>這張表是我在準備分析時所建立的基礎對照表，幫助我統整不同年份的問卷題目。</p>
+</blockquote>
+  <img src='/images/note/data_analysis/project_3/kaggle_question_reference_table.jpg' width = 80%>
+---
+<br><br>
+<h4 id="二responses">二、responses</h4>
+<p>分析完題目後，接下來我需要清理資料並設計資料表，以利後續分析。這樣能避免重複資料造成空間浪費，並透過正規化提升資料的一致性與可維護性。</p>
+<ol>
+<li>
+<p><strong>欄位名稱標準化</strong>：將不同年份中命名不一致的欄位，統一修改為一致的名稱。</p>
+<blockquote>
+<p>例如：「年齡」在 2022 年題號為 <code>Q2</code>，2021 與 2020 年則為 <code>Q1</code>，最終統一命名為 <code>age</code>。</p>
+</blockquote>
+</li>
+<li>
+<p><strong>建立主鍵（Primary Key）</strong>：重新編排 id，作為唯一識別資料表中每一筆紀錄的主鍵。</p>
+</li>
+<li>
+<p><strong>回覆資料標準化</strong>：統一處理不同年份在描述方式、選項數量或順序上的差異。。這部分是我花最多時間處理的階段。</p>
+<ul>
+<li>我的做法是透過 <code>drop_duplicates</code> 對每道題目的回覆進行比對與清查，最後統一為一致的格式。</li>
+</ul>
+<blockquote>
+<p>例如：「使用的 IDE」中，發現有的年份選項為 <code>Jupyter (JupyterLab, etc.)</code>，有的則為 <code>Jupyter Notebook</code>，實際意義相同，因此將前者統一修改為 <code>Jupyter Notebook</code>。</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><strong>範例</strong>：
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># 資料標準化函式。</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">safe_replace</span>(df, mask, column, mapping):
+</span></span><span style="display:flex;"><span>    df<span style="color:#ff79c6">.</span>loc[mask, column] <span style="color:#ff79c6">=</span> df<span style="color:#ff79c6">.</span>loc[mask, column]<span style="color:#ff79c6">.</span>replace(mapping)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> df
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 查看修改前的唯一值</span>
+</span></span><span style="display:flex;"><span>response_df<span style="color:#ff79c6">.</span>loc[response_df[<span style="color:#f1fa8c">&#39;question_index&#39;</span>] <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;country&#39;</span>, <span style="color:#f1fa8c">&#39;response&#39;</span>]<span style="color:#ff79c6">.</span>drop_duplicates()<span style="color:#ff79c6">.</span>tolist()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 進行標準化</span>
+</span></span><span style="display:flex;"><span>mapping <span style="color:#ff79c6">=</span> {<span style="color:#f1fa8c">&#39;United States of America&#39;</span>:<span style="color:#f1fa8c">&#39;USA&#39;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f1fa8c">&#39;United Kingdom of Great Britain and Northern Ireland&#39;</span>:<span style="color:#f1fa8c">&#39;UK&#39;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f1fa8c">&#39;Hong Kong (S.A.R.)&#39;</span>:<span style="color:#f1fa8c">&#39;Hong Kong&#39;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f1fa8c">&#39;Iran, Islamic Republic of...&#39;</span>:<span style="color:#f1fa8c">&#39;Iran&#39;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f1fa8c">&#39;Viet Nam&#39;</span>:<span style="color:#f1fa8c">&#39;Vietnam&#39;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f1fa8c">&#39;Republic of Korea&#39;</span>:<span style="color:#f1fa8c">&#39;South Korea&#39;</span>
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>response_df <span style="color:#ff79c6">=</span> safe_replace(response_df, response_df[<span style="color:#f1fa8c">&#39;question_index&#39;</span>]<span style="color:#ff79c6">==</span><span style="color:#f1fa8c">&#39;country&#39;</span>, <span style="color:#f1fa8c">&#39;response&#39;</span>, mapping)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 查看修改後的唯一值（驗證修改結果）</span>
+</span></span><span style="display:flex;"><span>response_df<span style="color:#ff79c6">.</span>loc[response_df[<span style="color:#f1fa8c">&#39;question_index&#39;</span>] <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;country&#39;</span>, <span style="color:#f1fa8c">&#39;response&#39;</span>]<span style="color:#ff79c6">.</span>drop_duplicates()<span style="color:#ff79c6">.</span>tolist()
+</span></span></code></pre></div></li>
+<li>發現
+<ul>
+<li><code>salary</code> 為<strong>文字</strong>，需要建立平均數和排序salary_rank、salary_mean。</li>
+<li><code>job_title</code> 2022年，學生變成單獨一題 <code>Q5</code>，發現並無學生是在職人員，因此決定直接將 2022 年的 Q5 合併到 job_title。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<br>
+<h4 id="三responses_single_choice_group">三、responses_single_choice_group</h4>
+<ul>
+<li>將單選題獨立整理後，可以將每一題視為一個「分析族群」。在進行多變量分析時（例如折線圖、氣泡圖），這些欄位能作為 <strong>圖例（Power BI）</strong>，用以觀察不同技能、學歷、國家等族群之間的差異。</li>
+<li>此表額外建立欄位：<code>job_title_group</code>、<code>salary_group</code></li>
+</ul>
+<hr>
+<br>
+<h4 id="四prog_lang_skill_group">四、prog_lang_skill_group</h4>
+<ul>
+<li>統計每位受訪者學過的程式語言數量，並將每個語言拆分為獨立欄位，製作成 One-hot 格式，以利後續與年薪進行比較，判斷學習哪些語言可能具有加分效果。</li>
+<li>此表建立欄位： <code>count</code>、<code>Python_SQL_group</code>、<code>R_SQL_group</code>、<code>Python_R_SQL_group</code>。</li>
+</ul>
+<hr>
+<br>
+<h4 id="五salary_order">五、salary_order</h4>
+<ul>
+<li>將薪資區間轉為連續數值 ( 例如：<code>0-999</code> → <code>499.5</code> )，便於進行統計或圖表排序。</li>
+<li>此表建立欄位：<code>rank</code>、<code>salary_mean</code>。</li>
+</ul>
+<hr>
+<br>
+<h4 id="六country_area">六、country_area</h4>
+<p>這個表是花費最長時間處理的。
+這是我處理時間最長的資料表。</p>
+<ul>
+<li>整合國家所屬區域（ area ）、GDP 與最低薪資資料。</li>
+<li>建立 <code>gpd_group</code>(GDP_年分)、<code>area</code>
+<ul>
+<li>資料來源：<a href="https://www.gapminder.org/data/">Gapminder</a>，使用的資料集為 Fast Track。</li>
+<li>檔案名稱：
+<ul>
+<li><code>ddf--datapoints--gdp_pcap--by--country--time.csv</code></li>
+<li><code>ddf--entities--geo--country.csv</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>建立 <code>annual_salary</code>（最低薪資年收入）
+<ul>
+<li>資料來源：ILO（國際勞工組織），https://ilostat.ilo.org/data/，關鍵字 Minimum Wages（最低工資）。</li>
+<li>檔案名稱：<code>EAR_4MMN_CUR_NB_A-20250529T0752.csv</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<br>
+<h4 id="七coding_exp_years_order">七、coding_exp_years_order</h4>
+<ul>
+<li>由於問卷中沒有直接詢問「工作年資」，因此以 <code>coding_exp_years</code> 作為多變量分析的替代指標。</li>
+<li>建立欄位：rank（作為 Power BI X 軸排序依據）。</li>
+<li>將區間資料轉為數值 ( 例如：<code>1-3 years</code> → <code>2</code> )。
+<br></li>
+</ul>
+<hr>
+
+        </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<script>
+  var indexURL = "https://ho291ey992.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://ho291ey992.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/mark.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://ho291ey992.github.io/js/script.min.js"></script>
+
+
+
+</body>
+</html>

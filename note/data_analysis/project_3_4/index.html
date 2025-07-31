@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="zh-tw"><head>
+  <meta charset="utf-8">
+  <title>學習筆記</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="練習專案三：資料科學家的工具箱">
+  <meta name="author" content="Steve">
+    
+  
+  <meta name="theme-name" content="liva-hugo" />
+  
+  <meta name="generator" content="Hugo 0.140.2">
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://ho291ey992.github.io/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://ho291ey992.github.io/images/favicon.png " type="image/x-icon">
+
+  <!-- google analitycs -->
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'Your ID', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+</head>
+<body><!-- navigation -->
+<header class="navigation sticky"> 
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom pl-0">
+      <a class="navbar-brand mobile-view" href="https://ho291ey992.github.io/"><img class="img-fluid"
+          src="https://ho291ey992.github.io/images/favicon1.png" alt="學習筆記"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        
+        
+        
+        <a class="navbar-brand mx-auto desktop-view" href="https://ho291ey992.github.io/"><img class="img-fluid"
+          src="https://ho291ey992.github.io/images/favicon1.png" alt="學習筆記">
+        </a>
+
+        <ul class="navbar-nav">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://ho291ey992.github.io/about/">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              筆記
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" href="https://ho291ey992.github.io/note/hugo">hugo 網站建置</a>
+              
+              <a class="dropdown-item" href="https://ho291ey992.github.io/note/data_analysis">數據分析</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search pl-lg-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="https://ho291ey992.github.io//search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        
+        <a href="/categories/data-analysis"
+          class="text-primary">Data analysis</a>
+        
+        <h2>練習專案三：資料科學家的工具箱 4</h2>  
+        <div class="mb-3 post-meta">
+          <span>By Steve</span>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2025-07-07</span> 
+          
+        </div>
+        
+        <div class="content mb-5">
+          <br>
+<h3 id="概念驗證可視化方法visualization-methods">概念驗證:可視化方法（Visualization Methods）</h3>
+<p>在開始進行圖表製作前，我會先進行「可視化方法的概念驗證」，目的是確認資料是否具備可視化潛力，並釐清哪些圖表形式最能有效呈現想要傳達的資訊。<br>
+初期使用 Power BI 進行資料瀏覽與檢查，這可以讓我專注在資料內容本身，不會被繪圖語法分心。等資料結構確認後，正式視覺化階段則改用 Python 的 <code>Plotly + Panel</code>，以支援互動性與網頁嵌入需求。
+<br></p>
+<ul>
+<li>補充：一些個人經驗
+<ul>
+<li>Power BI 在資料初期探索時真的很方便，尤其是拖拉圖表檢查資料分佈，很直覺。</li>
+<li>後來想要放上網站時才發現 Power BI 嵌入要付費帳號，直接放棄…</li>
+<li>Plotly 的互動效果很好，加上 Panel 可以切換資料與圖表頁面，實際展示時彈性大很多。</li>
+<li>一開始我沒設定用什麼工具，後來覺得還是挑三種比較好記：靜態（matplotlib）、動態（plotly）、圖形介面（Power BI）。
+<br></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><a href="https://github.com/ho291ey992/data_scientists_toolbox/blob/main/plotly.py">完整程式碼</a> 。</p>
+</blockquote>
+<ul>
+<li>環境 &amp; 資料
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> pandas <span style="color:#ff79c6">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> sqlite3
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> panel <span style="color:#ff79c6">as</span> pn <span style="color:#6272a4"># 用於建立互動式面板與數據更新</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> plotly.express <span style="color:#ff79c6">as</span> px
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> plotly.graph_objects <span style="color:#ff79c6">as</span> go
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">from</span> plotly.subplots <span style="color:#ff79c6">import</span> make_subplots <span style="color:#6272a4"># 用於建立多圖子圖畫布</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 載入的資料集（簡要列出即可）</span>
+</span></span><span style="display:flex;"><span>responses                        <span style="color:#6272a4"># 原始回應資料</span>
+</span></span><span style="display:flex;"><span>responses_single_choice          <span style="color:#6272a4"># 單選題資料（已處理）</span>
+</span></span><span style="display:flex;"><span>kaggle_question_reference_table  <span style="color:#6272a4"># 問題對照表（跨年份欄位對應）</span>
+</span></span><span style="display:flex;"><span>salary_order                     <span style="color:#6272a4"># 薪資排序</span>
+</span></span><span style="display:flex;"><span>country_area                     <span style="color:#6272a4"># 國家地區分類</span>
+</span></span><span style="display:flex;"><span>coding_exp_years_order           <span style="color:#6272a4"># 程式經驗年資排序</span>
+</span></span><span style="display:flex;"><span>prog_lang_skill_group            <span style="color:#6272a4"># 程式語言技能群組</span>
+</span></span></code></pre></div></li>
+</ul>
+<hr>
+<ul>
+<li>單變量
+<ul>
+<li>
+<p>資料處理
+本段資料處理會依輸入的分類名稱，擷取該分類對應的所有欄位資料，並將其整理為長表格式。為了便於後續圖表繪製，會保留部分群組欄位（如職稱、薪資），只篩選 Data-related 職群的回應，並將長字串回答裁切為 short_label，以利呈現在圖表中。每題資料會存成 dict 的形式，方便之後個別取出繪圖。 <br></p>
+<ul>
+<li>資料處理流程：
+<ol>
+<li>擷取指定分類的問題欄位</li>
+<li>合併資料中職稱與薪資分類資訊</li>
+<li>過濾出 Data-related 職群</li>
+<li>整理成長表，並依題目拆成多筆資料儲存</li>
+</ol>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># 依題目分類拆分回應資料</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">data</span>(c): <span style="color:#6272a4"># 輸入為分類名稱，例如 &#39;基礎輪廓分析&#39;，函式會擷取對應題目的回答資料。</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 每題資料會存成 dict 的形式，方便之後個別取出繪圖。</span>
+</span></span><span style="display:flex;"><span>    contents_dict  <span style="color:#ff79c6">=</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 資料條件</span>
+</span></span><span style="display:flex;"><span>    col <span style="color:#ff79c6">=</span> kaggle_question_reference_table<span style="color:#ff79c6">.</span>loc[kaggle_question_reference_table[<span style="color:#f1fa8c">&#39;分類&#39;</span>] <span style="color:#ff79c6">==</span> c, <span style="color:#f1fa8c">&#39;col_eng&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 讀取資料</span>
+</span></span><span style="display:flex;"><span>    df <span style="color:#ff79c6">=</span> responses[responses[<span style="color:#f1fa8c">&#39;question_index&#39;</span>]<span style="color:#ff79c6">.</span>isin(col)]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 合併群組</span>
+</span></span><span style="display:flex;"><span>    df <span style="color:#ff79c6">=</span> df<span style="color:#ff79c6">.</span>merge(responses_single_choice[[<span style="color:#f1fa8c">&#39;id&#39;</span>, <span style="color:#f1fa8c">&#39;job_title_group&#39;</span>, <span style="color:#f1fa8c">&#39;salary_group&#39;</span>]], left_on<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;id&#39;</span>, right_on<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;id&#39;</span>, how<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;left&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 僅保留特定群組資料（如 Data-related）</span>
+</span></span><span style="display:flex;"><span>    df <span style="color:#ff79c6">=</span> df[df[<span style="color:#f1fa8c">&#39;job_title_group&#39;</span>]<span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;Data-related&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># salary_group 僅適用 salary，所以只去除 salary 資料中的錯誤資訊。</span>
+</span></span><span style="display:flex;"><span>    df <span style="color:#ff79c6">=</span> df[<span style="color:#ff79c6">~</span>((df[<span style="color:#f1fa8c">&#39;salary_group&#39;</span>]<span style="color:#ff79c6">==</span><span style="color:#f1fa8c">&#39;wrong_info&#39;</span>) <span style="color:#ff79c6">&amp;</span> (df[<span style="color:#f1fa8c">&#39;question_index&#39;</span>]<span style="color:#ff79c6">==</span><span style="color:#f1fa8c">&#39;salary&#39;</span>))]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    df <span style="color:#ff79c6">=</span> df<span style="color:#ff79c6">.</span>iloc[:,:<span style="color:#ff79c6">-</span><span style="color:#bd93f9">2</span>]<span style="color:#ff79c6">.</span>groupby([<span style="color:#f1fa8c">&#39;response&#39;</span>, <span style="color:#f1fa8c">&#39;surveyed_in&#39;</span>, <span style="color:#f1fa8c">&#39;question_index&#39;</span>])<span style="color:#ff79c6">.</span>count()<span style="color:#ff79c6">.</span>reset_index()<span style="color:#ff79c6">.</span>rename(columns<span style="color:#ff79c6">=</span>{<span style="color:#f1fa8c">&#39;id&#39;</span>:<span style="color:#f1fa8c">&#39;count&#39;</span>})<span style="color:#ff79c6">.</span>sort_values(<span style="color:#f1fa8c">&#39;count&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 將回答切短為 short_label</span>
+</span></span><span style="display:flex;"><span>    df[<span style="color:#f1fa8c">&#39;short_label&#39;</span>] <span style="color:#ff79c6">=</span> df[<span style="color:#f1fa8c">&#39;response&#39;</span>]<span style="color:#ff79c6">.</span>apply(<span style="color:#ff79c6">lambda</span> x: x[:<span style="color:#bd93f9">10</span>] <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#39;...&#39;</span> <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(x) <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">12</span> <span style="color:#ff79c6">else</span> x)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> kaggle_question_reference_table<span style="color:#ff79c6">.</span>loc[kaggle_question_reference_table[<span style="color:#f1fa8c">&#39;分類&#39;</span>] <span style="color:#ff79c6">==</span> c , <span style="color:#f1fa8c">&#39;col_eng&#39;</span>]:
+</span></span><span style="display:flex;"><span>        x <span style="color:#ff79c6">=</span> kaggle_question_reference_table<span style="color:#ff79c6">.</span>loc[kaggle_question_reference_table[<span style="color:#f1fa8c">&#39;col_eng&#39;</span>] <span style="color:#ff79c6">==</span> i, <span style="color:#f1fa8c">&#39;欄位&#39;</span>]<span style="color:#ff79c6">.</span>values[<span style="color:#bd93f9">0</span>]
+</span></span><span style="display:flex;"><span>        contents_dict[x] <span style="color:#ff79c6">=</span> df[df[<span style="color:#f1fa8c">&#39;question_index&#39;</span>]<span style="color:#ff79c6">.</span>isin([i])]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> contents_dict
+</span></span></code></pre></div><br>
+<p>根據 surveyed_in 欄位判斷資料是否包含多個年度。若為多年度資料，將回應統整後製作圓餅圖；若為單年度資料，則保留當年回應並使用橫條圖呈現。 <br></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># 資料處理</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">data_process</span>(d):
+</span></span><span style="display:flex;"><span>    d <span style="color:#ff79c6">=</span> d<span style="color:#ff79c6">.</span>reset_index(drop<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>)
+</span></span><span style="display:flex;"><span>    len_d <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">len</span>(d)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    is_multi_year <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">len</span>(d[<span style="color:#f1fa8c">&#39;surveyed_in&#39;</span>]<span style="color:#ff79c6">.</span>drop_duplicates()) <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 圓餅圖：若有多個年份的資料，聚合後處理 top 9 + other</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> is_multi_year:
+</span></span><span style="display:flex;"><span>        x <span style="color:#ff79c6">=</span> {}
+</span></span><span style="display:flex;"><span>        d <span style="color:#ff79c6">=</span> d<span style="color:#ff79c6">.</span>groupby([<span style="color:#f1fa8c">&#39;response&#39;</span>,<span style="color:#f1fa8c">&#39;question_index&#39;</span>,<span style="color:#f1fa8c">&#39;short_label&#39;</span>])<span style="color:#ff79c6">.</span>sum()<span style="color:#ff79c6">.</span>sort_values(<span style="color:#f1fa8c">&#39;count&#39;</span>)<span style="color:#ff79c6">.</span>reset_index()
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> d<span style="color:#ff79c6">.</span>columns :
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> (i <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;response&#39;</span>) <span style="color:#ff79c6">and</span> ((len_d <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">9</span>) <span style="color:#ff79c6">and</span> (<span style="color:#8be9fd;font-style:italic">len</span>(d[<span style="color:#f1fa8c">&#39;surveyed_in&#39;</span>]<span style="color:#ff79c6">.</span>drop_duplicates()) <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">1</span>)):
+</span></span><span style="display:flex;"><span>                x[i] <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;other&#39;</span>]
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">elif</span> i <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;count&#39;</span>:
+</span></span><span style="display:flex;"><span>                x[i] <span style="color:#ff79c6">=</span> [d[i][:<span style="color:#ff79c6">-</span><span style="color:#bd93f9">9</span>]<span style="color:#ff79c6">.</span>sum()]
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>                x[i] <span style="color:#ff79c6">=</span> [d[i][<span style="color:#bd93f9">0</span>]]
+</span></span><span style="display:flex;"><span>        d <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>concat([d[<span style="color:#ff79c6">-</span><span style="color:#bd93f9">9</span>:], pd<span style="color:#ff79c6">.</span>DataFrame(x)], axis<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0</span>)<span style="color:#ff79c6">.</span>reset_index(drop<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>)<span style="color:#ff79c6">.</span>sort_values(<span style="color:#f1fa8c">&#39;count&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># 計算百分比。</span>
+</span></span><span style="display:flex;"><span>        d[<span style="color:#f1fa8c">&#39;count_pct&#39;</span>] <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">round</span>((d[<span style="color:#f1fa8c">&#39;count&#39;</span>] <span style="color:#ff79c6">/</span> d[<span style="color:#f1fa8c">&#39;count&#39;</span>]<span style="color:#ff79c6">.</span>sum()) <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">2</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># 產生 text 文字，將資料轉為文字(str)，例如：1000 人 (50.0%)</span>
+</span></span><span style="display:flex;"><span>        d[<span style="color:#f1fa8c">&#39;text&#39;</span>] <span style="color:#ff79c6">=</span> d<span style="color:#ff79c6">.</span>apply(<span style="color:#ff79c6">lambda</span> row: <span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">{</span>row[<span style="color:#f1fa8c">&#39;count&#39;</span>]<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">人 (</span><span style="color:#f1fa8c">{</span>row[<span style="color:#f1fa8c">&#39;count_pct&#39;</span>]<span style="color:#f1fa8c">:</span><span style="color:#f1fa8c">.1f</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c"> %)&#34;</span>, axis<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> d<span style="color:#ff79c6">.</span>drop(columns<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;surveyed_in&#39;</span>)<span style="color:#ff79c6">.</span>reset_index(drop<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 橫條圖：若只有單一年度，直接抓 top 9</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># 計算百分比。</span>
+</span></span><span style="display:flex;"><span>        d[<span style="color:#f1fa8c">&#39;count_pct&#39;</span>] <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">round</span>((d[<span style="color:#f1fa8c">&#39;count&#39;</span>] <span style="color:#ff79c6">/</span> d[<span style="color:#f1fa8c">&#39;count&#39;</span>]<span style="color:#ff79c6">.</span>sum()) <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">2</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># 產生 text 文字，將資料轉為文字(str)，例如：1000 人 (50.0%)</span>
+</span></span><span style="display:flex;"><span>        d[<span style="color:#f1fa8c">&#39;text&#39;</span>] <span style="color:#ff79c6">=</span> d<span style="color:#ff79c6">.</span>apply(<span style="color:#ff79c6">lambda</span> row: <span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">{</span>row[<span style="color:#f1fa8c">&#39;count&#39;</span>]<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">人 (</span><span style="color:#f1fa8c">{</span>row[<span style="color:#f1fa8c">&#39;count_pct&#39;</span>]<span style="color:#f1fa8c">:</span><span style="color:#f1fa8c">.1f</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c"> %)&#34;</span>, axis<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> d[<span style="color:#ff79c6">-</span><span style="color:#bd93f9">9</span>:]
+</span></span></code></pre></div></li>
+<li>
+<p>概念驗證 橫條圖
+圖表 1：單年度長條圖 <br></p>
+<iframe src="https://ho291ey992.github.io/data_scientists_toolbox/html/概念驗證_單變量_橫條圖.html" width="800" height="600"  width=90% ></iframe>
+<pre><code>```python
+# 載入資料 dict
+df = data('基礎輪廓分析')
+
+# 本圖示資料：使用 2021 年資料，針對「國家」欄位回應進行統計，並以橫條圖呈現前 9 名的回答分布情況。
+df_country = df['國家']
+df_2021 = df_country[df_country['surveyed_in'] == 2021]
+process_df = data_process(df_2021)
+
+# 建立圖表(橫條圖)
+fig = px.bar(
+    process_df,
+    x='count',
+    y='response',
+    orientation='h',      # 轉橫條圖
+    title='2021年',       # 圖表名稱
+    width=800,            # 畫布寬度
+    height=500            # 畫布高度
+)
+
+# update_traces：圖表中的「資料圖層」
+fig.update_traces(
+    texttemplate=process_df['text'],            # 顯示資料標籤
+    textposition='auto'                         # 自動決定文字顯示在柱內或柱外
+)
+
+# update_layout：圖表的整體版面、軸線、標題、圖例、尺寸
+fig.update_layout(
+    xaxis_title=None, # 移除 x軸標籤
+    yaxis_title=None  # 移除 y軸標籤
+)
+
+# 顯示圖片
+fig.show()
+
+# 輸出圖片
+fig.write_html(f'data_scientists_toolbox/橫條圖.html', auto_open=True)
+``` 
+</code></pre>
+</li>
+<li>
+<p>概念驗證 圓餅圖
+將「國家」欄位的回應資料整合所有年度，進行總計後使用圓餅圖呈現整體分布概況。此圖能幫助觀察整體樣本中，來自各國的比例差異。 <br>
+圖表 2：多年度總計圓餅圖（圓餅圖.html <br></p>
+<iframe src="https://ho291ey992.github.io/data_scientists_toolbox/html/概念驗證_單變量_圓餅圖.html" width="800" height="600"  width=90% ></iframe>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># 對「國家」欄位的所有年份資料進行統整處理（多年度 → 圓餅圖邏輯會自動套用）</span>
+</span></span><span style="display:flex;"><span>data_all <span style="color:#ff79c6">=</span> data_process(df[<span style="color:#f1fa8c">&#39;國家&#39;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#ff79c6">=</span> px<span style="color:#ff79c6">.</span>pie(data_all,  
+</span></span><span style="display:flex;"><span>            names<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;response&#39;</span>, 
+</span></span><span style="display:flex;"><span>            values<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;count&#39;</span>, 
+</span></span><span style="display:flex;"><span>            hole<span style="color:#ff79c6">=</span><span style="color:#bd93f9">.5</span>,              <span style="color:#6272a4"># 製作甜甜圈圖樣式，使視覺更清爽</span>
+</span></span><span style="display:flex;"><span>            width<span style="color:#ff79c6">=</span><span style="color:#bd93f9">800</span>,            <span style="color:#6272a4"># 畫布寬度</span>
+</span></span><span style="display:flex;"><span>            height<span style="color:#ff79c6">=</span><span style="color:#bd93f9">500</span>            <span style="color:#6272a4"># 畫布高度</span>
+</span></span><span style="display:flex;"><span>            )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig<span style="color:#ff79c6">.</span>update_traces(
+</span></span><span style="display:flex;"><span>    texttemplate<span style="color:#ff79c6">=</span>data_all[<span style="color:#f1fa8c">&#39;text&#39;</span>], <span style="color:#6272a4"># 顯示格式為：1000人 (50.0%)，由 data_process() 預先計算好 text 欄位</span>
+</span></span><span style="display:flex;"><span>    textposition<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;outside&#39;</span>         <span style="color:#6272a4"># 決定文字顯示在柱內或柱外</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 顯示圖片</span>
+</span></span><span style="display:flex;"><span>fig<span style="color:#ff79c6">.</span>show()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 輸出圖片</span>
+</span></span><span style="display:flex;"><span>fig<span style="color:#ff79c6">.</span>write_html(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;data_scientists_toolbox/圓餅圖.html&#39;</span>, auto_open<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>)
+</span></span></code></pre></div></li>
+<li>
+<p>概念驗證 橫條圖 圓餅圖 合併
+為同時呈現年度差異與整體結構，橫條圖聚焦於各年度 top 回答，而圓餅圖則顯示跨年度總計結果。 本圖使用 <code>make_subplots()</code> 建立 2x2 的子圖畫布，前 3 張為 2020–2022 各年度的橫條圖，右下角則為圓餅圖表示各年度合計分布狀況。搭配 <code>subplot_titles</code> 設定標題，使每張圖更具辨識性。<br></p>
+<p>圖表 3：年度分圖 + 圓餅合併（多圖合併.html）</p>
+<iframe src="https://ho291ey992.github.io/data_scientists_toolbox/html/概念驗證_單變量_多圖合併.html" width="800" height="600"  width=90% ></iframe> <br>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># 建立畫布</span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#ff79c6">=</span> make_subplots(
+</span></span><span style="display:flex;"><span>    rows<span style="color:#ff79c6">=</span><span style="color:#bd93f9">2</span>, cols<span style="color:#ff79c6">=</span><span style="color:#bd93f9">2</span>,
+</span></span><span style="display:flex;"><span>    specs<span style="color:#ff79c6">=</span>[[{<span style="color:#f1fa8c">&#39;type&#39;</span>: <span style="color:#f1fa8c">&#39;xy&#39;</span>}, {<span style="color:#f1fa8c">&#39;type&#39;</span>: <span style="color:#f1fa8c">&#39;xy&#39;</span>}],
+</span></span><span style="display:flex;"><span>          [{<span style="color:#f1fa8c">&#39;type&#39;</span>: <span style="color:#f1fa8c">&#39;xy&#39;</span>}, {<span style="color:#f1fa8c">&#39;type&#39;</span>: <span style="color:#f1fa8c">&#39;domain&#39;</span>}]],          <span style="color:#6272a4"># 每格子圖型別（xy 為折線、長條圖，domain 為圓餅圖）</span>
+</span></span><span style="display:flex;"><span>    subplot_titles<span style="color:#ff79c6">=</span>[<span style="color:#f1fa8c">&#34;2020&#34;</span>, <span style="color:#f1fa8c">&#34;2021&#34;</span>, <span style="color:#f1fa8c">&#34;2022&#34;</span>, <span style="color:#f1fa8c">&#34;總計&#34;</span>],      <span style="color:#6272a4"># 子圖標題</span>
+</span></span><span style="display:flex;"><span>    horizontal_spacing <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0.1</span>,                             <span style="color:#6272a4"># 子圖間水平距離（0 ~ 1）</span>
+</span></span><span style="display:flex;"><span>    vertical_spacing <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0.1</span>                                <span style="color:#6272a4"># 子圖間垂直距離（0 ~ 1）</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f1fa8c">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">| type 值      | 說明                      |
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">| ----------- | ----------------------- |
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">| `&#39;xy&#39;`      | 折線圖、長條圖、散點圖等常見圖         |
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">| `&#39;domain&#39;`  | 圓餅圖（Pie）、指標圖（Indicator） |
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">| `&#39;scene&#39;`   | 3D 圖（散點、曲面圖）            |
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">| `&#39;polar&#39;`   | 極座標圖                    |
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">| `&#39;ternary&#39;` | 三元圖                     |
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">&#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 加入長條圖</span>
+</span></span><span style="display:flex;"><span>fig<span style="color:#ff79c6">.</span>add_trace(go<span style="color:#ff79c6">.</span>Bar(y<span style="color:#ff79c6">=</span>data_2020[<span style="color:#f1fa8c">&#39;response&#39;</span>], 
+</span></span><span style="display:flex;"><span>                    x<span style="color:#ff79c6">=</span>data_2020[<span style="color:#f1fa8c">&#39;count&#39;</span>], 
+</span></span><span style="display:flex;"><span>                    orientation<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;h&#39;</span>, 
+</span></span><span style="display:flex;"><span>                    text<span style="color:#ff79c6">=</span>data_2020[<span style="color:#f1fa8c">&#39;text&#39;</span>],
+</span></span><span style="display:flex;"><span>                    hovertemplate <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;&#39;</span>), 
+</span></span><span style="display:flex;"><span>              row<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>, col<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig<span style="color:#ff79c6">.</span>add_trace(go<span style="color:#ff79c6">.</span>Bar(y<span style="color:#ff79c6">=</span>data_2021[<span style="color:#f1fa8c">&#39;response&#39;</span>],
+</span></span><span style="display:flex;"><span>                    x<span style="color:#ff79c6">=</span>data_2021[<span style="color:#f1fa8c">&#39;count&#39;</span>], 
+</span></span><span style="display:flex;"><span>                    orientation<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;h&#39;</span>, 
+</span></span><span style="display:flex;"><span>                    text<span style="color:#ff79c6">=</span>data_2021[<span style="color:#f1fa8c">&#39;text&#39;</span>],
+</span></span><span style="display:flex;"><span>                    hovertemplate <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;&#39;</span>), 
+</span></span><span style="display:flex;"><span>              row<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>, col<span style="color:#ff79c6">=</span><span style="color:#bd93f9">2</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig<span style="color:#ff79c6">.</span>add_trace(go<span style="color:#ff79c6">.</span>Bar(y<span style="color:#ff79c6">=</span>data_2022[<span style="color:#f1fa8c">&#39;response&#39;</span>],
+</span></span><span style="display:flex;"><span>                    x<span style="color:#ff79c6">=</span>data_2022[<span style="color:#f1fa8c">&#39;count&#39;</span>], 
+</span></span><span style="display:flex;"><span>                    orientation<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;h&#39;</span>, 
+</span></span><span style="display:flex;"><span>                    text<span style="color:#ff79c6">=</span>data_2022[<span style="color:#f1fa8c">&#39;text&#39;</span>],
+</span></span><span style="display:flex;"><span>                    hovertemplate <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;&#39;</span>), 
+</span></span><span style="display:flex;"><span>              row<span style="color:#ff79c6">=</span><span style="color:#bd93f9">2</span>, col<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 加入圓餅圖</span>
+</span></span><span style="display:flex;"><span>fig<span style="color:#ff79c6">.</span>add_trace(go<span style="color:#ff79c6">.</span>Pie(labels<span style="color:#ff79c6">=</span>data_all[<span style="color:#f1fa8c">&#39;response&#39;</span>], 
+</span></span><span style="display:flex;"><span>                    values<span style="color:#ff79c6">=</span>data_all[<span style="color:#f1fa8c">&#39;count&#39;</span>], 
+</span></span><span style="display:flex;"><span>                    text<span style="color:#ff79c6">=</span>data_all[<span style="color:#f1fa8c">&#39;count&#39;</span>],
+</span></span><span style="display:flex;"><span>                    hole<span style="color:#ff79c6">=</span><span style="color:#bd93f9">.5</span>, <span style="color:#6272a4"># 製作甜甜圈圖樣式，使視覺更清爽</span>
+</span></span><span style="display:flex;"><span>                    hovertemplate <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;&#39;</span>), 
+</span></span><span style="display:flex;"><span>              row<span style="color:#ff79c6">=</span><span style="color:#bd93f9">2</span>, col<span style="color:#ff79c6">=</span><span style="color:#bd93f9">2</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig<span style="color:#ff79c6">.</span>update_traces(
+</span></span><span style="display:flex;"><span>    textposition<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;outside&#39;</span>, <span style="color:#6272a4"># 設定圓餅圖文字顯示位置，將數值標示移至圖形外側</span>
+</span></span><span style="display:flex;"><span>    row<span style="color:#ff79c6">=</span><span style="color:#bd93f9">2</span>, col<span style="color:#ff79c6">=</span><span style="color:#bd93f9">2</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig<span style="color:#ff79c6">.</span>update_layout(
+</span></span><span style="display:flex;"><span>    xaxis_title<span style="color:#ff79c6">=</span><span style="color:#ff79c6">None</span>,   <span style="color:#6272a4"># 移除 x軸標籤</span>
+</span></span><span style="display:flex;"><span>    yaxis_title<span style="color:#ff79c6">=</span><span style="color:#ff79c6">None</span>    <span style="color:#6272a4"># 移除 y軸標籤</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 更新版面</span>
+</span></span><span style="display:flex;"><span>fig<span style="color:#ff79c6">.</span>update_layout(title_text<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;年度資料分析互動圖表&#34;</span>, title_font_size <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">24</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 顯示圖片</span>
+</span></span><span style="display:flex;"><span>fig<span style="color:#ff79c6">.</span>show()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 輸出圖片</span>
+</span></span><span style="display:flex;"><span>fig<span style="color:#ff79c6">.</span>write_html(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;data_scientists_toolbox/多圖合併.html&#39;</span>, auto_open<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>)
+</span></span></code></pre></div></li>
+<li>
+<p>資料更新測試
+起初嘗試直接操作原始 dataframe（responses），但在 Panel 的互動過程中遇到更新失效問題。後來將資料預處理為 dict 格式後成功解決，這也讓我了解 Panel 對資料綁定的限制與最佳實踐方式。 <br>
+圖表 4：互動式年度切換長條圖（<code>interactive_dashboard.html</code>） <br></p>
+<iframe src="https://ho291ey992.github.io/data_scientists_toolbox/html/概念驗證_單變量_interactive_dashboard.html" width="800" height="600"  width=90% ></iframe>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#6272a4"># 模擬資料</span>
+</span></span><span style="display:flex;"><span>    data_dict <span style="color:#ff79c6">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;2020&#39;</span>: pd<span style="color:#ff79c6">.</span>DataFrame({<span style="color:#f1fa8c">&#39;category&#39;</span>: [<span style="color:#f1fa8c">&#39;A&#39;</span>, <span style="color:#f1fa8c">&#39;B&#39;</span>, <span style="color:#f1fa8c">&#39;C&#39;</span>], <span style="color:#f1fa8c">&#39;value&#39;</span>: [<span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">200</span>, <span style="color:#bd93f9">300</span>]}),
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;2021&#39;</span>: pd<span style="color:#ff79c6">.</span>DataFrame({<span style="color:#f1fa8c">&#39;category&#39;</span>: [<span style="color:#f1fa8c">&#39;A&#39;</span>, <span style="color:#f1fa8c">&#39;B&#39;</span>, <span style="color:#f1fa8c">&#39;C&#39;</span>], <span style="color:#f1fa8c">&#39;value&#39;</span>: [<span style="color:#bd93f9">120</span>, <span style="color:#bd93f9">180</span>, <span style="color:#bd93f9">260</span>]}),
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;2022&#39;</span>: pd<span style="color:#ff79c6">.</span>DataFrame({<span style="color:#f1fa8c">&#39;category&#39;</span>: [<span style="color:#f1fa8c">&#39;A&#39;</span>, <span style="color:#f1fa8c">&#39;B&#39;</span>, <span style="color:#f1fa8c">&#39;C&#39;</span>], <span style="color:#f1fa8c">&#39;value&#39;</span>: [<span style="color:#bd93f9">90</span>, <span style="color:#bd93f9">150</span>, <span style="color:#bd93f9">240</span>]})
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 下拉選單元件</span>
+</span></span><span style="display:flex;"><span>    year_selector <span style="color:#ff79c6">=</span> pn<span style="color:#ff79c6">.</span>widgets<span style="color:#ff79c6">.</span>Select(name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;年份&#39;</span>, options<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">list</span>(data_dict<span style="color:#ff79c6">.</span>keys()), value<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;2020&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 圖表顯示區</span>
+</span></span><span style="display:flex;"><span>    plot_pane <span style="color:#ff79c6">=</span> pn<span style="color:#ff79c6">.</span>pane<span style="color:#ff79c6">.</span>Plotly()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># Callback：當選單變更時，更新圖表內容</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">update_plot</span>(event):
+</span></span><span style="display:flex;"><span>        df <span style="color:#ff79c6">=</span> data_dict[year_selector<span style="color:#ff79c6">.</span>value]
+</span></span><span style="display:flex;"><span>        fig <span style="color:#ff79c6">=</span> px<span style="color:#ff79c6">.</span>bar(df, x<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;category&#39;</span>, y<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;value&#39;</span>, title<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">{</span>year_selector<span style="color:#ff79c6">.</span>value<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c"> 年資料&#34;</span>)
+</span></span><span style="display:flex;"><span>        plot_pane<span style="color:#ff79c6">.</span>object <span style="color:#ff79c6">=</span> fig <span style="color:#6272a4"># 將新圖表指派給圖表面板</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 註冊 Callback（回呼函式）</span>
+</span></span><span style="display:flex;"><span>    year_selector<span style="color:#ff79c6">.</span>param<span style="color:#ff79c6">.</span>watch(update_plot, <span style="color:#f1fa8c">&#39;value&#39;</span>)  <span style="color:#6272a4"># 當 year_selector 的值，一旦變動就執行 update_plot()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 初始化一次圖表</span>
+</span></span><span style="display:flex;"><span>    update_plot(<span style="color:#ff79c6">None</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 包裝頁面</span>
+</span></span><span style="display:flex;"><span>    app <span style="color:#ff79c6">=</span> pn<span style="color:#ff79c6">.</span>Column(<span style="color:#f1fa8c">&#34;# 年度資料分析互動圖表&#34;</span>, year_selector, plot_pane)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    app<span style="color:#ff79c6">.</span>show()
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 輸出圖片</span>
+</span></span><span style="display:flex;"><span>    app<span style="color:#ff79c6">.</span>save(<span style="color:#f1fa8c">&#39;練習專案三：資料科學家的工具箱/data_scientists_toolbox/interactive_dashboard.html&#39;</span>, embed<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>)
+</span></span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>
+<p>多變量</p>
+<ul>
+<li>折線圖
+本圖呈現各洲別的薪資中位數隨程式經驗變化的趨勢。以程式經驗（年數）為 X 軸、薪資中位數為 Y 軸、洲別為不同的線條。資料來自薪資填答正確且職務為 Data-related 的回應者，並篩選國家為「高收入」或「中高收入」的群體。  此圖可用來觀察在不同洲別中，程式經驗是否與薪資中位數存在趨勢差異，是否存在早期成長快、飽和期快的區域現象。 <br></li>
+</ul>
+<p>圖表 5：折線圖 (<code>洲別_經驗_薪資.html</code>) <br></p>
+<iframe src="https://ho291ey992.github.io/data_scientists_toolbox/html/洲別_經驗_薪資.html" width="800" height="600"  width=90% ></iframe>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># 建立折線圖 go.Scatter</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">go_scatter</span>(line_df_group, file_path_name):
+</span></span><span style="display:flex;"><span>    data1 <span style="color:#ff79c6">=</span> go<span style="color:#ff79c6">.</span>Scatter(
+</span></span><span style="display:flex;"><span>        x <span style="color:#ff79c6">=</span> line_df_group[<span style="color:#f1fa8c">&#39;coding_exp_years&#39;</span>],
+</span></span><span style="display:flex;"><span>        y <span style="color:#ff79c6">=</span> line_df_group[<span style="color:#f1fa8c">&#39;Asia&#39;</span>],
+</span></span><span style="display:flex;"><span>        mode <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;lines+markers+text&#34;</span>,
+</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;Asia&#39;</span>,
+</span></span><span style="display:flex;"><span>        textposition <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;top center&#34;</span>,
+</span></span><span style="display:flex;"><span>        line <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">dict</span>(width<span style="color:#ff79c6">=</span><span style="color:#bd93f9">3</span>),
+</span></span><span style="display:flex;"><span>        text <span style="color:#ff79c6">=</span> line_df_group[<span style="color:#f1fa8c">&#39;Asia&#39;</span>]
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    data2 <span style="color:#ff79c6">=</span> go<span style="color:#ff79c6">.</span>Scatter(
+</span></span><span style="display:flex;"><span>        x <span style="color:#ff79c6">=</span> line_df_group[<span style="color:#f1fa8c">&#39;coding_exp_years&#39;</span>],
+</span></span><span style="display:flex;"><span>        y <span style="color:#ff79c6">=</span> line_df_group[<span style="color:#f1fa8c">&#39;Europe&#39;</span>],
+</span></span><span style="display:flex;"><span>        mode <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;lines+markers+text&#34;</span>,
+</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;Europe&#39;</span>,
+</span></span><span style="display:flex;"><span>        textposition <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;top center&#34;</span>,
+</span></span><span style="display:flex;"><span>        line <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">dict</span>(width<span style="color:#ff79c6">=</span><span style="color:#bd93f9">3</span>),
+</span></span><span style="display:flex;"><span>        text <span style="color:#ff79c6">=</span> line_df_group[<span style="color:#f1fa8c">&#39;Europe&#39;</span>]
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    data3 <span style="color:#ff79c6">=</span> go<span style="color:#ff79c6">.</span>Scatter(
+</span></span><span style="display:flex;"><span>        x <span style="color:#ff79c6">=</span> line_df_group[<span style="color:#f1fa8c">&#39;coding_exp_years&#39;</span>],
+</span></span><span style="display:flex;"><span>        y <span style="color:#ff79c6">=</span> line_df_group[<span style="color:#f1fa8c">&#39;North America&#39;</span>],
+</span></span><span style="display:flex;"><span>        mode <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;lines+markers+text&#34;</span>,
+</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;North America&#39;</span>,
+</span></span><span style="display:flex;"><span>        textposition <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;top center&#34;</span>,
+</span></span><span style="display:flex;"><span>        line <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">dict</span>(width<span style="color:#ff79c6">=</span><span style="color:#bd93f9">3</span>),
+</span></span><span style="display:flex;"><span>        text <span style="color:#ff79c6">=</span> line_df_group[<span style="color:#f1fa8c">&#39;North America&#39;</span>]
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    data4 <span style="color:#ff79c6">=</span> go<span style="color:#ff79c6">.</span>Scatter(
+</span></span><span style="display:flex;"><span>        x <span style="color:#ff79c6">=</span> line_df_group[<span style="color:#f1fa8c">&#39;coding_exp_years&#39;</span>],
+</span></span><span style="display:flex;"><span>        y <span style="color:#ff79c6">=</span> line_df_group[<span style="color:#f1fa8c">&#39;Oceania&#39;</span>],
+</span></span><span style="display:flex;"><span>        mode <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;lines+markers+text&#34;</span>,
+</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;Oceania&#39;</span>,
+</span></span><span style="display:flex;"><span>        textposition <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;top center&#34;</span>,
+</span></span><span style="display:flex;"><span>        line <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">dict</span>(width<span style="color:#ff79c6">=</span><span style="color:#bd93f9">3</span>),
+</span></span><span style="display:flex;"><span>        text <span style="color:#ff79c6">=</span> line_df_group[<span style="color:#f1fa8c">&#39;Oceania&#39;</span>]
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    data5 <span style="color:#ff79c6">=</span> go<span style="color:#ff79c6">.</span>Scatter(
+</span></span><span style="display:flex;"><span>        x <span style="color:#ff79c6">=</span> line_df_group[<span style="color:#f1fa8c">&#39;coding_exp_years&#39;</span>],
+</span></span><span style="display:flex;"><span>        y <span style="color:#ff79c6">=</span> line_df_group[<span style="color:#f1fa8c">&#39;South America&#39;</span>],
+</span></span><span style="display:flex;"><span>        mode <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;lines+markers+text&#34;</span>,
+</span></span><span style="display:flex;"><span>        name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;South America&#39;</span>,
+</span></span><span style="display:flex;"><span>        textposition <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;top center&#34;</span>,
+</span></span><span style="display:flex;"><span>        line <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">dict</span>(width<span style="color:#ff79c6">=</span><span style="color:#bd93f9">3</span>),
+</span></span><span style="display:flex;"><span>        text <span style="color:#ff79c6">=</span> line_df_group[<span style="color:#f1fa8c">&#39;South America&#39;</span>]
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    layout <span style="color:#ff79c6">=</span> go<span style="color:#ff79c6">.</span>Layout(
+</span></span><span style="display:flex;"><span>        title <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;薪資 &amp; 經驗 &amp; 洲別&#39;</span>,
+</span></span><span style="display:flex;"><span>        title_font_size <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">30</span>,
+</span></span><span style="display:flex;"><span>        xaxis <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">dict</span>(title<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;程式經驗 (年)&#39;</span>, tickfont<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">dict</span>(size<span style="color:#ff79c6">=</span><span style="color:#bd93f9">10</span>)),
+</span></span><span style="display:flex;"><span>        yaxis <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">dict</span>(title<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;年資(中位數)&#39;</span>, tickfont<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">dict</span>(size<span style="color:#ff79c6">=</span><span style="color:#bd93f9">10</span>)),
+</span></span><span style="display:flex;"><span>        margin <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">dict</span>(l<span style="color:#ff79c6">=</span><span style="color:#bd93f9">50</span>, r<span style="color:#ff79c6">=</span><span style="color:#bd93f9">50</span>, t<span style="color:#ff79c6">=</span><span style="color:#bd93f9">60</span>, b<span style="color:#ff79c6">=</span><span style="color:#bd93f9">60</span>),
+</span></span><span style="display:flex;"><span>        showlegend <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">True</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    fig <span style="color:#ff79c6">=</span> go<span style="color:#ff79c6">.</span>Figure(data <span style="color:#ff79c6">=</span> [data1, data2, data3, data4, data5], layout <span style="color:#ff79c6">=</span> layout)
+</span></span><span style="display:flex;"><span>    fig<span style="color:#ff79c6">.</span>show()
+</span></span><span style="display:flex;"><span>    fig<span style="color:#ff79c6">.</span>write_html(file_path_name, auto_open<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>) 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 讀取資料</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">line_data</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 讀取資料</span>
+</span></span><span style="display:flex;"><span>    line_df <span style="color:#ff79c6">=</span> responses_single_choice[[<span style="color:#f1fa8c">&#39;id&#39;</span>,<span style="color:#f1fa8c">&#39;surveyed_in&#39;</span>, <span style="color:#f1fa8c">&#39;coding_exp_years&#39;</span>,<span style="color:#f1fa8c">&#39;country&#39;</span>, <span style="color:#f1fa8c">&#39;salary&#39;</span>, <span style="color:#f1fa8c">&#39;salary_group&#39;</span>, <span style="color:#f1fa8c">&#39;job_title_group&#39;</span>]]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 設定條件 salary_group = correct_info 、 job_title_group = Data-related。</span>
+</span></span><span style="display:flex;"><span>    col <span style="color:#ff79c6">=</span> (line_df[<span style="color:#f1fa8c">&#39;salary_group&#39;</span>] <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;correct_info&#39;</span>) <span style="color:#ff79c6">&amp;</span> (line_df[<span style="color:#f1fa8c">&#39;job_title_group&#39;</span>] <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;Data-related&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 合併 salary_order</span>
+</span></span><span style="display:flex;"><span>    line_df <span style="color:#ff79c6">=</span> line_df[col]<span style="color:#ff79c6">.</span>merge(salary_order, left_on<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;salary&#39;</span>, right_on<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;salary&#39;</span>, how<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;left&#39;</span>)<span style="color:#ff79c6">.</span>rename(columns<span style="color:#ff79c6">=</span>{<span style="color:#f1fa8c">&#39;rank&#39;</span>:<span style="color:#f1fa8c">&#39;salary_rank&#39;</span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 合併 country_area</span>
+</span></span><span style="display:flex;"><span>    line_df <span style="color:#ff79c6">=</span> line_df<span style="color:#ff79c6">.</span>merge(country_area[[<span style="color:#f1fa8c">&#39;country&#39;</span>, <span style="color:#f1fa8c">&#39;gdp_group&#39;</span>, <span style="color:#f1fa8c">&#39;area&#39;</span>]], left_on<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;country&#39;</span>, right_on<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;country&#39;</span>, how<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;left&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 設定條件 gdp_group = [&#39;高收入&#39;, &#39;中高收入&#39;]</span>
+</span></span><span style="display:flex;"><span>    line_df <span style="color:#ff79c6">=</span> line_df[line_df[<span style="color:#f1fa8c">&#39;gdp_group&#39;</span>]<span style="color:#ff79c6">.</span>isin([<span style="color:#f1fa8c">&#39;高收入&#39;</span>, <span style="color:#f1fa8c">&#39;中高收入&#39;</span>])]
+</span></span><span style="display:flex;"><span>    line_df <span style="color:#ff79c6">=</span> line_df<span style="color:#ff79c6">.</span>merge(coding_exp_years_order, left_on<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;coding_exp_years&#39;</span>, right_on<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;coding_exp_years&#39;</span>, how<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;left&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 建立中位數</span>
+</span></span><span style="display:flex;"><span>    line_df_group <span style="color:#ff79c6">=</span> line_df[[<span style="color:#f1fa8c">&#39;rank&#39;</span>, <span style="color:#f1fa8c">&#39;coding_exp_years&#39;</span>, <span style="color:#f1fa8c">&#39;area&#39;</span>, <span style="color:#f1fa8c">&#39;salary_mean&#39;</span>]]<span style="color:#ff79c6">.</span>groupby([<span style="color:#f1fa8c">&#39;rank&#39;</span>, <span style="color:#f1fa8c">&#39;coding_exp_years&#39;</span>, <span style="color:#f1fa8c">&#39;area&#39;</span>])<span style="color:#ff79c6">.</span>median()<span style="color:#ff79c6">.</span>reset_index()<span style="color:#ff79c6">.</span>rename(columns<span style="color:#ff79c6">=</span>{<span style="color:#f1fa8c">&#39;salary_mean&#39;</span>:<span style="color:#f1fa8c">&#39;salary_median&#39;</span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 展開資料：每洲別一欄，用於繪製多條線</span>
+</span></span><span style="display:flex;"><span>    line_df_group <span style="color:#ff79c6">=</span> line_df_group<span style="color:#ff79c6">.</span>pivot(index<span style="color:#ff79c6">=</span>[<span style="color:#f1fa8c">&#39;rank&#39;</span>, <span style="color:#f1fa8c">&#39;coding_exp_years&#39;</span>], columns<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;area&#39;</span>, values<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;salary_median&#39;</span>)<span style="color:#ff79c6">.</span>reset_index()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> line_df_group
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>file_path_name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;data_scientists_toolbox/洲別_經驗_薪資.html&#39;</span>
+</span></span><span style="display:flex;"><span>go_scatter(line_data(), file_path_name)
+</span></span></code></pre></div><ul>
+<li>
+<p>氣泡圖
+本圖為多變量氣泡圖，用以視覺化職稱（job_title）在不同年薪區間中，對應的平均技能數量、年薪中位數與樣本數。 <br>
+- X 軸：每個職稱平均會學習的程式語言數量（lang_count_mean）
+- Y 軸：年薪中位數（salary_median）
+- 氣泡大小：該群體樣本數（count）
+- 顏色：職稱類型（job_title）
+- 滑鼠提示：顯示平均年資資訊（coding_exp_year_mean）<br>
+本圖可以觀察是否技能數量較多的職稱會有更高的薪資，以及在不同職稱中薪資與年資、技能數的相對趨勢。 <br></p>
+<p>圖表 6： 氣泡圖 (<code>年薪_技能(數量)_職稱.html</code>)<br></p>
+<iframe src="https://ho291ey992.github.io/data_scientists_toolbox/html/年薪_技能(數量)_職稱.html" width="800" height="600"  width=90% ></iframe>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">px_scatter</span>(scatter_df, file_path_name):
+</span></span><span style="display:flex;"><span>    fig <span style="color:#ff79c6">=</span> px<span style="color:#ff79c6">.</span>scatter(
+</span></span><span style="display:flex;"><span>            scatter_df,                       <span style="color:#6272a4"># 數據來源的 DataFrame</span>
+</span></span><span style="display:flex;"><span>            x<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;lang_count_mean&#34;</span>,              <span style="color:#6272a4"># 技能數量(平均)</span>
+</span></span><span style="display:flex;"><span>            y<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;salary_median&#34;</span>,                <span style="color:#6272a4"># 年薪(中位數)</span>
+</span></span><span style="display:flex;"><span>            size<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;count&#34;</span>,                     <span style="color:#6272a4"># 設定氣泡大小對應 人數</span>
+</span></span><span style="display:flex;"><span>            color<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;job_title&#34;</span>,                <span style="color:#6272a4"># 各職稱來區分顏色</span>
+</span></span><span style="display:flex;"><span>            hover_name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;text&#34;</span>,                <span style="color:#6272a4"># 滑鼠懸停時顯示 (經驗 = 3.5 year)</span>
+</span></span><span style="display:flex;"><span>            size_max<span style="color:#ff79c6">=</span><span style="color:#bd93f9">50</span>,                      <span style="color:#6272a4"># 設定氣泡的最大大小</span>
+</span></span><span style="display:flex;"><span>            range_x<span style="color:#ff79c6">=</span>[<span style="color:#bd93f9">1.5</span>, <span style="color:#bd93f9">5.5</span>],               <span style="color:#6272a4"># 設定 x 軸的範圍</span>
+</span></span><span style="display:flex;"><span>            range_y<span style="color:#ff79c6">=</span>[<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">200000</span>],              <span style="color:#6272a4"># 設定 y 軸的範圍</span>
+</span></span><span style="display:flex;"><span>            log_x<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>                        <span style="color:#6272a4"># 以對數尺度顯示 x 軸，有助於處理資料密集區的壓縮與分布差異</span>
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    fig<span style="color:#ff79c6">.</span>update_layout(title_text<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;年薪 &amp; 技能(數量) &amp; 職稱&#39;</span>, 
+</span></span><span style="display:flex;"><span>                    title_font_size <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">24</span>,
+</span></span><span style="display:flex;"><span>                    xaxis<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">dict</span>(
+</span></span><span style="display:flex;"><span>                        title<span style="color:#ff79c6">=</span><span style="color:#8be9fd;font-style:italic">dict</span>(text<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;學習程式語言數量 的平均&#39;</span>),
+</span></span><span style="display:flex;"><span>                        gridcolor<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;white&#39;</span>,
+</span></span><span style="display:flex;"><span>                        <span style="color:#8be9fd;font-style:italic">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;log&#39;</span>,
+</span></span><span style="display:flex;"><span>                        gridwidth<span style="color:#ff79c6">=</span><span style="color:#bd93f9">2</span>,
+</span></span><span style="display:flex;"><span>                    ), 
+</span></span><span style="display:flex;"><span>                    yaxis_title<span style="color:#ff79c6">=</span><span style="color:#ff79c6">None</span>) <span style="color:#6272a4"># 關閉 y 軸標籤</span>
+</span></span><span style="display:flex;"><span>    fig<span style="color:#ff79c6">.</span>show()
+</span></span><span style="display:flex;"><span>    fig<span style="color:#ff79c6">.</span>write_html(file_path_name, auto_open<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>) <span style="color:#6272a4"># 儲存檔案</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">scatter_data</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 讀取資料</span>
+</span></span><span style="display:flex;"><span>    scatter_df <span style="color:#ff79c6">=</span> responses_single_choice[[<span style="color:#f1fa8c">&#39;id&#39;</span>,<span style="color:#f1fa8c">&#39;surveyed_in&#39;</span>, <span style="color:#f1fa8c">&#39;coding_exp_years&#39;</span>, <span style="color:#f1fa8c">&#39;job_title&#39;</span>,<span style="color:#f1fa8c">&#39;country&#39;</span>, <span style="color:#f1fa8c">&#39;salary&#39;</span>, <span style="color:#f1fa8c">&#39;salary_group&#39;</span>, <span style="color:#f1fa8c">&#39;job_title_group&#39;</span>]]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 設定條件 salary_group = correct_info 、 job_title_group = Data-related。</span>
+</span></span><span style="display:flex;"><span>    col <span style="color:#ff79c6">=</span> (scatter_df[<span style="color:#f1fa8c">&#39;salary_group&#39;</span>] <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;correct_info&#39;</span>) <span style="color:#ff79c6">&amp;</span> (scatter_df[<span style="color:#f1fa8c">&#39;job_title_group&#39;</span>] <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;Data-related&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 合併 salary_order</span>
+</span></span><span style="display:flex;"><span>    scatter_df <span style="color:#ff79c6">=</span> scatter_df[col]<span style="color:#ff79c6">.</span>merge(salary_order, left_on<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;salary&#39;</span>, right_on<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;salary&#39;</span>, how<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;left&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 合併 country_area</span>
+</span></span><span style="display:flex;"><span>    scatter_df <span style="color:#ff79c6">=</span> scatter_df<span style="color:#ff79c6">.</span>merge(country_area[[<span style="color:#f1fa8c">&#39;country&#39;</span>, <span style="color:#f1fa8c">&#39;gdp_group&#39;</span>, <span style="color:#f1fa8c">&#39;area&#39;</span>]], left_on<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;country&#39;</span>, right_on<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;country&#39;</span>, how<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;left&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 設定條件 gdp_group = [&#39;高收入&#39;, &#39;中高收入&#39;]</span>
+</span></span><span style="display:flex;"><span>    scatter_df <span style="color:#ff79c6">=</span> scatter_df[scatter_df[<span style="color:#f1fa8c">&#39;gdp_group&#39;</span>]<span style="color:#ff79c6">.</span>isin([<span style="color:#f1fa8c">&#39;高收入&#39;</span>, <span style="color:#f1fa8c">&#39;中高收入&#39;</span>])]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 合併 coding_exp_years_order</span>
+</span></span><span style="display:flex;"><span>    scatter_df <span style="color:#ff79c6">=</span> scatter_df<span style="color:#ff79c6">.</span>merge(coding_exp_years_order, left_on<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;coding_exp_years&#39;</span>, right_on<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;coding_exp_years&#39;</span>, how<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;left&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 合併 prog_lang_skill_group</span>
+</span></span><span style="display:flex;"><span>    scatter_df <span style="color:#ff79c6">=</span> scatter_df<span style="color:#ff79c6">.</span>merge(prog_lang_skill_group, left_on<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;id&#39;</span>, right_on<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;id&#39;</span>, how<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;left&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 提取資料</span>
+</span></span><span style="display:flex;"><span>    scatter_df <span style="color:#ff79c6">=</span> scatter_df[[<span style="color:#f1fa8c">&#39;id&#39;</span>, <span style="color:#f1fa8c">&#39;salary&#39;</span>,<span style="color:#f1fa8c">&#39;job_title&#39;</span>,<span style="color:#f1fa8c">&#39;count&#39;</span>, <span style="color:#f1fa8c">&#39;coding_exp_years_mean&#39;</span>, <span style="color:#f1fa8c">&#39;salary_mean&#39;</span>]]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 移除錯誤資料，正常的中高收入國家的年薪不應該低於 5000 美金，感覺應該要設定 10000 美金比較正確。</span>
+</span></span><span style="display:flex;"><span>    scatter_df <span style="color:#ff79c6">=</span> scatter_df[scatter_df[<span style="color:#f1fa8c">&#39;salary_mean&#39;</span>] <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">5000</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 建立 人數、技能數量(平均)、程式經驗年(平均)、年薪(中位數)。</span>
+</span></span><span style="display:flex;"><span>    scatter_df <span style="color:#ff79c6">=</span> scatter_df<span style="color:#ff79c6">.</span>groupby([<span style="color:#f1fa8c">&#39;job_title&#39;</span>,<span style="color:#f1fa8c">&#39;salary&#39;</span>])<span style="color:#ff79c6">.</span>agg(count <span style="color:#ff79c6">=</span> (<span style="color:#f1fa8c">&#39;id&#39;</span>, <span style="color:#f1fa8c">&#39;count&#39;</span>),
+</span></span><span style="display:flex;"><span>                                                                lang_count_mean<span style="color:#ff79c6">=</span>(<span style="color:#f1fa8c">&#39;count&#39;</span>, <span style="color:#f1fa8c">&#39;mean&#39;</span>),
+</span></span><span style="display:flex;"><span>                                                                coding_exp_year_mean<span style="color:#ff79c6">=</span>(<span style="color:#f1fa8c">&#39;coding_exp_years_mean&#39;</span>, <span style="color:#f1fa8c">&#39;mean&#39;</span>),
+</span></span><span style="display:flex;"><span>                                                                salary_median<span style="color:#ff79c6">=</span>(<span style="color:#f1fa8c">&#39;salary_mean&#39;</span>, <span style="color:#f1fa8c">&#39;median&#39;</span>)
+</span></span><span style="display:flex;"><span>                                                                )<span style="color:#ff79c6">.</span>round(<span style="color:#bd93f9">2</span>)<span style="color:#ff79c6">.</span>reset_index()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 建立 文字顯示</span>
+</span></span><span style="display:flex;"><span>    scatter_df[<span style="color:#f1fa8c">&#39;text&#39;</span>] <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;經驗 = &#39;</span> <span style="color:#ff79c6">+</span> scatter_df[<span style="color:#f1fa8c">&#39;coding_exp_year_mean&#39;</span>]<span style="color:#ff79c6">.</span>astype(<span style="color:#8be9fd;font-style:italic">str</span>) <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#39; year&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> scatter_df
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>file_path_name <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;練習專案三：資料科學家的工具箱/data_scientists_toolbox/年薪_技能(數量)_職稱.html&#39;</span>
+</span></span><span style="display:flex;"><span>px_scatter(scatter_data(), file_path_name)
+</span></span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+<hr>
+
+        </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<script>
+  var indexURL = "https://ho291ey992.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://ho291ey992.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/mark.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://ho291ey992.github.io/js/script.min.js"></script>
+
+
+
+</body>
+</html>

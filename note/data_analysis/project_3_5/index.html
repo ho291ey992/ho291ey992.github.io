@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="zh-tw"><head>
+  <meta charset="utf-8">
+  <title>學習筆記</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="練習專案三：資料科學家的工具箱">
+  <meta name="author" content="Steve">
+    
+  
+  <meta name="theme-name" content="liva-hugo" />
+  
+  <meta name="generator" content="Hugo 0.140.2">
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://ho291ey992.github.io/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://ho291ey992.github.io/images/favicon.png " type="image/x-icon">
+
+  <!-- google analitycs -->
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'Your ID', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+</head>
+<body><!-- navigation -->
+<header class="navigation sticky"> 
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom pl-0">
+      <a class="navbar-brand mobile-view" href="https://ho291ey992.github.io/"><img class="img-fluid"
+          src="https://ho291ey992.github.io/images/favicon1.png" alt="學習筆記"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        
+        
+        
+        <a class="navbar-brand mx-auto desktop-view" href="https://ho291ey992.github.io/"><img class="img-fluid"
+          src="https://ho291ey992.github.io/images/favicon1.png" alt="學習筆記">
+        </a>
+
+        <ul class="navbar-nav">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://ho291ey992.github.io/about/">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              筆記
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" href="https://ho291ey992.github.io/note/hugo">hugo 網站建置</a>
+              
+              <a class="dropdown-item" href="https://ho291ey992.github.io/note/data_analysis">數據分析</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search pl-lg-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="https://ho291ey992.github.io//search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        
+        <a href="/categories/data-analysis"
+          class="text-primary">Data analysis</a>
+        
+        <h2>練習專案三：資料科學家的工具箱 5</h2>  
+        <div class="mb-3 post-meta">
+          <span>By Steve</span>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2025-07-10</span> 
+          
+        </div>
+        
+        <div class="content mb-5">
+          <br>
+<h3 id="完整分析流程與洞察">完整分析流程與洞察</h3>
+<p>在這篇文章中，我將分享我在進行 Kaggle ML &amp; DS Survey 資料分析專案時所採用的探索性資料分析（EDA, Exploratory Data Analysis）流程。 <br></p>
+<p>剛開始自主分析時的確相當混亂，幾乎沒有任何進展。後來開始釐清問題，並參考他人是如何分析的，意外接觸到「探索性資料分析」這個概念，便以此作為切入點展開分析。 <br></p>
+<p>本篇前半段主要介紹 EDA 的基本概念，後半段則紀錄實際的分析過程。我重新整理並撰寫分析的每個步驟，除了幫助自己釐清邏輯，也強化記憶。畢竟從完成專案到回頭重寫這篇文章，時間其實並不長，我卻已經感覺思緒有些模糊了。 <br></p>
+<p>在重新整理筆記的過程中，我發現不少邏輯錯誤，透過釐清原意與修正問題，補足了許多原本遺漏或模糊的觀念。對我來說，這是一個非常有幫助的反思與學習過程。因此，本篇某種程度上是寫給自己看的筆記，可能顯得有些冗長、不夠精煉，但若你對分析的邏輯與思考方式有興趣，也歡迎參考。 <br></p>
+<p>本篇將依照「資料處理 → 探索分析 → 目標釐清 → 主題洞察 → 策略反思與視覺化」的邏輯來呈現整體成果。 <br></p>
+<blockquote>
+<p>⚠️ 由於我是自行學習的初學者，內容中可能仍有錯誤。我已盡力查證與修正，但無法保證所有觀念都完全正確，若有不妥之處，也請不吝指正，感謝。</p>
+</blockquote>
+<br>
+<hr>
+<h4 id="探索性資料分析eda-exploratory-data-analysis介紹">探索性資料分析（EDA, Exploratory Data Analysis）介紹</h4>
+<ul>
+<li>在資料分析中，EDA 是「理解資料、找出問題與機會」的起點：
+<ul>
+<li><strong>釐清資料結構與邏輯</strong>：資料來自哪裡？有什麼欄位？格式是否一致？</li>
+<li><strong>辨識與處理異常</strong>：是否有缺值？不合理值？欄位意義是否混亂？</li>
+<li><strong>觀察變數分布與趨勢</strong>：什麼是常見值？哪些變數有分布偏斜？</li>
+<li><strong>提出分析假設與方向</strong>：我們可以從資料中回答哪些問題？有哪些有趣的關聯？</li>
+</ul>
+</li>
+<li>這些步驟幫助我們在後續建模、視覺化與報告時，做出更精準且具意義的分析。</li>
+</ul>
+<br>
+<ul>
+<li>
+<p><strong>EDA 分析流程</strong></p>
+<ul>
+<li><strong>Step 1. 資料結構理解</strong>
+<ul>
+<li>使用 <code>.head()</code>、<code>.info()</code> 初步了解欄位與型態</li>
+<li>確認資料量、缺失比例與欄位命名邏輯</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><strong>Step 2. 資料清理與轉換</strong>
+<ul>
+<li>處理缺值與格式不一致（例如薪資欄位中的區間文字）</li>
+<li>建立跨年度欄位對照表，統一欄位命名與順序</li>
+<li>將區間轉為數值（如：&ldquo;30-39&rdquo; → 35）</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><strong>Step 3. 欄位分類與變數篩選</strong>
+<ul>
+<li>將欄位區分為：類別型（如性別、國家）與數值型（如年齡、薪資）</li>
+<li>建立技能數量、國家地區分類欄位，幫助後續分群</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><strong>Step 4. 單變量分析（Univariate Analysis）</strong>
+<ul>
+<li>觀察各變數的分布：如薪資級距、職稱類型、人數比例</li>
+<li>使用 bar chart、histogram 呈現結果</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><strong>Step 5. 雙／多變量分析（Bivariate/Multivariate）</strong>
+<ul>
+<li>交叉觀察兩變數關係，如：地區 vs 薪資、技能 vs 職位</li>
+<li>使用氣泡圖、堆疊長條圖、boxplot 呈現不同組合</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><strong>Step 6. 擬定分析主軸與策略</strong>
+<ul>
+<li>根據觀察結果，決定要聚焦的主題與切入方式</li>
+<li>例如：薪資落差與國家／技能關聯、技能變化趨勢與學習資源影響</li>
+</ul>
+</li>
+</ul>
+<hr>
+</li>
+</ul>
+<br>
+<h4 id="探索性資料分析分析過程">探索性資料分析分析過程。</h4>
+<p>從這裡開始將進入整個分析流程，若對細節不感興趣，可直接跳轉至 <a href="https://ho291ey992.github.io/note/data_analysis/project_3_6/"><strong>下一篇</strong></a>。</p>
+<br>
+<h5 id="step-1-資料結構理解">Step 1. 資料結構理解</h5>
+<p>使用 <code>.head()</code>、<code>.info()</code>、<code>.describe()</code>、<code>.isnull()</code> 等方法確認資料的基本結構，了解資料欄位、檢查缺失值與異常值。這裡使用的是課程中第一次清洗後的資料。</p>
+<br>
+<ul>
+<li>
+<p>df.head()：快速預覽前幾筆資料。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt;&gt;&gt; df.head<span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>ividuals are respons...        <span style="color:#bd93f9">0</span>            <span style="color:#bd93f9">2291</span>
+</span></span><span style="display:flex;"><span>surveyed_in question_index  question_type                               question_description response  response_count
+</span></span><span style="display:flex;"><span><span style="color:#bd93f9">0</span>         <span style="color:#bd93f9">2020</span>            Q21  Single Choice  Approximately how many individuals are respons...        <span style="color:#bd93f9">0</span>            <span style="color:#bd93f9">2291</span>
+</span></span><span style="display:flex;"><span><span style="color:#bd93f9">1</span>         <span style="color:#bd93f9">2020</span>            Q21  Single Choice  Approximately how many individuals are respons...      1-2            <span style="color:#bd93f9">2645</span>
+</span></span><span style="display:flex;"><span><span style="color:#bd93f9">2</span>         <span style="color:#bd93f9">2020</span>            Q21  Single Choice  Approximately how many individuals are respons...    10-14             <span style="color:#bd93f9">692</span>
+</span></span><span style="display:flex;"><span><span style="color:#bd93f9">3</span>         <span style="color:#bd93f9">2020</span>            Q21  Single Choice  Approximately how many individuals are respons...    15-19             <span style="color:#bd93f9">300</span>
+</span></span><span style="display:flex;"><span><span style="color:#bd93f9">4</span>         <span style="color:#bd93f9">2020</span>            Q21  Single Choice  Approximately how many individuals are respons...      20+            <span style="color:#bd93f9">2247</span>
+</span></span></code></pre></div><hr>
+  <br>
+</li>
+<li>
+<p>df.info()：快速檢視資料。</p>
+<p>顯示整個 DataFrame 的結構、欄位名稱、資料型別（dtype）、非空值數量（Non-Null Count）與記憶體使用情況。</p>
+<ul>
+<li>為什麼這樣做：
+<ul>
+<li>快速確認哪些欄位有「缺失值」。</li>
+<li>檢查資料型別是否正確（例如數字是否被誤當作文字）。</li>
+<li>確認資料筆數是否與預期相符。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt;&gt;&gt; df.info<span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>&lt;class <span style="color:#f1fa8c">&#39;pandas.core.frame.DataFrame&#39;</span>&gt;
+</span></span><span style="display:flex;"><span>RangeIndex: <span style="color:#bd93f9">13725</span> entries, <span style="color:#bd93f9">0</span> to <span style="color:#bd93f9">13724</span>
+</span></span><span style="display:flex;"><span>Data columns <span style="color:#ff79c6">(</span>total <span style="color:#bd93f9">6</span> columns<span style="color:#ff79c6">)</span>:
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">#   Column                Non-Null Count  Dtype </span>
+</span></span><span style="display:flex;"><span>---  ------                --------------  ----- 
+</span></span><span style="display:flex;"><span><span style="color:#bd93f9">0</span>   surveyed_in           <span style="color:#bd93f9">13725</span> non-null  int64 
+</span></span><span style="display:flex;"><span><span style="color:#bd93f9">1</span>   question_index        <span style="color:#bd93f9">13725</span> non-null  object
+</span></span><span style="display:flex;"><span><span style="color:#bd93f9">2</span>   question_type         <span style="color:#bd93f9">13725</span> non-null  object
+</span></span><span style="display:flex;"><span><span style="color:#bd93f9">3</span>   question_description  <span style="color:#bd93f9">13725</span> non-null  object
+</span></span><span style="display:flex;"><span><span style="color:#bd93f9">4</span>   response              <span style="color:#bd93f9">13725</span> non-null  object
+</span></span><span style="display:flex;"><span><span style="color:#bd93f9">5</span>   response_count        <span style="color:#bd93f9">13725</span> non-null  int64
+</span></span><span style="display:flex;"><span>dtypes: int64<span style="color:#ff79c6">(</span>2<span style="color:#ff79c6">)</span>, object<span style="color:#ff79c6">(</span>4<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>memory usage: 643.5+ KB
+</span></span></code></pre></div>  <br>
+<table>
+  <thead>
+      <tr>
+          <th>欄位</th>
+          <th>資料型別</th>
+          <th>說明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>surveyed_in</td>
+          <td>int64</td>
+          <td>✅ 沒問題，年份是整數。</td>
+      </tr>
+      <tr>
+          <td>question_index</td>
+          <td>object</td>
+          <td>✅ 題號，文字型態合理。</td>
+      </tr>
+      <tr>
+          <td>question_description</td>
+          <td>object</td>
+          <td>✅ 題目，文字型態合理。</td>
+      </tr>
+      <tr>
+          <td>response</td>
+          <td>object</td>
+          <td>✅ 回覆，文字型態合理。</td>
+      </tr>
+      <tr>
+          <td>response_count</td>
+          <td>int64</td>
+          <td>✅ 出現次數是整數。</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p>✅ 所有欄位皆無缺值</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+  <br>
+</li>
+<li>
+<p>df.isnull()：再次檢查是否有遺漏值</p>
+<ul>
+<li>這個方法能清楚列出每個欄位的缺失值筆數。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt;&gt;&gt; df.isnull<span style="color:#ff79c6">()</span>.sum<span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>surveyed_in             <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>question_index          <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>question_type           <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>question_description    <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>response                <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>response_count          <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>dtype: int64
+</span></span></code></pre></div><hr>
+  <br>
+</li>
+<li>
+<p>df.describe()：簡單的描述統計</p>
+<p>對數值欄位（如 int、float）產出統計摘要，包括：總數、平均值、標準差、最小值、四分位數與最大值。</p>
+<ul>
+<li>用途：
+<ul>
+<li>發現極端值（如 response_count 過高）。</li>
+<li>評估資料分布與離散程度。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt;&gt;&gt; df_describe
+</span></span><span style="display:flex;"><span>            <span style="color:#bd93f9">2020</span>          <span style="color:#bd93f9">2021</span>          <span style="color:#bd93f9">2022</span>
+</span></span><span style="display:flex;"><span>count   4723.000000   5004.000000   3998.000000  <span style="color:#6272a4"># count（總數）：每個欄位中非缺失值（非 NaN）的數量。</span>
+</span></span><span style="display:flex;"><span>mean     177.742748    238.049361    206.326413  <span style="color:#6272a4"># mean（平均值）：每個欄位的平均值。</span>
+</span></span><span style="display:flex;"><span>std      886.520151   1200.215385   1098.017375  <span style="color:#6272a4"># std（標準差）：用來衡量數據的分散程度(標準差越小，表示資料值越接近樣本平均數。標準差越大，表示資料值分佈越廣，某些值離樣本平均數越遠。)。</span>
+</span></span><span style="display:flex;"><span>min        1.000000      1.000000      1.000000  <span style="color:#6272a4"># min（最小值）：每個欄位的最小值。</span>
+</span></span><span style="display:flex;"><span>25%        1.000000      1.000000      1.000000  <span style="color:#6272a4"># 25%（第一四分位數）：數據中的 25% 分位值。</span>
+</span></span><span style="display:flex;"><span>50%        1.000000      2.000000      1.000000  <span style="color:#6272a4"># 50%（中位數或第二四分位數）：數據的中位數，也稱作 50% 分位值。</span>
+</span></span><span style="display:flex;"><span>75%       12.000000     15.000000     14.000000  <span style="color:#6272a4"># 75%（第三四分位數）：數據中的 75% 分位值。</span>
+</span></span><span style="display:flex;"><span>max    15789.000000  21860.000000  18653.000000  <span style="color:#6272a4"># max（最大值）：欄位的最大值。</span>
+</span></span></code></pre></div></li>
+</ul>
+<blockquote>
+<p>如何判斷 <strong>標準差</strong>： 標準差 / 平均值 = 變異係數
+CV &lt; 0.1（10%）：變異小（資料穩定）
+CV ≈ 0.2~0.3：中等變異
+CV &gt; 0.5：變異很大（高度不穩定）</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+  <br>
+</li>
+<li>
+<p>建立跨年度題目對照表：<code>kaggle_question_reference_table</code></p>
+<p>不同年度的題號不一致（如 Q6 在 2020 是「年資」，在 2022 則是「程式經驗」），需對應。</p>
+<ul>
+<li>好處
+<ul>
+<li>對齊不同年份的相同題目。</li>
+<li>避免混淆欄位。</li>
+<li>可支援跨年度視覺化分析。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<img src='/images/note/data_analysis/project_3/kaggle_question_reference_table.jpg' >
+<hr>
+<br>
+<h5 id="step-2-分類欄位與數值欄位">Step 2. 分類欄位與數值欄位：</h5>
+<ul>
+<li>
+<p>response 資料表 (全部回覆資料)：</p>
+<ul>
+<li>數值型變數：
+<ul>
+<li>respondent_id：使用者編號</li>
+<li>surveyed_in：年份</li>
+</ul>
+</li>
+<li>類別型變數：
+<ul>
+<li>question_index：題目編號</li>
+<li>response：回答內容（主要分析對象）
+<br><br></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>questions 資料表：</p>
+<ul>
+<li>數值型變數：
+<ul>
+<li>surveyed_in：年分</li>
+</ul>
+</li>
+<li>類別型變數：
+<ul>
+<li>question_index：題目編號</li>
+<li>question_type：單複選</li>
+<li>question_description：題目內容
+<br><br></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>aggregated_responses 檢視表：</p>
+<ul>
+<li>數值型變數：
+<ul>
+<li>surveyed_in：年份</li>
+<li>response_count：回覆總數</li>
+</ul>
+</li>
+<li>類別型變數：
+<ul>
+<li>question_description：題目內容</li>
+<li>response：回答內容（主要分析對象）
+<br><br></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>kaggle_question_reference_table 資料表 (找出共通題目)：</p>
+<ul>
+<li>類別型變數：
+<ul>
+<li>question_description：題目內容</li>
+<li>2020：2020年題目標號</li>
+<li>2021：2021年題目標號</li>
+<li>2022：2022年題目標號
+<br><br></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="step-3-單變量分析univariate-analysis">Step 3. 單變量分析（Univariate Analysis）</h5>
+<ol>
+<li>
+<p>surveyed_in（年份）：</p>
+<ul>
+<li>目標：掌握每年問卷數量，評估樣本規模。</li>
+<li>說明：能幫助辨識不合理狀況，例如問卷數為 500 卻有超過 1000 筆回覆。
+<img src='/images/note/data_analysis/project_3/1.每年問卷數量.png'> <br><br></li>
+</ul>
+</li>
+<li>
+<p>question_index（題目代號）：看哪些題目最常出現</p>
+<ul>
+<li>目的：了解各題目出現頻率。</li>
+<li>說明：有助於觀察熱門題目、趨勢變動、新增題目或冷門題目。
+<img src='/images/note/data_analysis/project_3/2.看哪些題目最常出現.png'> <br><br></li>
+</ul>
+</li>
+<li>
+<p>question_type（題目類型）：類別型變數，單選 vs 多選 數量</p>
+<ul>
+<li>目的：統計單選題與多選題的數量。</li>
+<li>說明：本資料中約 93% 為單選題，6% 為多選題。
+<img src='/images/note/data_analysis/project_3/3.題目類型分佈.png'> <br><br></li>
+</ul>
+</li>
+<li>
+<p>response（選項內容）：類別型變數，出現頻率最高的選項（限制特定題目）</p>
+<ul>
+<li>目的：分析回覆選項的出現頻率，找出關鍵選項。</li>
+<li>說明：初步分析應聚焦於「出現次數高」的選項。</li>
+<li>範例：找出出現次數最多的選項（最高為 21860 筆），並對應該選項的題目 Q7 進行深入觀察。
+<img src='/images/note/data_analysis/project_3/4.最多回覆的選項.png'> <br><br></li>
+</ul>
+<p><img src='/images/note/data_analysis/project_3/4.最多人選用的程式語言.png'> <br><br></p>
+</li>
+</ol>
+<br>
+<h5 id="tep-5-擬定分析主軸與策略">tep 5. 擬定分析主軸與策略</h5>
+<ul>
+<li>
+<p>檢視過基礎資料後，我發現幾個待解決的問題：</p>
+<ol>
+<li>題號與回覆資料需要標準化。</li>
+<li>若想分析特定族群，需要先建立群組。</li>
+<li>目前目標不夠明確，需進一步釐清分析方向。
+<br><br></li>
+</ol>
+</li>
+<li>
+<p>釐清目標</p>
+<ul>
+<li>
+<ol>
+<li>明確定義分析目標</li>
+</ol>
+<ul>
+<li>我問自己：「我想從這份資料中解答什麼問題？」<br>
+<ul>
+<li>這次的主要目標是：
+<blockquote>
+<p>了解資料分析師的實際樣貌與技能需求，進而修正錯誤認知、規劃學習方向。</p>
+</blockquote>
+</li>
+<li>探索面：他們都在做什麼？需要哪些技能？</li>
+<li>策略面：這職位適合我嗎？值得花時間投入嗎？</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+  <br>
+<ul>
+<li>
+<ol start="2">
+<li>拆解具體子題</li>
+</ol>
+<ul>
+<li>將總體目標拆解為可執行的分析子題，例如：
+<ul>
+<li>常見技能有哪些？</li>
+<li>不同國家或年資的薪資有何差異？</li>
+<li>Data Analyst 和其他職位的技能需求有何不同？</li>
+<li>哪些技能與高薪相關？</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+  <br>
+<ul>
+<li>
+<ol start="3">
+<li>確認分析範圍與資料 - 重新整理資料範圍。</li>
+</ol>
+<ul>
+<li>聚焦 2020–2022 年共通題目（約 25 題），並依主題分類如下：
+<ul>
+<li><strong>基礎輪廓</strong>：年齡、性別、學歷、國家、薪資。</li>
+<li><strong>技能與工具</strong>：程式語言、資料庫、ML 框架、ML 演算法、視覺化工具、IDE、CV、NLP。</li>
+<li><strong>工作與職責</strong>：職稱、工作內容、公司規模、DS 團隊規模、ML 使用情況。</li>
+<li><strong>經驗</strong>：程式經驗、ML 經驗、使用TPU的次數。</li>
+<li><strong>學習資源</strong>：學習平台、媒體來源。</li>
+<li><strong>特殊題目</strong>：產業分類、初學工具。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+  <br>
+<ul>
+<li>
+<ol start="4">
+<li>收集資料與清理</li>
+</ol>
+<ul>
+<li>統一欄位命名與回覆格式（清理 None、錯別字）</li>
+<li>將類別回覆轉為結構化資料（如將程式語言轉為 One-hot 編碼）</li>
+<li>篩選分析對象（例如排除學生或無業者）</li>
+</ul>
+</li>
+</ul>
+<hr>
+  <br>
+<ul>
+<li>
+<ol start="5">
+<li>分析與視覺化</li>
+</ol>
+<ul>
+<li>使用 Power BI 進行資料探索，包含：
+<ul>
+<li>薪資分佈、職稱熱力圖、技能佔比長條圖、年度趨勢變化等。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>目的：讓資料背後的故事更具體、直觀易懂。</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+  <br>
+<ul>
+<li>
+<ol start="6">
+<li>洞察 → 回到目標</li>
+</ol>
+<ul>
+<li>分析過程中不斷檢視：「這些結果是否能回應我一開始的問題？」</li>
+<li>若能，則彙整出具體結論並規劃後續行動，例如：
+<ul>
+<li>哪些技能是一定要學的？（如 Python、Scikit-learn）</li>
+<li>是否值得投入這個職涯方向？</li>
+<li>下一步是補足哪些能力？申請哪些職位？</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+  <br>
+<ul>
+<li>
+<ol start="7">
+<li>總結：</li>
+</ol>
+<ul>
+<li><strong>分析目標</strong>：了解資料分析師的實際樣貌與技能需求，進而修正錯誤認知、規劃學習方向。</li>
+<li><strong>目標族群</strong>：以 &ldquo;Data Analyst&rdquo;、&ldquo;Business Analyst&rdquo;、&ldquo;Data Scientist&rdquo;&hellip;等，相關職業為主。</li>
+<li><strong>分析方向</strong>：基礎輪廓分析、技能與工具分析、工作內容與公司環境、學習資源與趨勢追蹤、薪資與經驗分析。</li>
+</ul>
+</li>
+</ul>
+<hr>
+  <br>
+</li>
+</ul>
+<h4 id="主題式分析與洞察過程">主題式分析與洞察過程。</h4>
+<h5 id="1-資料驗證">1. 資料驗證</h5>
+<p>資料清理是整個分析中最耗時的部分，包含命名標準化、資料驗證、型別轉換與欄位分群。有些資料表（如 <code>country_area</code>、<code>salary_order</code>、<code>prog_lang_skill_group</code> 等）是分析需求建立的，接下來會一一說明這些表的設計原因與用處。</p>
+<ul>
+<li>在分析前要先檢查資料的狀況 (<strong>Step 1. 資料結構理解</strong>)，因為所拿到的資料不一定是自己處理過的版本，需要再檢查一次「<strong>格式、缺失、異常值</strong>」。
+<br>處。</li>
+</ul>
+<hr>
+<h5 id="2-基礎輪廓分析">2. 基礎輪廓分析</h5>
+<ul>
+<li>
+<p><strong>目的：瞭解整體樣貌與背景</strong></p>
+</li>
+<li>
+<p>發現問題。</p>
+<ul>
+<li><strong>年薪資料異常嚴重</strong>：有大量樣本標示極低薪資，與常理不符，尤其即使在低收入國家也應超過 $1,000 美元。
+<blockquote>
+<p>資料中 0 佔比高達 28%，0–999 佔比約 13%。</p>
+</blockquote>
+</li>
+<li><strong>年薪與經驗矛盾</strong>：存在「程式經驗 1–3 年」卻標示「年薪超過 50 萬美元」的極端樣本，判斷為誤填。</li>
+<li><strong>資料多為文字格式</strong>：如 salary: 0–999，coding_exp: 1–3 years，需轉為數值方能進行比較與篩選。</li>
+</ul>
+</li>
+</ul>
+<br>
+<ul>
+<li>處理方式。
+<ul>
+<li>建立 <code>salary_order</code> 資料表
+<ul>
+<li>將年薪區間轉為中位數（例如：0–999 → 500），利於數值計算與排序。</li>
+</ul>
+</li>
+<li>建立 <code>country_area</code> 資料表，加入 <strong>GDP</strong> 和 <strong>最低薪資</strong>，驗證 <strong>年薪</strong> 資料的正確性。
+<ul>
+<li>建立各國GDP資料
+<blockquote>
+<p>資料來源：<a href="https://www.gapminder.org/data/">Gapminder</a> 中的 Fast Track、檔案名稱：ddf–datapoints–gdp_pcap–by–country–time.csv</p>
+</blockquote>
+</li>
+<li>依 GDP 分群為四類：<strong>低收入 / 中低 / 中高 / 高收入</strong></li>
+<li>加入各國 <strong>匯率</strong> 、 <strong>貨幣單位</strong> 與 <strong>最低工資</strong>（最低工資轉換為美金）
+<blockquote>
+<p>匯率標準：2022 年最後一週 <br>
+資料來源：<a href="https://ilostat.ilo.org/data/">ILO（國際勞工組織）</a>、檔案名稱：EAR_4MMN_CUR_NB_A-20250529T0752.csv</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<br>
+<ul>
+<li>
+<p>視覺化。</p>
+  <iframe src="https://ho291ey992.github.io/data_scientists_toolbox/html/基礎輪廓分析.html" width="1000" height="900"></iframe> <br>
+<ul>
+<li>
+<p>國家分布（country）</p>
+<ul>
+<li>印度與美國樣本最多，印度佔比接近三成。
+<br><br></li>
+</ul>
+</li>
+<li>
+<p>年齡 (age)</p>
+<ul>
+<li>多數集中在 22–44 歲，其中 25–29 歲佔比逾 24%。</li>
+<li>顯示資料分析領域多為轉職或職場初中期族群。
+<br><br></li>
+</ul>
+</li>
+<li>
+<p>性別分布 (gender)</p>
+<ul>
+<li>男性佔比約 79%，女性與非二元性別佔比明顯偏低。
+<br><br></li>
+</ul>
+</li>
+<li>
+<p>學歷 (education)</p>
+<ul>
+<li>約 80% 擁有學士或碩士學位。</li>
+<li>顯示資料分析職位通常要求高等教育背景，碩士學歷有助於晉升或起薪。
+<br><br></li>
+</ul>
+</li>
+<li>
+<p>年薪 (salary)</p>
+<ul>
+<li>初始樣本中有超過一半（52%）標示年薪低於 $5,000，包括 0 與 0–999，清理後僅剩 9725 筆有效資料。</li>
+</ul>
+<blockquote>
+<p>本圖表為清理後的資料分布，排除了低於法定最低薪資、極端高薪但無經驗等明顯異常樣本。<br>
+年薪區間以中位數換算為美金，並以 ILO 公布的最低工資與 Gapminder 的 GDP 分組做為清理標準，確保樣本具備一定信度。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<br>
+<ul>
+<li>總結與思考。
+<ul>
+<li><strong>樣貌輪廓</strong>：以 年輕（25–29 歲）、碩士學歷、男性 為主，地區則以 印度與美國為最大樣本來源。</li>
+<li>年薪為最需清理的欄位，誤填、遺漏與極端值比例高，清理完後年薪僅 9725 筆為有效樣本，作為薪資後續分析基礎。</li>
+<li>後續需將不同經濟發展程度與地區文化背景納入解釋框架，例如：薪資應該在「相對經濟環境下」來比較，而非直接以全球統一標準比較。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<br>
+<h5 id="3-技能與工具分析">3. 技能與工具分析</h5>
+<ul>
+<li>
+<p><strong>目的：觀察產業中最常見的工具與技術，作為學習參考</strong>
+<br></p>
+</li>
+<li>
+<p>視覺化。</p>
+  <iframe src="https://ho291ey992.github.io/data_scientists_toolbox/html/技能與工具分析.html" width="1000" height="900"></iframe> <br>
+<ul>
+<li>
+<p>使用 IDE (ide_tool)</p>
+<ul>
+<li>Jupyter Notebook 曾是主流 ，但在之後明顯下滑。</li>
+<li>VSCode 使用率逐年上升，可能是因為擴充功能元多更為方便。 <br><br></li>
+</ul>
+</li>
+<li>
+<p>經常使用的程式語言 (prog_lang)</p>
+<ul>
+<li>Python 為絕對主流，適用於各類資料處理與建模工作。</li>
+<li>SQL 比預期的要少，顯示未必是分析師必要技能。</li>
+<li>R 語言 雖使用率較低，但在統計與 A/B 測試場景具獨特優勢，適合有意深入統計者進一步學習。
+<br><br></li>
+</ul>
+</li>
+<li>
+<p>經常使用的資料庫 (databases)</p>
+<ul>
+<li>僅約 40% 受訪者回應使用過資料庫，推測多數人主要以 靜態資料檔案（如 CSV） 進行分析。</li>
+<li>對於初學者而言，資料庫操作雖非必備，但若進入企業環境將成為重要技能。
+<br><br></li>
+</ul>
+</li>
+<li>
+<p>經常使用的視覺化工具 (visualization)</p>
+<ul>
+<li>有近 80% 的曾經使用過，顯示圖形化的能力為分析師的核心技能。
+<br><br></li>
+</ul>
+</li>
+<li>
+<p>ML 框架 (ml_framework)</p>
+<ul>
+<li>超過 70% 受訪者使用過至少一種 ML 框架，顯示預測與建模能力已成為資料分析核心技能。</li>
+</ul>
+<blockquote>
+<p>建議：初學者可從 Scikit-learn 開始，若對深度學習或 NLP 有興趣，再深入 TensorFlow/Keras 或 HuggingFace。</p>
+</blockquote>
+  <br>
+</li>
+<li>
+<p>常見演算法 (ml_algo)</p>
+<ul>
+<li>
+<p>邏輯回歸、決策樹、Gradient Boosting → 簡單好用、適合大部分任務</p>
+</li>
+<li>
+<p>神經網絡（如 CNN、RNN） → 偏向進階應用（如影像、時間序列）
+<br><br></p>
+</li>
+<li>
+<p>以下表格列出各類演算法的特性與初學者建議程度：</p>
+</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th>技術類別</th>
+          <th>解釋</th>
+          <th>初學者是否常用</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Linear/Logistic Regression</strong></td>
+          <td>預測數值或分類（例如房價預測、是否購買），經典入門模型。</td>
+          <td>✅ 非常常見</td>
+      </tr>
+      <tr>
+          <td><strong>Decision Trees / Random Forests</strong></td>
+          <td>用「一連串條件判斷」來分類或預測，易解釋、入門必學。</td>
+          <td>✅ 非常常見</td>
+      </tr>
+      <tr>
+          <td><strong>Gradient Boosting Machines</strong> (xgboost, lightgbm)</td>
+          <td>目前很多競賽冠軍都愛用的強大預測模型。</td>
+          <td>✅ 常見（尤其在實務）</td>
+      </tr>
+      <tr>
+          <td><strong>Dense Neural Networks (MLPs)</strong></td>
+          <td>基本的深度學習神經網路，處理結構化數據的基本神經網路。</td>
+          <td>✅ 常見</td>
+      </tr>
+      <tr>
+          <td><strong>Convolutional Neural Networks</strong> (CNN)</td>
+          <td>常用於影像處理的神經網路。</td>
+          <td>✅ 影像任務常見</td>
+      </tr>
+      <tr>
+          <td><strong>Recurrent Neural Networks</strong> (RNN)</td>
+          <td>處理時間序列或文字，已較少使用。</td>
+          <td>❌ 現在用 transformers 替代多</td>
+      </tr>
+      <tr>
+          <td><strong>Transformer Networks</strong> (BERT, GPT)</td>
+          <td>處理 NLP、也有用於 CV 等任務，現今主流架構。</td>
+          <td>✅ 越來越普遍</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+</ul>
+  <br>
+<ul>
+<li>
+<p>常用 CV (cv_tech)：常用的圖片處理</p>
+<ul>
+<li>使用率偏低，最多也僅有 17% 使用 Image Classification。</li>
+<li>推測 CV 技術屬特定領域（如醫療、製造業）所需，非資料分析師的共通能力。
+<br><br></li>
+</ul>
+</li>
+<li>
+<p>NLP 技術 (nlp_tech)：自然語言:神經網絡</p>
+<ul>
+<li>僅 15% 受訪者曾經使用過自然與，這意味 NLP 屬於特定領域應用，非所有分析師日常工作所需。
+<br><br></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>總結與思考。</p>
+<ul>
+<li>核心必學：Python、Scikit-learn、資料視覺化（Matplotlib、Seaborn）、VSCode/Jupyter</li>
+<li>加分技能：SQL、資料庫連接、R 語言、統計知識</li>
+<li>建議：不用一開始就學全部，先打好資料處理與分析基礎（Python、視覺化、ML），再依目標補足統計、商業思維或進階技術。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<br>
+<h5 id="4-工作內容與公司環境">4. 工作內容與公司環境</h5>
+<ul>
+<li>
+<p><strong>目的：了解職責與產業狀況</strong>
+<br></p>
+</li>
+<li>
+<p>發現什麼？</p>
+<ul>
+<li>2022 年 <code>job_title</code> 欄位的空值比例高達近 50%。後來發現「學生」被拆分為獨立題目，可能是為了區分是否為在職進修。</li>
+<li>原始資料中超過半數屬於非從業者或職稱不明，例如學生（34%）、其他（7%）等，這些樣本未必屬於本次研究的目標分析群體。</li>
+</ul>
+  <br>
+</li>
+<li>
+<p>如何處理。</p>
+<ul>
+<li>將 2022年 的 <code>學生資料</code> 與 <code>job_title</code> 合併。</li>
+<li>建立群組欄位 <code>job_title_group</code>，將職稱進行分類以聚焦分析目標，篩選後剩餘樣本數為 22,616 筆。
+<ul>
+<li><strong>Data-related</strong>：如 Data Analyst、Data Scientist、ML Engineer 等。</li>
+<li><strong>Exclude</strong>：如 學生、其他、空值、未就業。</li>
+</ul>
+</li>
+</ul>
+  <br>
+</li>
+<li>
+<p>視覺化。</p>
+  <iframe src="https://ho291ey992.github.io/data_scientists_toolbox/html/職業與工作相關分析.html" width="1000" height="900"></iframe> <br>
+<ul>
+<li>
+<p>職稱</p>
+<ul>
+<li>資料顯示最多的職稱為 Data Scientist，其次為 Software Engineer 與 Data Analyst，2022 年 Data Analyst 首度超越 Software Engineer。這可能反映出業界需求趨向應用層資料人才的增加。Business Analyst 與 Data Engineer 等職位也持續成長中。
+<br><br></li>
+</ul>
+</li>
+<li>
+<p>常見職稱與工作職責（多選題長表）</p>
+<ul>
+<li>資料分析相關職位的主要職責為「<strong>分析並理解資料以影響產品或商業決策</strong>」（約佔 50%），這是資料分析師的核心工作。其次是資料基礎建設與機器學習應用相關任務（各約佔 25–30%），顯示部分分析師也需兼具工程與研發能力。約 20% 的人表示曾參與。
+<br><br></li>
+</ul>
+</li>
+<li>
+<p>公司規模</p>
+<ul>
+<li>公司規模分布均勻，大公司與小型新創皆有資料分析師職位，顯示該職業於各類型組織中皆有需求。2022 年起大型企業略為增長，可能反映產業數位轉型的趨勢。
+<br><br></li>
+</ul>
+</li>
+<li>
+<p>DS 團隊規模</p>
+<ul>
+<li>最常見的團隊規模為「1–2人」與「20+人」，顯示資料團隊規模呈兩極化：一方面是獨立分析師在小型企業中運作，另一方面則是成熟企業中組成完整的資料科學團隊。中間規模（3–9人）亦具穩定比例，可能為資料部門發展中的常態型態。
+<br><br></li>
+</ul>
+</li>
+<li>
+<p>公司是否使用 ML</p>
+<ul>
+<li>僅有約 20% 的受訪者表示公司有穩定使用 ML 於生產環境，另有近 30% 表示正處於探索階段，這顯示，即便從業者擁有相關技能，實際部署 ML 至生產環境的情境仍偏少，企業端多處於試驗性質或尚未導入階段。
+<br><br></li>
+</ul>
+</li>
+<li>
+<p>所在行業 (目標行業)</p>
+<ul>
+<li>資料分析職位最多集中在「科技/電腦」（28%），其次為「會計金融」與「學術教育」（各約 11%），其他如醫療、製造、零售、線上服務則約各佔 4–5%。顯示雖科技業為主體，但跨產業應用正逐步擴展。
+<br><br></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>總結與思考。</p>
+<ul>
+<li>資料分析職位在各產業皆有需求，尤以科技、金融、教育產業為主。常見職稱包括 Data Scientist、Data Analyst 與 Software Engineer，近年 Data Analyst 有明顯上升趨勢。工作職責以「分析資料以影響決策」為主，其次為機器學習與資料基礎建設，顯示跨職能需求。企業端導入機器學習仍以探索階段為主，實際落地比例不高。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<br>
+<h5 id="5-學習資源與趨勢追蹤">5. 學習資源與趨勢追蹤</h5>
+<ul>
+<li>
+<p><strong>目的：找到主流學習管道</strong>
+<br></p>
+</li>
+<li>
+<p>視覺化。</p>
+  <iframe src="https://ho291ey992.github.io/data_scientists_toolbox/html/外部資源與趨勢追蹤.html" width="1000" height="900"></iframe> <br>
+<ul>
+<li>
+<p>入門學習資源分析：</p>
+<ul>
+<li>資料顯示，初學者最常使用的學習管道為線上課程（62%）、Kaggle（56.7%）、YouTube（54.6%）。這顯示目前資料學習資源以「數位線上與互動學習」為主，且不再以大學課程為核心。傳統學術課程（僅約 22%）與論壇型社群（如 Reddit）比例明顯較低。
+<br><br></li>
+</ul>
+</li>
+<li>
+<p>學習來源：</p>
+<ul>
+<li>在資料媒體來源上，YouTube、Kaggle、Blogs（如 Towards Data Science）為主流，三者皆佔 40% 左右。這類內容多為開放式、短時長、即時更新的資訊，反映出資料分析師傾向從社群媒體獲得學習靈感與新知。反觀學術論文、email newsletter 等傳統媒介，佔比逐年下降。
+<br><br></li>
+</ul>
+</li>
+<li>
+<p>學習課程平台：</p>
+<ul>
+<li>Coursera 長期為首選學習平台，但使用率逐年下降（2020 年近 37%、2022 年降至 28%），而 Kaggle Learn 與 Udemy 成為次主力，分別佔約 30%。其他如 DataCamp、edX、LinkedIn Learning 為輔助平台。</li>
+<li>Coursera (40%)、Kaggle (30%)、Udemy (30%)。
+<br><br></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>總結與思考。</p>
+<ul>
+<li>從學習資源的使用分析可看出，資料分析師的學習方式正快速轉變：由過去仰賴傳統教育體制，逐步轉向以 Coursera、Kaggle Learn、YouTube 為代表的數位化、自主學習為主。</li>
+<li>對初學者來說，線上課程提供完整的基礎建構，Kaggle 可用於強化資料處理與建模實作，而社群平台則是追蹤技術趨勢、獲得靈感的重要來源。善用這些開放學習資源，能有效加速學習曲線與實戰轉換率。</li>
+<li>對於在職轉職者而言，線上課程、Kaggle、影音與社群平台是最具實用性的學習途徑，能提供快速入門所需的知識與實戰素材。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<br>
+<h5 id="6-薪資與經驗分析">6. 薪資與經驗分析</h5>
+<ul>
+<li>
+<p><strong>目的：了解入門門檻與上升空間</strong>
+<br></p>
+</li>
+<li>
+<p>發現什麼？</p>
+<ul>
+<li>這段分析主要觀察技能組合、技能數量與程式經驗，是否與職位類型及年薪呈現顯著關聯，所以需要將 <strong>技能、經驗</strong> 轉為數值。
+<br><br></li>
+</ul>
+</li>
+<li>
+<p>如何處理。</p>
+<ul>
+<li>建立 <code>prog_lang_skill_group</code>：由於技能是以文字紀錄，所以將 prog_lang 轉換成 One-hot 編碼，方便檢查必要技能、統計技能數。
+<table>
+  <thead>
+      <tr>
+          <th>id</th>
+          <th>Python</th>
+          <th>R</th>
+          <th>SQL</th>
+          <th>&hellip;</th>
+          <th>skill_count</th>
+          <th>Python_SQL_group</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0</td>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>
+          <td>&hellip;</td>
+          <td>2</td>
+          <td>1</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+<li>建立 <code>coding_exp_years_order</code>： 將經驗區間轉為中位數（例如：1-3 years → 4），利於數值計算與排序。
+<br><br></li>
+</ul>
+</li>
+<li>
+<p>視覺化。</p>
+  <iframe src="https://ho291ey992.github.io/data_scientists_toolbox/html/洲別_經驗_薪資.html" width="1000" height="600"></iframe> <br>
+  <iframe src="https://ho291ey992.github.io/data_scientists_toolbox/html/年薪_技能(數量)_職稱.html" width="1000" height="600"></iframe> <br>
+<ul>
+<li>薪資 &amp; 經驗 &amp; 洲別
+<ul>
+<li>可明顯看出北美與大洋洲的年薪顯著高於其他地區。</li>
+<li>也能看出隨這經驗的提升，薪水會漸漸提高。</li>
+</ul>
+</li>
+<li>年薪 &amp; 技能(數量) &amp; 職稱
+<ul>
+<li>能明顯的看每個職業所需的技能數量是差不多的，可以做為入門學習的指標。
+<br><br></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>總結與思考。</p>
+<ul>
+<li>從地區薪資分布來看，北美與大洋洲的從業者年薪遠高於亞洲與南美，落差甚至可達 3–5 倍，顯示地區經濟條件對薪資的直接影響。經驗方面，年資越多的確有助於提高薪資，但亞洲地區整體成長幅度相對緩慢。</li>
+<li>在技能數方面，大多數職位使用 2–3 種程式語言已足以勝任，技能數量雖有幫助，但並非與薪資呈線性關係。更關鍵的，往往是職位本身與所處產業（如 Data Scientist vs Business Analyst）。</li>
+<li>這顯示學習策略不應僅追求語言數量，而是結合職位需求、地區特性與經驗深化作為發展主軸。
+<br><br></li>
+</ul>
+</li>
+</ul>
+<hr>
+
+        </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<script>
+  var indexURL = "https://ho291ey992.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://ho291ey992.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/mark.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://ho291ey992.github.io/js/script.min.js"></script>
+
+
+
+</body>
+</html>
