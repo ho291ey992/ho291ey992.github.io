@@ -158,8 +158,7 @@
 <br>
 <h4 id="一kaggle_question_reference_table">一、kaggle_question_reference_table</h4>
 <ul>
-<li>
-<p>這張資料表是在分析開始前，為了方便觀察各年度問卷中的<strong>共通題目</strong>而建立的（初期使用 Excel 編輯）。其主要目的包括：</p>
+<li>這張資料表是在分析開始前，為了方便觀察各年度問卷中的<strong>共通題目</strong>而建立的（初期使用 Excel 編輯）。其主要目的包括：
 <ul>
 <li>確定主要分析的題目。</li>
 <li>分類題目類型</li>
@@ -167,12 +166,11 @@
 <li>統一各年度中相同題目的欄位名稱</li>
 </ul>
 </li>
-<li>
-<p>此表是分析初期的重要基礎資料，後續在轉換資料格式、建構分析資料表時，都會參考這張表進行欄位統一與題目篩選。
-<br><br></p>
-</li>
-<li>
-<p><strong>欄位說明：</strong></p>
+<li>此表是分析初期的重要基礎資料，後續在轉換資料格式、建構分析資料表時，都會參考這張表進行欄位統一與題目篩選。</li>
+</ul>
+<br>
+<ul>
+<li><strong>欄位說明：</strong>
 <ul>
 <li><strong>分類：</strong> 將題目依主題分類，例如：<strong>基礎輪廓分析</strong>、<strong>技能與工具分析</strong>、<strong>學習資源</strong>與<strong>學習經歷</strong>…等，用於分組觀察與呈現。</li>
 <li><strong>排序：</strong> 主要用於 Power BI 中標籤順序排序。若無此欄，Power BI 會自動依字母排序，影響視覺呈現的邏輯順序（此欄在其他分析中不一定會用到）。</li>
@@ -189,11 +187,12 @@
 <blockquote>
 <p>這張表是我在準備分析時所建立的基礎對照表，幫助我統整不同年份的問卷題目。</p>
 </blockquote>
-  <img src='/images/note/data_analysis/project_3/kaggle_question_reference_table.jpg' width = 80%>
----
-<br><br>
+  <img src='/images/note/data_analysis/project_3/kaggle_question_reference_table.jpg' >
+<br>
+<hr>
+<br>
 <h4 id="二responses">二、responses</h4>
-<p>分析完題目後，接下來我需要清理資料並設計資料表，以利後續分析。這樣能避免重複資料造成空間浪費，並透過正規化提升資料的一致性與可維護性。</p>
+<p>分析完題目後，接下來需進一步清理資料並規劃分析用資料表，以提升後續分析效率與一致性。這樣能避免重複資料造成空間浪費，並透過正規化提升資料的一致性與可維護性。</p>
 <ol>
 <li>
 <p><strong>欄位名稱標準化</strong>：將不同年份中命名不一致的欄位，統一修改為一致的名稱。</p>
@@ -205,7 +204,7 @@
 <p><strong>建立主鍵（Primary Key）</strong>：重新編排 id，作為唯一識別資料表中每一筆紀錄的主鍵。</p>
 </li>
 <li>
-<p><strong>回覆資料標準化</strong>：統一處理不同年份在描述方式、選項數量或順序上的差異。。這部分是我花最多時間處理的階段。</p>
+<p><strong>回覆資料標準化</strong>：統一處理不同年份在描述方式、選項數量或順序上的差異。這部分是我在整體清理流程中花費最多時間的階段。</p>
 <ul>
 <li>我的做法是透過 <code>drop_duplicates</code> 對每道題目的回覆進行比對與清查，最後統一為一致的格式。</li>
 </ul>
@@ -268,8 +267,7 @@
 <hr>
 <br>
 <h4 id="六country_area">六、country_area</h4>
-<p>這個表是花費最長時間處理的。
-這是我處理時間最長的資料表。</p>
+<p>這個表是花費最長時間處理的。</p>
 <ul>
 <li>整合國家所屬區域（ area ）、GDP 與最低薪資資料。</li>
 <li>建立 <code>gpd_group</code>(GDP_年分)、<code>area</code>
@@ -296,10 +294,12 @@
 <ul>
 <li>由於問卷中沒有直接詢問「工作年資」，因此以 <code>coding_exp_years</code> 作為多變量分析的替代指標。</li>
 <li>建立欄位：rank（作為 Power BI X 軸排序依據）。</li>
-<li>將區間資料轉為數值 ( 例如：<code>1-3 years</code> → <code>2</code> )。
-<br></li>
+<li>將區間資料轉為數值 ( 例如：<code>1-3 years</code> → <code>2</code> )。</li>
 </ul>
+<br>
 <hr>
+<p><a href="https://ho291ey992.github.io/note/data_analysis/project_3_2/">上一章</a></p>
+<p><a href="https://ho291ey992.github.io/note/data_analysis/project_3_4/">下一章</a></p>
 
         </div>
 

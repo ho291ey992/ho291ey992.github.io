@@ -136,7 +136,7 @@
           <br>
 <h3 id="概念驗證可視化方法visualization-methods">概念驗證:可視化方法（Visualization Methods）</h3>
 <p>在開始進行圖表製作前，我會先進行「可視化方法的概念驗證」，目的是確認資料是否具備可視化潛力，並釐清哪些圖表形式最能有效呈現想要傳達的資訊。<br>
-初期使用 Power BI 進行資料瀏覽與檢查，這可以讓我專注在資料內容本身，不會被繪圖語法分心。等資料結構確認後，正式視覺化階段則改用 Python 的 <code>Plotly + Panel</code>，以支援互動性與網頁嵌入需求。
+初期使用 Power BI 進行資料瀏覽與檢查，這可以讓我專注在資料內容本身，避免被繪圖語法干擾。等資料結構確認後，正式視覺化階段則改用 Python 的 <code>Plotly + Panel</code>，以支援互動性與網頁嵌入需求。
 <br></p>
 <ul>
 <li>補充：一些個人經驗
@@ -144,7 +144,7 @@
 <li>Power BI 在資料初期探索時真的很方便，尤其是拖拉圖表檢查資料分佈，很直覺。</li>
 <li>後來想要放上網站時才發現 Power BI 嵌入要付費帳號，直接放棄…</li>
 <li>Plotly 的互動效果很好，加上 Panel 可以切換資料與圖表頁面，實際展示時彈性大很多。</li>
-<li>一開始我沒設定用什麼工具，後來覺得還是挑三種比較好記：靜態（matplotlib）、動態（plotly）、圖形介面（Power BI）。
+<li>參考其他人的建議後，我挑選了三種方式來應對多數視覺化情境：靜態（matplotlib）、動態（plotly）、圖形介面（Power BI）。
 <br></li>
 </ul>
 </li>
@@ -259,7 +259,7 @@
 <li>
 <p>概念驗證 橫條圖
 圖表 1：單年度長條圖 <br></p>
-<iframe src="https://ho291ey992.github.io/data_scientists_toolbox/html/概念驗證_單變量_橫條圖.html" width="800" height="600"  width=90% ></iframe>
+<iframe src="https://ho291ey992.github.io/data_scientists_toolbox/html/概念驗證_單變量_橫條圖.html" width="800" height="600"></iframe>
 <pre><code>```python
 # 載入資料 dict
 df = data('基礎輪廓分析')
@@ -304,7 +304,7 @@ fig.write_html(f'data_scientists_toolbox/橫條圖.html', auto_open=True)
 <p>概念驗證 圓餅圖
 將「國家」欄位的回應資料整合所有年度，進行總計後使用圓餅圖呈現整體分布概況。此圖能幫助觀察整體樣本中，來自各國的比例差異。 <br>
 圖表 2：多年度總計圓餅圖（圓餅圖.html <br></p>
-<iframe src="https://ho291ey992.github.io/data_scientists_toolbox/html/概念驗證_單變量_圓餅圖.html" width="800" height="600"  width=90% ></iframe>
+<iframe src="https://ho291ey992.github.io/data_scientists_toolbox/html/概念驗證_單變量_圓餅圖.html" width="800" height="600"></iframe>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># 對「國家」欄位的所有年份資料進行統整處理（多年度 → 圓餅圖邏輯會自動套用）</span>
 </span></span><span style="display:flex;"><span>data_all <span style="color:#ff79c6">=</span> data_process(df[<span style="color:#f1fa8c">&#39;國家&#39;</span>])
 </span></span><span style="display:flex;"><span>
@@ -331,7 +331,7 @@ fig.write_html(f'data_scientists_toolbox/橫條圖.html', auto_open=True)
 <p>概念驗證 橫條圖 圓餅圖 合併
 為同時呈現年度差異與整體結構，橫條圖聚焦於各年度 top 回答，而圓餅圖則顯示跨年度總計結果。 本圖使用 <code>make_subplots()</code> 建立 2x2 的子圖畫布，前 3 張為 2020–2022 各年度的橫條圖，右下角則為圓餅圖表示各年度合計分布狀況。搭配 <code>subplot_titles</code> 設定標題，使每張圖更具辨識性。<br></p>
 <p>圖表 3：年度分圖 + 圓餅合併（多圖合併.html）</p>
-<iframe src="https://ho291ey992.github.io/data_scientists_toolbox/html/概念驗證_單變量_多圖合併.html" width="800" height="600"  width=90% ></iframe> <br>
+<iframe src="https://ho291ey992.github.io/data_scientists_toolbox/html/概念驗證_單變量_多圖合併.html" width="800" height="600"></iframe> <br>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># 建立畫布</span>
 </span></span><span style="display:flex;"><span>fig <span style="color:#ff79c6">=</span> make_subplots(
 </span></span><span style="display:flex;"><span>    rows<span style="color:#ff79c6">=</span><span style="color:#bd93f9">2</span>, cols<span style="color:#ff79c6">=</span><span style="color:#bd93f9">2</span>,
@@ -406,7 +406,7 @@ fig.write_html(f'data_scientists_toolbox/橫條圖.html', auto_open=True)
 <p>資料更新測試
 起初嘗試直接操作原始 dataframe（responses），但在 Panel 的互動過程中遇到更新失效問題。後來將資料預處理為 dict 格式後成功解決，這也讓我了解 Panel 對資料綁定的限制與最佳實踐方式。 <br>
 圖表 4：互動式年度切換長條圖（<code>interactive_dashboard.html</code>） <br></p>
-<iframe src="https://ho291ey992.github.io/data_scientists_toolbox/html/概念驗證_單變量_interactive_dashboard.html" width="800" height="600"  width=90% ></iframe>
+<iframe src="https://ho291ey992.github.io/data_scientists_toolbox/html/概念驗證_單變量_interactive_dashboard.html" width="800" height="600"></iframe>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#6272a4"># 模擬資料</span>
 </span></span><span style="display:flex;"><span>    data_dict <span style="color:#ff79c6">=</span> {
 </span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#39;2020&#39;</span>: pd<span style="color:#ff79c6">.</span>DataFrame({<span style="color:#f1fa8c">&#39;category&#39;</span>: [<span style="color:#f1fa8c">&#39;A&#39;</span>, <span style="color:#f1fa8c">&#39;B&#39;</span>, <span style="color:#f1fa8c">&#39;C&#39;</span>], <span style="color:#f1fa8c">&#39;value&#39;</span>: [<span style="color:#bd93f9">100</span>, <span style="color:#bd93f9">200</span>, <span style="color:#bd93f9">300</span>]}),
@@ -451,7 +451,7 @@ fig.write_html(f'data_scientists_toolbox/橫條圖.html', auto_open=True)
 本圖呈現各洲別的薪資中位數隨程式經驗變化的趨勢。以程式經驗（年數）為 X 軸、薪資中位數為 Y 軸、洲別為不同的線條。資料來自薪資填答正確且職務為 Data-related 的回應者，並篩選國家為「高收入」或「中高收入」的群體。  此圖可用來觀察在不同洲別中，程式經驗是否與薪資中位數存在趨勢差異，是否存在早期成長快、飽和期快的區域現象。 <br></li>
 </ul>
 <p>圖表 5：折線圖 (<code>洲別_經驗_薪資.html</code>) <br></p>
-<iframe src="https://ho291ey992.github.io/data_scientists_toolbox/html/洲別_經驗_薪資.html" width="800" height="600"  width=90% ></iframe>
+<iframe src="https://ho291ey992.github.io/data_scientists_toolbox/html/洲別_經驗_薪資.html" width="800" height="600"></iframe>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># 建立折線圖 go.Scatter</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">go_scatter</span>(line_df_group, file_path_name):
 </span></span><span style="display:flex;"><span>    data1 <span style="color:#ff79c6">=</span> go<span style="color:#ff79c6">.</span>Scatter(
@@ -556,7 +556,7 @@ fig.write_html(f'data_scientists_toolbox/橫條圖.html', auto_open=True)
 - 滑鼠提示：顯示平均年資資訊（coding_exp_year_mean）<br>
 本圖可以觀察是否技能數量較多的職稱會有更高的薪資，以及在不同職稱中薪資與年資、技能數的相對趨勢。 <br></p>
 <p>圖表 6： 氣泡圖 (<code>年薪_技能(數量)_職稱.html</code>)<br></p>
-<iframe src="https://ho291ey992.github.io/data_scientists_toolbox/html/年薪_技能(數量)_職稱.html" width="800" height="600"  width=90% ></iframe>
+<iframe src="https://ho291ey992.github.io/data_scientists_toolbox/html/年薪_技能(數量)_職稱.html" width="800" height="600"></iframe>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">px_scatter</span>(scatter_df, file_path_name):
 </span></span><span style="display:flex;"><span>    fig <span style="color:#ff79c6">=</span> px<span style="color:#ff79c6">.</span>scatter(
 </span></span><span style="display:flex;"><span>            scatter_df,                       <span style="color:#6272a4"># 數據來源的 DataFrame</span>
@@ -630,6 +630,8 @@ fig.write_html(f'data_scientists_toolbox/橫條圖.html', auto_open=True)
 </li>
 </ul>
 <hr>
+<p><a href="https://ho291ey992.github.io/note/data_analysis/project_3_3/">上一章</a></p>
+<p><a href="https://ho291ey992.github.io/note/data_analysis/project_3_5/">下一章</a></p>
 
         </div>
 

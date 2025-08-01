@@ -141,7 +141,7 @@
 </span></span><span style="display:flex;"><span>  檢查環境
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>base<span style="color:#ff79c6">)</span> conda env list 
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  進入新建力環境
+</span></span><span style="display:flex;"><span>  進入新建立環境
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>base<span style="color:#ff79c6">)</span> conda activate data_scientists_toolbox
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  安裝模組
@@ -164,7 +164,7 @@
 </ul>
 <hr>
 <h4 id="數據結構data-structure">數據結構（Data Structure）</h4>
-<p>原始資料是以 <strong>寬資料表</strong> 的形式儲存，每個問題佔一欄。為了方便後續分析，我們會將資料轉換為 <strong>長資料表</strong>，將每筆資料拆解為 <strong>「問題」</strong> 與 <strong>「回覆」</strong> 兩個資料表，並移除 <strong>空值（Null）</strong>。
+<p>原始資料是以 <strong>寬資料表</strong> 的形式儲存，每個問題佔一欄。為了方便後續分析，我將資料轉換為 <strong>長表格形式</strong>，將每筆資料拆解為 <strong>「問題」</strong> 與 <strong>「回覆」</strong> 兩個資料表，並移除 <strong>空值（Null）</strong>。
 接著，為了觀察資料在三年間的變化，我們需要先找出三年間的 <strong>共通問題</strong>，才能進行後續比較分析。</p>
 <ul>
 <li>
@@ -215,7 +215,7 @@
 </ul>
 <br>
 <h5 id="為什麼要轉長表">為什麼要轉長表？</h5>
-<p>這份資料橫跨 2020–2022 三年，不同年份的欄位命名略有差異（如 Q5, Q23），若採用寬表格查詢會造成程式碼冗長、不易維護。</p>
+<p>由於三年問卷的欄位命名（如 Q5 與 Q23）略有不同，若採用寬表格查詢會造成程式碼冗長、不易維護。</p>
 <br>
 <ul>
 <li>
@@ -268,7 +268,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">having</span> response_count <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">1</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">order</span> <span style="color:#ff79c6">by</span> surveyed_in,response_count <span style="color:#ff79c6">desc</span>;
 </span></span></code></pre></div><blockquote>
-<p>每年欄位都不盡相同（如 Q5 與 Q23），每次都得「改欄位、改表名」，非常不利於維護與重複利用。</p>
+<p>每年欄位都不盡相同（如 Q5 與 Q23），每年欄位都不同，需手動修改欄位與表名，導致維護困難且無法自動化。</p>
 </blockquote>
 </li>
 </ul>
@@ -484,6 +484,8 @@
 </li>
 </ul>
 <hr>
+<p><a href="https://ho291ey992.github.io/note/data_analysis/project_3_1/">上一章</a></p>
+<p><a href="https://ho291ey992.github.io/note/data_analysis/project_3_3/">下一章</a></p>
 
         </div>
 
