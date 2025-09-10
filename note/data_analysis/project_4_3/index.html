@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-tw"><head>
+  <meta charset="utf-8">
+  <title>學習筆記</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="練習專案四：找出章魚里">
+  <meta name="author" content="Steve">
+    
+  
+  <meta name="theme-name" content="liva-hugo" />
+  
+  <meta name="generator" content="Hugo 0.140.2">
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://ho291ey992.github.io/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://ho291ey992.github.io/images/favicon.png " type="image/x-icon">
+
+  <!-- google analitycs -->
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'Your ID', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+</head>
+<body><!-- navigation -->
+<header class="navigation sticky"> 
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom pl-0">
+      <a class="navbar-brand mobile-view" href="https://ho291ey992.github.io/"><img class="img-fluid"
+          src="https://ho291ey992.github.io/images/favicon1.png" alt="學習筆記"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        
+        
+        
+        <a class="navbar-brand mx-auto desktop-view" href="https://ho291ey992.github.io/"><img class="img-fluid"
+          src="https://ho291ey992.github.io/images/favicon1.png" alt="學習筆記">
+        </a>
+
+        <ul class="navbar-nav">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://ho291ey992.github.io/about/">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              筆記
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" href="https://ho291ey992.github.io/note/hugo">hugo 網站建置</a>
+              
+              <a class="dropdown-item" href="https://ho291ey992.github.io/note/data_analysis">數據分析</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search pl-lg-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="https://ho291ey992.github.io//search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        
+        <a href="/categories/data-analysis"
+          class="text-primary">Data analysis</a>
+        
+        <h2>練習專案四：找出章魚里 3</h2>  
+        <div class="mb-3 post-meta">
+          <span>By Steve</span>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2025-09-02</span> 
+          
+        </div>
+        
+        <div class="content mb-5">
+          <br>
+<h3 id="數據可視化">數據可視化</h3>
+<h4 id="概念驗證">概念驗證</h4>
+<ul>
+<li>計算全國得票率 A
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># 計算全國得票率 A</span>
+</span></span><span style="display:flex;"><span>total_votes <span style="color:#ff79c6">=</span> votes_by_village[<span style="color:#f1fa8c">&#39;sum_votes&#39;</span>]<span style="color:#ff79c6">.</span>sum()
+</span></span><span style="display:flex;"><span>country_percentage <span style="color:#ff79c6">=</span> votes_by_village<span style="color:#ff79c6">.</span>groupby([<span style="color:#f1fa8c">&#39;candidate_id&#39;</span> ,<span style="color:#f1fa8c">&#39;candidate&#39;</span>])[<span style="color:#f1fa8c">&#39;sum_votes&#39;</span>]<span style="color:#ff79c6">.</span>sum() <span style="color:#ff79c6">/</span> total_votes
+</span></span><span style="display:flex;"><span>vector_a <span style="color:#ff79c6">=</span> country_percentage<span style="color:#ff79c6">.</span>reset_index()[<span style="color:#f1fa8c">&#39;sum_votes&#39;</span>]<span style="color:#ff79c6">.</span>tolist()
+</span></span></code></pre></div></li>
+</ul>
+<br>
+<ul>
+<li>計算村鄰里得票率 B
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># 計算各村鄰里總票數</span>
+</span></span><span style="display:flex;"><span>village_all <span style="color:#ff79c6">=</span> votes_by_village<span style="color:#ff79c6">.</span>groupby([<span style="color:#f1fa8c">&#39;county&#39;</span> ,<span style="color:#f1fa8c">&#39;town&#39;</span> ,<span style="color:#f1fa8c">&#39;village&#39;</span>])[<span style="color:#f1fa8c">&#39;sum_votes&#39;</span>]<span style="color:#ff79c6">.</span>sum()<span style="color:#ff79c6">.</span>reset_index()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 合併</span>
+</span></span><span style="display:flex;"><span>merge_list <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;county&#39;</span> ,<span style="color:#f1fa8c">&#39;town&#39;</span> ,<span style="color:#f1fa8c">&#39;village&#39;</span>]
+</span></span><span style="display:flex;"><span>merged <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>merge(votes_by_village, village_all, left_on<span style="color:#ff79c6">=</span>merge_list, right_on<span style="color:#ff79c6">=</span>merge_list, how<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;left&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 計算村鄰里得票率 B</span>
+</span></span><span style="display:flex;"><span>merged[<span style="color:#f1fa8c">&#34;village_percentage&#34;</span>] <span style="color:#ff79c6">=</span> merged[<span style="color:#f1fa8c">&#39;sum_votes_x&#39;</span>] <span style="color:#ff79c6">/</span> merged[<span style="color:#f1fa8c">&#39;sum_votes_y&#39;</span>]
+</span></span></code></pre></div></li>
+</ul>
+<br>
+<ul>
+<li>計算餘弦相似度
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># 計算餘弦相似度</span>
+</span></span><span style="display:flex;"><span>pivot_df[<span style="color:#f1fa8c">&#39;vector_a_dot_vector_b&#39;</span>] <span style="color:#ff79c6">=</span> (vector_a[<span style="color:#bd93f9">0</span>] <span style="color:#ff79c6">*</span> pivot_df[<span style="color:#f1fa8c">&#39;1&#39;</span>]) <span style="color:#ff79c6">+</span> (vector_a[<span style="color:#bd93f9">1</span>] <span style="color:#ff79c6">*</span> pivot_df[<span style="color:#f1fa8c">&#39;2&#39;</span>]) <span style="color:#ff79c6">+</span> (vector_a[<span style="color:#bd93f9">2</span>] <span style="color:#ff79c6">*</span> pivot_df[<span style="color:#f1fa8c">&#39;3&#39;</span>])
+</span></span><span style="display:flex;"><span>pivot_df[<span style="color:#f1fa8c">&#39;length_vector_a&#39;</span>] <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">pow</span>(((vector_a[<span style="color:#bd93f9">0</span>] <span style="color:#ff79c6">**</span> <span style="color:#bd93f9">2</span>) <span style="color:#ff79c6">+</span> (vector_a[<span style="color:#bd93f9">1</span>] <span style="color:#ff79c6">**</span> <span style="color:#bd93f9">2</span>) <span style="color:#ff79c6">+</span> (vector_a[<span style="color:#bd93f9">2</span>] <span style="color:#ff79c6">**</span> <span style="color:#bd93f9">2</span>)), <span style="color:#bd93f9">0.5</span>)
+</span></span><span style="display:flex;"><span>pivot_df[<span style="color:#f1fa8c">&#39;length_vector_b&#39;</span>] <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">pow</span>((pivot_df<span style="color:#ff79c6">.</span>iloc[:,<span style="color:#bd93f9">3</span>:<span style="color:#bd93f9">6</span>] <span style="color:#ff79c6">**</span> <span style="color:#bd93f9">2</span>)<span style="color:#ff79c6">.</span>sum(axis<span style="color:#ff79c6">=</span><span style="color:#bd93f9">1</span>), <span style="color:#bd93f9">0.5</span>)
+</span></span><span style="display:flex;"><span>pivot_df[<span style="color:#f1fa8c">&#39;cosine_similarity&#39;</span>] <span style="color:#ff79c6">=</span> pivot_df[<span style="color:#f1fa8c">&#39;vector_a_dot_vector_b&#39;</span>] <span style="color:#ff79c6">/</span> (pivot_df[<span style="color:#f1fa8c">&#39;length_vector_a&#39;</span>] <span style="color:#ff79c6">*</span> pivot_df[<span style="color:#f1fa8c">&#39;length_vector_b&#39;</span>])
+</span></span></code></pre></div><blockquote>
+<p>說明：<br>
+vector_a_dot_vector_b = A · B <br>
+length_vector_a = ||A|| <br>
+length_vector_b = ||B|| <br>
+cosine_similarity = (A · B) / (||A||·||B||) <br></p>
+</blockquote>
+</li>
+</ul>
+<br>
+<ul>
+<li>清理資料
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>cosine_similarity_list <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;county&#39;</span> ,<span style="color:#f1fa8c">&#39;town&#39;</span> ,<span style="color:#f1fa8c">&#39;village&#39;</span>,<span style="color:#f1fa8c">&#39;1&#39;</span>,<span style="color:#f1fa8c">&#39;2&#39;</span>,<span style="color:#f1fa8c">&#39;3&#39;</span>,<span style="color:#f1fa8c">&#39;cosine_similarity&#39;</span>]
+</span></span><span style="display:flex;"><span>cosine_similarity_df <span style="color:#ff79c6">=</span> pivot_df[cosine_similarity_list]<span style="color:#ff79c6">.</span>copy()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 排序</span>
+</span></span><span style="display:flex;"><span>sort_values_list <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;cosine_similarity&#39;</span>,<span style="color:#f1fa8c">&#39;county&#39;</span> ,<span style="color:#f1fa8c">&#39;town&#39;</span> ,<span style="color:#f1fa8c">&#39;village&#39;</span>]
+</span></span><span style="display:flex;"><span>cosine_similarity_df <span style="color:#ff79c6">=</span> cosine_similarity_df<span style="color:#ff79c6">.</span>sort_values(sort_values_list, ascending<span style="color:#ff79c6">=</span>[<span style="color:#ff79c6">False</span>, <span style="color:#ff79c6">True</span>, <span style="color:#ff79c6">True</span>, <span style="color:#ff79c6">True</span>]) 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 建立 rank</span>
+</span></span><span style="display:flex;"><span>cosine_similarity_df <span style="color:#ff79c6">=</span> cosine_similarity_df<span style="color:#ff79c6">.</span>reset_index(drop<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>)<span style="color:#ff79c6">.</span>reset_index()
+</span></span><span style="display:flex;"><span>cosine_similarity_df[<span style="color:#f1fa8c">&#34;index&#34;</span>] <span style="color:#ff79c6">=</span> cosine_similarity_df[<span style="color:#f1fa8c">&#34;index&#34;</span>] <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 修改欄位名稱</span>
+</span></span><span style="display:flex;"><span>column_names_to_revise <span style="color:#ff79c6">=</span> {<span style="color:#f1fa8c">&#34;index&#34;</span>: <span style="color:#f1fa8c">&#34;rank&#34;</span>,
+</span></span><span style="display:flex;"><span>                          <span style="color:#f1fa8c">&#39;1&#39;</span>: <span style="color:#f1fa8c">&#34;candidate_1&#34;</span>,
+</span></span><span style="display:flex;"><span>                          <span style="color:#f1fa8c">&#39;2&#39;</span>: <span style="color:#f1fa8c">&#34;candidate_2&#34;</span>,
+</span></span><span style="display:flex;"><span>                          <span style="color:#f1fa8c">&#39;3&#39;</span>: <span style="color:#f1fa8c">&#34;candidate_3&#34;</span>}
+</span></span><span style="display:flex;"><span>cosine_similarity_df <span style="color:#ff79c6">=</span> cosine_similarity_df<span style="color:#ff79c6">.</span>rename(columns<span style="color:#ff79c6">=</span>column_names_to_revise)
+</span></span></code></pre></div><img src='/images/note/data_analysis/project_4/cosine_similarity_df.png'>
+</li>
+</ul>
+<br>
+<ul>
+<li>建立查詢函數
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># 篩選</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">filter_county_town_village</span>(df, county_name, town_name, village_name):
+</span></span><span style="display:flex;"><span>    county_condition <span style="color:#ff79c6">=</span> df[<span style="color:#f1fa8c">&#34;county&#34;</span>] <span style="color:#ff79c6">==</span> county_name <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(county_name) <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">True</span>
+</span></span><span style="display:flex;"><span>    town_condition <span style="color:#ff79c6">=</span> df[<span style="color:#f1fa8c">&#34;town&#34;</span>] <span style="color:#ff79c6">==</span> town_name <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(town_name) <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">True</span>
+</span></span><span style="display:flex;"><span>    village_condition <span style="color:#ff79c6">=</span> df[<span style="color:#f1fa8c">&#34;village&#34;</span>] <span style="color:#ff79c6">==</span> village_name <span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(village_name) <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">True</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> df[county_condition <span style="color:#ff79c6">&amp;</span> town_condition <span style="color:#ff79c6">&amp;</span> village_condition]
+</span></span></code></pre></div></li>
+</ul>
+<br>
+<hr>
+<h3 id="可視化成品">可視化成品</h3>
+<ul>
+<li>採用 <code>gradio</code> 展示成品，可以點選連接 <a href="https://huggingface.co/spaces/ho291ey992/taiwan_presidential_election_2024"><strong>成品</strong></a> 參考成品。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>country_percentage, gradio_dataframe <span style="color:#ff79c6">=</span> self<span style="color:#ff79c6">.</span>create_gradio_dataframe()
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 調整小數點到第6位</span>
+</span></span><span style="display:flex;"><span>gradio_dataframe_list <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;candidate_1&#39;</span>, <span style="color:#f1fa8c">&#39;candidate_2&#39;</span>,<span style="color:#f1fa8c">&#39;candidate_3&#39;</span>, <span style="color:#f1fa8c">&#39;cosine_similarities&#39;</span>]
+</span></span><span style="display:flex;"><span>gradio_dataframe[gradio_dataframe_list] <span style="color:#ff79c6">=</span> gradio_dataframe[gradio_dataframe_list]<span style="color:#ff79c6">.</span>round(<span style="color:#bd93f9">6</span>)
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 猜分各</span>
+</span></span><span style="display:flex;"><span>ko_wu, lai_hsiao, hou_chao <span style="color:#ff79c6">=</span> country_percentage
+</span></span><span style="display:flex;"><span>interface <span style="color:#ff79c6">=</span> gr<span style="color:#ff79c6">.</span>Interface(fn<span style="color:#ff79c6">=</span>filter_county_town_village,
+</span></span><span style="display:flex;"><span>                        inputs<span style="color:#ff79c6">=</span>[gr<span style="color:#ff79c6">.</span>DataFrame(gradio_dataframe),
+</span></span><span style="display:flex;"><span>                                <span style="color:#f1fa8c">&#39;text&#39;</span>,
+</span></span><span style="display:flex;"><span>                                <span style="color:#f1fa8c">&#39;text&#39;</span>,
+</span></span><span style="display:flex;"><span>                                <span style="color:#f1fa8c">&#39;text&#39;</span>],
+</span></span><span style="display:flex;"><span>                        outputs<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;dataframe&#39;</span>,
+</span></span><span style="display:flex;"><span>                        title<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;找出章魚里&#39;</span>,
+</span></span><span style="display:flex;"><span>                        description<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;輸入你想篩選的縣市、鄉鎮市區與村鄰里。( 柯吳配, 賴蕭配, 候趙配 )=( </span><span style="color:#f1fa8c">{</span>ko_wu<span style="color:#f1fa8c">:</span><span style="color:#f1fa8c">.6f</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">, </span><span style="color:#f1fa8c">{</span>lai_hsiao<span style="color:#f1fa8c">:</span><span style="color:#f1fa8c">.6f</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">, </span><span style="color:#f1fa8c">{</span>hou_chao<span style="color:#f1fa8c">:</span><span style="color:#f1fa8c">.6f</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">) &#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 啟動網頁是伺服器，關閉 Ctrl + Z or interface.close()。</span>
+</span></span><span style="display:flex;"><span>interface<span style="color:#ff79c6">.</span>launch()
+</span></span></code></pre></div></li>
+</ul>
+<img src ='/images/note/data_analysis/project_4/成品展示.png'>
+<br>
+<hr>
+<p><a href="https://ho291ey992.github.io/note/data_analysis/project_4_2/">上一章</a></p>
+<p><a href="https://ho291ey992.github.io/note/data_analysis/project_4_4/">下一章</a></p>
+
+        </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<script>
+  var indexURL = "https://ho291ey992.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://ho291ey992.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/mark.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://ho291ey992.github.io/js/script.min.js"></script>
+
+
+
+</body>
+</html>

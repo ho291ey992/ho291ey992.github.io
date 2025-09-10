@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-tw"><head>
+  <meta charset="utf-8">
+  <title>學習筆記</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="練習專案四：找出章魚里">
+  <meta name="author" content="Steve">
+    
+  
+  <meta name="theme-name" content="liva-hugo" />
+  
+  <meta name="generator" content="Hugo 0.140.2">
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://ho291ey992.github.io/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://ho291ey992.github.io/images/favicon.png " type="image/x-icon">
+
+  <!-- google analitycs -->
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'Your ID', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+</head>
+<body><!-- navigation -->
+<header class="navigation sticky"> 
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom pl-0">
+      <a class="navbar-brand mobile-view" href="https://ho291ey992.github.io/"><img class="img-fluid"
+          src="https://ho291ey992.github.io/images/favicon1.png" alt="學習筆記"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        
+        
+        
+        <a class="navbar-brand mx-auto desktop-view" href="https://ho291ey992.github.io/"><img class="img-fluid"
+          src="https://ho291ey992.github.io/images/favicon1.png" alt="學習筆記">
+        </a>
+
+        <ul class="navbar-nav">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://ho291ey992.github.io/about/">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              筆記
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" href="https://ho291ey992.github.io/note/hugo">hugo 網站建置</a>
+              
+              <a class="dropdown-item" href="https://ho291ey992.github.io/note/data_analysis">數據分析</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search pl-lg-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="https://ho291ey992.github.io//search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        
+        <a href="/categories/data-analysis"
+          class="text-primary">Data analysis</a>
+        
+        <h2>練習專案四：找出章魚里 4</h2>  
+        <div class="mb-3 post-meta">
+          <span>By Steve</span>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2025-09-09</span> 
+          
+        </div>
+        
+        <div class="content mb-5">
+          <br>
+<h3 id="成品介紹">成品介紹</h3>
+<p>這是一個透過 <strong>餘弦相似度</strong> 與選舉投票數據，找出全台最像「天玉里」的專案。<br>
+利用 <code>pandas</code>、<code>sqlite3</code> 進行資料處理，並用 <code>gradio</code> 做出互動式成品，最後將成品部署在 <code>Hugging Face Demo</code> 上展示。</p>
+<ul>
+<li>成果：<a href="https://huggingface.co/spaces/ho291ey992/taiwan_presidential_election_2024"><strong>Hugging Face Demo</strong></a></li>
+</ul>
+<br>
+<hr>
+<h4 id="專案紀錄與進程">專案紀錄與進程</h4>
+<p>以下為本專案從資料清理到視覺化的完整實作記錄，包含每階段的筆記與驗證過程：</p>
+<ul>
+<li><a href="https://hahow.in/courses/667242066282be4de9eabf8f?utm_source=share&amp;utm_medium=link">資料分析的七個練習專案：累積個人作品集</a>：參考資料</li>
+<li><a href="https://ho291ey992.github.io/note/data_analysis/project_4_2/">數據清理過程</a>：資料檢視與基礎清理</li>
+<li><a href="https://ho291ey992.github.io/note/data_analysis/project_4_3/">概念驗證</a>：視覺化圖表驗證與可行性測試</li>
+<li><a href="https://github.com/ho291ey992/taiwan_presidential_election_2024">GitHub 原始碼</a>：包含資料處理與圖表繪製程式碼</li>
+</ul>
+<br>
+<hr>
+<h4 id="成果展示">成果展示</h4>
+<ul>
+<li>找出的最相似里：<strong>南投縣 草屯鎮 中山里</strong></li>
+<li>相似程度：<code>0.999998</code></li>
+<li>天玉里實際排名：<strong>2482</strong> 僅屬中上程度。</li>
+</ul>
+<img src="/images/note/data_analysis/project_4/成品展示.png">
+<br>
+<hr>
+<h4 id="分析流程">分析流程</h4>
+<ol>
+<li><strong>資料蒐集</strong>
+<ul>
+<li>CEC「總統候選人得票數一覽表」22 份試算表</li>
+</ul>
+</li>
+<li><strong>資料清理與建庫</strong>
+<ul>
+<li>轉換為 SQLite 資料庫：<code>taiwan_presidential_election_2024.db</code></li>
+</ul>
+</li>
+<li><strong>相似度計算</strong>
+<ul>
+<li>餘弦相似度公式：<br>
+<strong>cosine similarity = (A · B) / (||A||·||B||)</strong></li>
+</ul>
+</li>
+<li><strong>互動式展示</strong>
+<ul>
+<li>Gradio App 部署於 Hugging Face Space</li>
+</ul>
+</li>
+</ol>
+<br>
+<hr>
+<h4 id="靜態圖表補充">靜態圖表補充</h4>
+<ul>
+<li>前 15 名相似里 vs 天玉里排名（2482）
+可以看到天玉里實際排名第 2482，前 15 名的相似度皆在 0.99996 以上，差距極小，但天玉里落後許多，驗證了『名不符實』的結果。
+<img src='/images/note/data_analysis/project_4/靜態圖表補充.png'></li>
+</ul>
+<br>
+<hr>
+<h4 id="個人反思心得">個人反思、心得</h4>
+<p>在這次專案中，第一次接觸到 <strong>餘弦相似度</strong>，學會如何用向量比較資料的相似性。同時學習 <strong>資料庫正規化</strong> 的概念與實作方法，並體會到 <strong>以數據為導向的思考邏輯</strong>，能用資料而非直覺來驗證想法。此外，頭一次透過 <strong>Hugging Face Spaces</strong> 與 <strong>Gradio</strong>，學會新的展示與部屬方式，整體是一個有趣的練習。這次練習讓我體會到相似度分析不只可以應用在選舉數據，未來也能延伸到使用者行為分析、商品推薦等場景。
+<br></p>
+<ul>
+<li>學到的重點：
+<ul>
+<li>餘弦相似度的實務應用</li>
+<li>資料庫正規化的重要性</li>
+<li>如何將分析結果做成互動式</li>
+</ul>
+</li>
+</ul>
+<br>
+<hr>
+<h3 id="專案復原">專案復原</h3>
+<h4 id="語言與模組">語言與模組</h4>
+<ul>
+<li>dependencies：
+<ul>
+<li>python 3.12.11</li>
+<li>pandas 2.3.1</li>
+<li>numpy 1.26.4</li>
+<li>gradio 5.43.1</li>
+</ul>
+</li>
+</ul>
+<br>
+<hr>
+<h4 id="匯出-environmentyml">匯出 environment.yml</h4>
+<p>目的重現專案環境。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>conda env <span style="color:#8be9fd;font-style:italic">export</span> -n taiwan_presidential_election_2024 &gt; environment.yml 
+</span></span></code></pre></div><br>
+<hr>
+<h4 id="如何重現">如何重現</h4>
+<ul>
+<li>安裝 <a href="https://www.anaconda.com/docs/getting-started/miniconda/main">Miniconda</a></li>
+<li>依據 <code>environment.yml</code> 建立環境：
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>conda env create -f environment.yml
+</span></span></code></pre></div></li>
+<li>將 <code>data/</code> 資料夾中的「總統-A05-4-候選人得票數一覽表-各投開票所」22 個試算表檔案放到專案資料夾的<code> data/</code> 資料夾中</li>
+<li>啟動環境並執行 <code>python create_taiwan_presidential_election_2024_db.py</code> 就能在 data/ 資料夾中建立 <code>taiwan_presidential_election_2024.db</code></li>
+<li>啟動環境並執行 <code>python app.py</code> 並前往 <code>http://127.0.0.1:7860</code> 瀏覽成品。</li>
+</ul>
+<br>
+<hr>
+<p><a href="https://ho291ey992.github.io/note/data_analysis/project_4_3/">上一章</a></p>
+
+        </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<script>
+  var indexURL = "https://ho291ey992.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://ho291ey992.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/mark.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://ho291ey992.github.io/js/script.min.js"></script>
+
+
+
+</body>
+</html>

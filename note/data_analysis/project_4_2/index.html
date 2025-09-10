@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-tw"><head>
+  <meta charset="utf-8">
+  <title>學習筆記</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="練習專案四：找出章魚里">
+  <meta name="author" content="Steve">
+    
+  
+  <meta name="theme-name" content="liva-hugo" />
+  
+  <meta name="generator" content="Hugo 0.140.2">
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://ho291ey992.github.io/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://ho291ey992.github.io/images/favicon.png " type="image/x-icon">
+
+  <!-- google analitycs -->
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'Your ID', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+</head>
+<body><!-- navigation -->
+<header class="navigation sticky"> 
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom pl-0">
+      <a class="navbar-brand mobile-view" href="https://ho291ey992.github.io/"><img class="img-fluid"
+          src="https://ho291ey992.github.io/images/favicon1.png" alt="學習筆記"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        
+        
+        
+        <a class="navbar-brand mx-auto desktop-view" href="https://ho291ey992.github.io/"><img class="img-fluid"
+          src="https://ho291ey992.github.io/images/favicon1.png" alt="學習筆記">
+        </a>
+
+        <ul class="navbar-nav">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://ho291ey992.github.io/about/">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              筆記
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" href="https://ho291ey992.github.io/note/hugo">hugo 網站建置</a>
+              
+              <a class="dropdown-item" href="https://ho291ey992.github.io/note/data_analysis">數據分析</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search pl-lg-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="https://ho291ey992.github.io//search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        
+        <a href="/categories/data-analysis"
+          class="text-primary">Data analysis</a>
+        
+        <h2>練習專案四：找出章魚里 2</h2>  
+        <div class="mb-3 post-meta">
+          <span>By Steve</span>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2025-08-26</span> 
+          
+        </div>
+        
+        <div class="content mb-5">
+          <br>
+<br>
+<h3 id="環境設定">環境設定</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  建立新環境
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>base<span style="color:#ff79c6">)</span> conda create --name taiwan_presidential_election_2024 <span style="color:#8be9fd;font-style:italic">python</span><span style="color:#ff79c6">=</span>3.12
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  進入新建立環境
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>base<span style="color:#ff79c6">)</span> conda activate taiwan_presidential_election_2024
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  安裝模組
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>taiwan_presidential_election_2024<span style="color:#ff79c6">)</span> conda install pandas
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>taiwan_presidential_election_2024<span style="color:#ff79c6">)</span> conda install openpyxl
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>taiwan_presidential_election_2024<span style="color:#ff79c6">)</span> pip install gradio
+</span></span></code></pre></div>   <br>
+<hr>
+<h3 id="數據準備">數據準備</h3>
+<h4 id="數據來源">數據來源</h4>
+<ul>
+<li>中選會選舉及公投資料庫：<a href="https://db.cec.gov.tw/ElecTable/Election/ElecTickets?dataType=tickets&amp;typeId=ELC&amp;subjectId=P0&amp;legisId=00&amp;themeId=4d83db17c1707e3defae5dc4d4e9c800&amp;dataLevel=N&amp;prvCode=00&amp;cityCode=000&amp;areaCode=00&amp;deptCode=000&amp;liCode=0000">2024 ー 第16任總統副總統選舉</a>
+<ul>
+<li>下載各項統計表 -&gt; <strong>各投票所得票明細及概況(excel檔，ZIP壓縮)</strong></li>
+</ul>
+</li>
+</ul>
+<br>
+<hr>
+<h4 id="數據結構">數據結構</h4>
+<p>原始資料共 26 個檔案， 皆以 <strong>寬表格 (wide format)</strong> 儲存，為了方便後續分析，我將資料轉換為 <strong>長表格 (long format)</strong>，並進一步進行 <strong>資料庫正規化（Normalization）</strong>。 <br></p>
+<p>正規化的主要意義在於：<strong>減少重複、避免異常、方便維護與擴展、提高查詢效率</strong>。 <br></p>
+<ul>
+<li>
+<p><strong>原始資料 (寬表格)</strong></p>
+<ul>
+<li>資料可以分為三個部分 <strong>欄位名稱、有效資料、無效資料</strong>。
+<ul>
+<li><strong>綠色</strong>：欄位名稱(columns)，部分欄位因合併表格造成順序混亂，需要整理。</li>
+<li><strong>藍色</strong>：有效資料欄位，需進行空值填補並移除總計欄位。</li>
+<li><strong>紅色</strong>：無效資料，可直接移除。</li>
+</ul>
+</li>
+</ul>
+<img src='/images/note/data_analysis/project_4/資料外觀.jpg'>
+</li>
+</ul>
+<br>
+<ul>
+<li>
+<p><strong>資料庫正規化（Normalization）</strong>：</p>
+<ul>
+<li>
+<p><strong>candidates</strong></p>
+<ul>
+<li>candidate_id：參選人ID</li>
+<li>candidate：參選人名</li>
+</ul>
+<br>
+</li>
+<li>
+<p><strong>polling_places</strong></p>
+<ul>
+<li>polling_place_id：投票所ID</li>
+<li>county：縣市</li>
+<li>town：鄉、區（清理多餘空白，如 \u3000中寮鄉）</li>
+<li>village：村、鄰、里</li>
+<li>polling_place：投票所（同一里可能有多個投票所，因此需保留）</li>
+</ul>
+<br>
+</li>
+<li>
+<p><strong>votes</strong></p>
+<ul>
+<li>polling_place_id：投票所ID</li>
+<li>candidate_id：參選人ID</li>
+<li>votes：得票數</li>
+</ul>
+<br>
+</li>
+<li>
+<p><strong>votes_by_village</strong>（檢視表，用於快速整合）</p>
+<ul>
+<li>county</li>
+<li>town</li>
+<li>village</li>
+<li>candidate</li>
+<li>candidate_id</li>
+<li>sum_votes（總得票數）</li>
+</ul>
+</li>
+</ul>
+<br>
+</li>
+</ul>
+<hr>
+<h4 id="數據導入">數據導入</h4>
+<ul>
+<li>
+<p><strong>Step 1：載入與整理原始資料。</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">tidy_county_dataframe</span>(file_path, county_name):
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 單一文件處理</span>
+</span></span><span style="display:flex;"><span>  county_file_path <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;</span><span style="color:#f1fa8c">{</span>file_path<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">總統-A05-4-候選人得票數一覽表-各投開票所(</span><span style="color:#f1fa8c">{</span>county_name<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">).xlsx&#39;</span>
+</span></span><span style="display:flex;"><span>  df <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>read_excel(county_file_path)
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 移出多於列</span>
+</span></span><span style="display:flex;"><span>  df <span style="color:#ff79c6">=</span> df<span style="color:#ff79c6">.</span>iloc[:,:<span style="color:#bd93f9">6</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 刪除多於欄位</span>
+</span></span><span style="display:flex;"><span>  df <span style="color:#ff79c6">=</span> df<span style="color:#ff79c6">.</span>drop([<span style="color:#bd93f9">2</span>,<span style="color:#bd93f9">3</span>,<span style="color:#bd93f9">4</span>])
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 補齊縣市資料</span>
+</span></span><span style="display:flex;"><span>  df<span style="color:#ff79c6">.</span>iloc[:,<span style="color:#bd93f9">0</span>] <span style="color:#ff79c6">=</span> df<span style="color:#ff79c6">.</span>iloc[:,<span style="color:#bd93f9">0</span>]<span style="color:#ff79c6">.</span>ffill()
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 修改欄位名稱</span>
+</span></span><span style="display:flex;"><span>  columns <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;town&#39;</span>, <span style="color:#f1fa8c">&#39;village&#39;</span>, <span style="color:#f1fa8c">&#39;polling_place&#39;</span>]  <span style="color:#ff79c6">+</span> df<span style="color:#ff79c6">.</span>iloc[<span style="color:#bd93f9">1</span>,<span style="color:#bd93f9">3</span>:]<span style="color:#ff79c6">.</span>to_list()
+</span></span><span style="display:flex;"><span>  df<span style="color:#ff79c6">.</span>columns <span style="color:#ff79c6">=</span> columns
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 刪除 nan 欄位(縣市統計(town)、前兩列資料)</span>
+</span></span><span style="display:flex;"><span>  df <span style="color:#ff79c6">=</span> df<span style="color:#ff79c6">.</span>dropna()<span style="color:#ff79c6">.</span>reset_index(drop<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 新增縣市欄位</span>
+</span></span><span style="display:flex;"><span>  df[<span style="color:#f1fa8c">&#39;county&#39;</span>] <span style="color:#ff79c6">=</span> county_name
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 調整開票所資料型態</span>
+</span></span><span style="display:flex;"><span>  df[<span style="color:#f1fa8c">&#39;polling_place&#39;</span>] <span style="color:#ff79c6">=</span> df[<span style="color:#f1fa8c">&#39;polling_place&#39;</span>]<span style="color:#ff79c6">.</span>astype(<span style="color:#8be9fd;font-style:italic">int</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 寬資料表 轉 長資料表</span>
+</span></span><span style="display:flex;"><span>  df <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>melt(df, id_vars<span style="color:#ff79c6">=</span>[<span style="color:#f1fa8c">&#39;county&#39;</span>, <span style="color:#f1fa8c">&#39;town&#39;</span>, <span style="color:#f1fa8c">&#39;village&#39;</span>, <span style="color:#f1fa8c">&#39;polling_place&#39;</span>], var_name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;candidate_info&#34;</span>, value_name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;votes&#34;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> df
+</span></span></code></pre></div><br>
+</li>
+<li>
+<p><strong>Step 2：讀取並合併所有資料。</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">concat_country_dataframe</span>(file_path):
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 讀取文件名稱</span>
+</span></span><span style="display:flex;"><span>  polling_county <span style="color:#ff79c6">=</span> os<span style="color:#ff79c6">.</span>listdir(file_path)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 擷取縣市資料</span>
+</span></span><span style="display:flex;"><span>  county_name <span style="color:#ff79c6">=</span> []
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">in</span> polling_county:
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">if</span> <span style="color:#f1fa8c">&#39;.xlsx&#39;</span> <span style="color:#ff79c6">in</span> i:
+</span></span><span style="display:flex;"><span>          county_name <span style="color:#ff79c6">+=</span> [re<span style="color:#ff79c6">.</span>split(<span style="color:#f1fa8c">&#39;</span><span style="color:#f1fa8c">\\</span><span style="color:#f1fa8c">(|</span><span style="color:#f1fa8c">\\</span><span style="color:#f1fa8c">)&#39;</span>, i)[<span style="color:#bd93f9">1</span>]]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 合併資料</span>
+</span></span><span style="display:flex;"><span>  country_data <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>DataFrame()
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> c <span style="color:#ff79c6">in</span> county_name:
+</span></span><span style="display:flex;"><span>      county_data <span style="color:#ff79c6">=</span> tidy_county_dataframe(c)
+</span></span><span style="display:flex;"><span>      country_data <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>concat([country_data, county_data])
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 分割 候選人編號(candidate_id) 資料</span>
+</span></span><span style="display:flex;"><span>  country_data[<span style="color:#f1fa8c">&#39;candidate_id&#39;</span>] <span style="color:#ff79c6">=</span> country_data[<span style="color:#f1fa8c">&#39;candidate_info&#39;</span>]<span style="color:#ff79c6">.</span>map(<span style="color:#ff79c6">lambda</span> i: re<span style="color:#ff79c6">.</span>split(<span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\\</span><span style="color:#f1fa8c">(|</span><span style="color:#f1fa8c">\\</span><span style="color:#f1fa8c">)&#34;</span>,i)[<span style="color:#bd93f9">1</span>])
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 分割 候選人名稱(candidate) 資料</span>
+</span></span><span style="display:flex;"><span>  country_data[<span style="color:#f1fa8c">&#39;candidate&#39;</span>] <span style="color:#ff79c6">=</span> country_data[<span style="color:#f1fa8c">&#39;candidate_info&#39;</span>]<span style="color:#ff79c6">.</span>map(<span style="color:#ff79c6">lambda</span> i: re<span style="color:#ff79c6">.</span>split(<span style="color:#f1fa8c">r</span><span style="color:#f1fa8c">&#34;\n|\(|\)&#34;</span>,i)[<span style="color:#bd93f9">3</span>] <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;/&#34;</span> <span style="color:#ff79c6">+</span> re<span style="color:#ff79c6">.</span>split(<span style="color:#f1fa8c">r</span><span style="color:#f1fa8c">&#34;\n|\(|\)&#34;</span>,i)[<span style="color:#bd93f9">4</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 清除多餘空白 &#39;\u3000中寮鄉&#39;</span>
+</span></span><span style="display:flex;"><span>  country_data[<span style="color:#f1fa8c">&#39;town&#39;</span>] <span style="color:#ff79c6">=</span> country_data[<span style="color:#f1fa8c">&#39;town&#39;</span>]<span style="color:#ff79c6">.</span>str<span style="color:#ff79c6">.</span>strip()
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> country_data<span style="color:#ff79c6">.</span>drop(columns<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;candidate_info&#39;</span>)
+</span></span></code></pre></div><br>
+</li>
+<li>
+<p><strong>Step 3：資料庫正規化。</strong></p>
+<ul>
+<li><strong>candidates</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># 建立 candidates (candidate_id, candidate)</span>
+</span></span><span style="display:flex;"><span>candidates <span style="color:#ff79c6">=</span> country_data[[<span style="color:#f1fa8c">&#39;candidate_id&#39;</span>, <span style="color:#f1fa8c">&#39;candidate&#39;</span>]]<span style="color:#ff79c6">.</span>drop_duplicates()<span style="color:#ff79c6">.</span>reset_index(drop<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>)<span style="color:#ff79c6">.</span>copy()
+</span></span></code></pre></div><br>
+<ul>
+<li><strong>polling_places</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># 建立 polling_places (polling_place_id, county, town, village, polling_place)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 移除重複資料</span>
+</span></span><span style="display:flex;"><span>polling_places <span style="color:#ff79c6">=</span> country_data[[<span style="color:#f1fa8c">&#39;county&#39;</span>, <span style="color:#f1fa8c">&#39;town&#39;</span>, <span style="color:#f1fa8c">&#39;village&#39;</span>, <span style="color:#f1fa8c">&#39;polling_place&#39;</span>]]<span style="color:#ff79c6">.</span>drop_duplicates()<span style="color:#ff79c6">.</span>copy()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 建立主 key(polling_place_id)</span>
+</span></span><span style="display:flex;"><span>polling_places <span style="color:#ff79c6">=</span> polling_places<span style="color:#ff79c6">.</span>reset_index(drop<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>)<span style="color:#ff79c6">.</span>reset_index()<span style="color:#ff79c6">.</span>rename(columns<span style="color:#ff79c6">=</span>{<span style="color:#f1fa8c">&#39;index&#39;</span>:<span style="color:#f1fa8c">&#39;polling_place_id&#39;</span>})
+</span></span></code></pre></div><br>
+<ul>
+<li><strong>votes</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># 設定 merge 條件。</span>
+</span></span><span style="display:flex;"><span>join <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;county&#39;</span>, <span style="color:#f1fa8c">&#39;town&#39;</span>, <span style="color:#f1fa8c">&#39;village&#39;</span>, <span style="color:#f1fa8c">&#39;polling_place&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 合併 polling_places 資料表。</span>
+</span></span><span style="display:flex;"><span>votes <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>merge(country_data, polling_places, left_on<span style="color:#ff79c6">=</span>join, right_on<span style="color:#ff79c6">=</span>join, how<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;left&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 移除多於資料。</span>
+</span></span><span style="display:flex;"><span>votes <span style="color:#ff79c6">=</span> votes[[<span style="color:#f1fa8c">&#39;polling_place_id&#39;</span>, <span style="color:#f1fa8c">&#39;candidate_id&#39;</span>, <span style="color:#f1fa8c">&#39;votes&#39;</span>]]
+</span></span></code></pre></div><br>
+<ul>
+<li><strong>建立SQLite</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># 建立 SQL</span>
+</span></span><span style="display:flex;"><span>connection <span style="color:#ff79c6">=</span> sqlite3<span style="color:#ff79c6">.</span>connect(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;</span><span style="color:#f1fa8c">{</span>file_path<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">/</span><span style="color:#f1fa8c">{</span>db_name<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 建立資表 (name=資料表名稱, con=檔案位置, index=是否載入 pd 排, if_exists=&#34;replace&#34; 若同名檔案存在蓋)</span>
+</span></span><span style="display:flex;"><span>candidates<span style="color:#ff79c6">.</span>to_sql(name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;candidates&#39;</span>, con<span style="color:#ff79c6">=</span>connection, index<span style="color:#ff79c6">=</span><span style="color:#ff79c6">False</span>, if_exists<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;replace&#34;</span>) 
+</span></span><span style="display:flex;"><span>polling_places<span style="color:#ff79c6">.</span>to_sql(name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;polling_places&#39;</span>, con<span style="color:#ff79c6">=</span>connection, index<span style="color:#ff79c6">=</span><span style="color:#ff79c6">False</span>, if_exists<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;replace&#34;</span>) 
+</span></span><span style="display:flex;"><span>votes<span style="color:#ff79c6">.</span>to_sql(name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;votes&#39;</span>, con<span style="color:#ff79c6">=</span>connection, index<span style="color:#ff79c6">=</span><span style="color:#ff79c6">False</span>, if_exists<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;replace&#34;</span>) 
+</span></span></code></pre></div><br>
+<ul>
+<li><strong>votes_by_village</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># 建立SQL指令</span>
+</span></span><span style="display:flex;"><span>cur <span style="color:#ff79c6">=</span> connection<span style="color:#ff79c6">.</span>cursor()
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 檢查 votes_by_village 是否重複</span>
+</span></span><span style="display:flex;"><span>drop_view_sql <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">drop view if exists votes_by_village
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 建立 votes_by_village </span>
+</span></span><span style="display:flex;"><span>create_view_sql <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">create view votes_by_village as
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">select pp.county,
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    pp.town,
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    pp.village,
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    c.candidate_id,
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    c.candidate,
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">    sum(v.votes) as sum_votes
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">from votes v 
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">join polling_places pp 
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">  on v.polling_place_id = pp.polling_place_id
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">join candidates c 
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">  on v.candidate_id = c.candidate_id
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">group by pp.county,
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">      pp.town,
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">      pp.village,
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">      c.candidate_id
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>cur<span style="color:#ff79c6">.</span>execute(drop_view_sql)
+</span></span><span style="display:flex;"><span>cur<span style="color:#ff79c6">.</span>execute(create_view_sql)
+</span></span><span style="display:flex;"><span>connection<span style="color:#ff79c6">.</span>close()
+</span></span></code></pre></div></li>
+</ul>
+<br>
+<hr>
+<p><a href="https://ho291ey992.github.io/note/data_analysis/project_4_1/">上一章</a></p>
+<p><a href="https://ho291ey992.github.io/note/data_analysis/project_4_3/">下一章</a></p>
+
+        </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<script>
+  var indexURL = "https://ho291ey992.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://ho291ey992.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/mark.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://ho291ey992.github.io/js/script.min.js"></script>
+
+
+
+</body>
+</html>

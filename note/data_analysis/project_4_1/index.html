@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-tw"><head>
+  <meta charset="utf-8">
+  <title>學習筆記</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="練習專案四：找出章魚里">
+  <meta name="author" content="Steve">
+    
+  
+  <meta name="theme-name" content="liva-hugo" />
+  
+  <meta name="generator" content="Hugo 0.140.2">
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://ho291ey992.github.io/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://ho291ey992.github.io/images/favicon.png " type="image/x-icon">
+
+  <!-- google analitycs -->
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'Your ID', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+</head>
+<body><!-- navigation -->
+<header class="navigation sticky"> 
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom pl-0">
+      <a class="navbar-brand mobile-view" href="https://ho291ey992.github.io/"><img class="img-fluid"
+          src="https://ho291ey992.github.io/images/favicon1.png" alt="學習筆記"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        
+        
+        
+        <a class="navbar-brand mx-auto desktop-view" href="https://ho291ey992.github.io/"><img class="img-fluid"
+          src="https://ho291ey992.github.io/images/favicon1.png" alt="學習筆記">
+        </a>
+
+        <ul class="navbar-nav">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://ho291ey992.github.io/about/">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              筆記
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" href="https://ho291ey992.github.io/note/hugo">hugo 網站建置</a>
+              
+              <a class="dropdown-item" href="https://ho291ey992.github.io/note/data_analysis">數據分析</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search pl-lg-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="https://ho291ey992.github.io//search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        
+        <a href="/categories/data-analysis"
+          class="text-primary">Data analysis</a>
+        
+        <h2>練習專案四：找出章魚里 1</h2>  
+        <div class="mb-3 post-meta">
+          <span>By Steve</span>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2025-08-23</span> 
+          
+        </div>
+        
+        <div class="content mb-5">
+          <br>
+<h3 id="專案介紹">專案介紹</h3>
+<h4 id="什麼是章魚里">什麼是章魚里？</h4>
+<p>「章魚里」一詞源自「章魚保羅」，這隻章魚因能準確預測德國國家足球隊比賽的結果而成名。
+<br></p>
+<p>在台灣，有一次選舉中，天玉里的得票比例與全國總得票比例極為接近，因此逐漸被視為一種選舉觀察指標。
+<br></p>
+<p>然而，由於人口結構的變動（例如搬遷），每次與全國得票率最接近的村里並不固定。若長期鎖定單一村里作為「章魚里」，其實並不合理。
+<br></p>
+<p>本次專案將使用中選會的開票資料，分析全台 <strong>7,700 餘個村里</strong> 的得票比例，並與全國總得票比例進行比較，以驗證相似度。
+<br></p>
+<hr>
+<br>
+<h4 id="如何分析">如何分析</h4>
+<p>該如何計算比較合理呢，在資料科學中比較比例數據的趨勢是否一致， <strong>餘弦相似度 (Cosine Similarity)</strong> 是常見的方法，它能衡量兩組向量之間的趨勢相似程度，結果介於 <strong>−1</strong> 到 <strong>1</strong> 之間。</p>
+<br>
+<p><img src='/images/note/data_analysis/project_4/cosine similarity_eq.jpg'><br>
+來源：<a href="https://en.wikipedia.org/wiki/Cosine_similarity">https://en.wikipedia.org/wiki/Cosine_similarity</a> <br></p>
+<ul>
+<li>計算結果代表兩個向量間的關係：
+<ul>
+<li><strong>1</strong>：正相關</li>
+<li><strong>0</strong>：不相關</li>
+<li><strong>-1</strong>：負相關</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th>區間</th>
+          <th>解釋</th>
+          <th>舉例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>0.8 ~ 1</strong></td>
+          <td>高度相似（方向幾乎一樣）</td>
+          <td>A vs B = 0.8</td>
+      </tr>
+      <tr>
+          <td><strong>0.2 ~ 0.8</strong></td>
+          <td>中度相似（有部分趨勢相同）</td>
+          <td>兩條趨勢線大致平行</td>
+      </tr>
+      <tr>
+          <td><strong>-0.2 ~ 0.2</strong></td>
+          <td>不相關（幾乎垂直，沒有重疊）</td>
+          <td>90°</td>
+      </tr>
+      <tr>
+          <td><strong>-0.8 ~ -0.2</strong></td>
+          <td>負相關（方向大致相反）</td>
+          <td>B vs C = -0.799</td>
+      </tr>
+      <tr>
+          <td><strong>-1 ~ -0.8</strong></td>
+          <td>高度相反（幾乎完全反向）</td>
+          <td>A vs C = -1</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+</ul>
+<br>
+<p>餘弦相似度的本質，是計算兩個向量間的夾角（θ）的餘弦值。
+<br></p>
+<p><img src='/images/note/data_analysis/project_4/cosine_similarity_ex.png' width = 80%> <br></p>
+<ul>
+<li>角度解釋：
+<ul>
+<li>
+<p>∠AB → 藍色與綠色的夾角 → θ 很小 → cos(θ) ≈ 1 → 高度相似
+<img src='/images/note/data_analysis/project_4/A&B.png'> <br></p>
+</li>
+<li>
+<p>∠AC → 藍色與紅色的夾角 → 接近 180° → cos(θ) ≈ -1 → 完全相反
+<img src='/images/note/data_analysis/project_4/A&C.png'> <br></p>
+</li>
+<li>
+<p>∠BC → 綠色與紅色的夾角 → 比較大 → cos(θ) 介於 0 和 -1 之間 → 部分
+<img src='/images/note/data_analysis/project_4/B&C.png'> <br></p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><a href="https://ho291ey992.github.io/note/data_analysis/project_4_2/">下一章</a></p>
+
+        </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<script>
+  var indexURL = "https://ho291ey992.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://ho291ey992.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/mark.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://ho291ey992.github.io/js/script.min.js"></script>
+
+
+
+</body>
+</html>
