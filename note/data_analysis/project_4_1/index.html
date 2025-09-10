@@ -142,15 +142,15 @@
 <br></p>
 <p>然而，由於人口結構的變動（例如搬遷），每次與全國得票率最接近的村里並不固定。若長期鎖定單一村里作為「章魚里」，其實並不合理。
 <br></p>
-<p>本次專案將使用中選會的開票資料，分析全台 <strong>7,700 餘個村里</strong> 的得票比例，並與全國總得票比例進行比較，以驗證相似度。
+<p>本次專案將使用中選會的開票資料，分析全台 <strong>約 7,700 個村里</strong> 的得票比例，並與全國總得票比例進行比較，以驗證相似度。
 <br></p>
 <hr>
 <br>
 <h4 id="如何分析">如何分析</h4>
-<p>該如何計算比較合理呢，在資料科學中比較比例數據的趨勢是否一致， <strong>餘弦相似度 (Cosine Similarity)</strong> 是常見的方法，它能衡量兩組向量之間的趨勢相似程度，結果介於 <strong>−1</strong> 到 <strong>1</strong> 之間。</p>
+<p>該如何計算才算合理呢？在資料科學中，比較比例數據的趨勢是否一致，常見的方法之一是 <strong>餘弦相似度 (Cosine Similarity)</strong>。，它能衡量兩組向量之間的趨勢相似程度，結果介於 <strong>−1</strong> 到 <strong>1</strong> 之間，數值越接近 1 表示越相似，越接近 -1 則表示越相反。</p>
 <br>
-<p><img src='/images/note/data_analysis/project_4/cosine similarity_eq.jpg'><br>
-來源：<a href="https://en.wikipedia.org/wiki/Cosine_similarity">https://en.wikipedia.org/wiki/Cosine_similarity</a> <br></p>
+<p><img src='/images/note/data_analysis/project_4/cosine similarity_eq.jpg'><br></p>
+<p>公式來源：<a href="https://en.wikipedia.org/wiki/Cosine_similarity">Wikipedia - Cosine similarity</a> <br></p>
 <ul>
 <li>計算結果代表兩個向量間的關係：
 <ul>
@@ -212,7 +212,7 @@
 <img src='/images/note/data_analysis/project_4/A&C.png'> <br></p>
 </li>
 <li>
-<p>∠BC → 綠色與紅色的夾角 → 比較大 → cos(θ) 介於 0 和 -1 之間 → 部分
+<p>∠BC → 綠色與紅色的夾角 → 比較大 → cos(θ) 介於 0 和 -1 之間 → 呈現部分負相關
 <img src='/images/note/data_analysis/project_4/B&C.png'> <br></p>
 </li>
 </ul>

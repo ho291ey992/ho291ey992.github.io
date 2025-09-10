@@ -160,7 +160,7 @@
 <br>
 <hr>
 <h4 id="數據結構">數據結構</h4>
-<p>原始資料共 26 個檔案， 皆以 <strong>寬表格 (wide format)</strong> 儲存，為了方便後續分析，我將資料轉換為 <strong>長表格 (long format)</strong>，並進一步進行 <strong>資料庫正規化（Normalization）</strong>。 <br></p>
+<p>原始資料共 26 個檔案，皆以 <strong>寬表格 (wide format)</strong> 儲存，為了方便後續分析，我將資料轉換為 <strong>長表格 (long format)</strong>，並進一步進行 <strong>資料庫正規化（Normalization）</strong>。 <br></p>
 <p>正規化的主要意義在於：<strong>減少重複、避免異常、方便維護與擴展、提高查詢效率</strong>。 <br></p>
 <ul>
 <li>
@@ -234,7 +234,7 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 單一文件處理</span>
 </span></span><span style="display:flex;"><span>  county_file_path <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;</span><span style="color:#f1fa8c">{</span>file_path<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">總統-A05-4-候選人得票數一覽表-各投開票所(</span><span style="color:#f1fa8c">{</span>county_name<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">).xlsx&#39;</span>
 </span></span><span style="display:flex;"><span>  df <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>read_excel(county_file_path)
-</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 移出多於列</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 移除多餘列</span>
 </span></span><span style="display:flex;"><span>  df <span style="color:#ff79c6">=</span> df<span style="color:#ff79c6">.</span>iloc[:,:<span style="color:#bd93f9">6</span>]
 </span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 刪除多於欄位</span>
 </span></span><span style="display:flex;"><span>  df <span style="color:#ff79c6">=</span> df<span style="color:#ff79c6">.</span>drop([<span style="color:#bd93f9">2</span>,<span style="color:#bd93f9">3</span>,<span style="color:#bd93f9">4</span>])
@@ -247,7 +247,7 @@
 </span></span><span style="display:flex;"><span>  df <span style="color:#ff79c6">=</span> df<span style="color:#ff79c6">.</span>dropna()<span style="color:#ff79c6">.</span>reset_index(drop<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>)
 </span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 新增縣市欄位</span>
 </span></span><span style="display:flex;"><span>  df[<span style="color:#f1fa8c">&#39;county&#39;</span>] <span style="color:#ff79c6">=</span> county_name
-</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 調整開票所資料型態</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 將投票所欄位轉為整數型態</span>
 </span></span><span style="display:flex;"><span>  df[<span style="color:#f1fa8c">&#39;polling_place&#39;</span>] <span style="color:#ff79c6">=</span> df[<span style="color:#f1fa8c">&#39;polling_place&#39;</span>]<span style="color:#ff79c6">.</span>astype(<span style="color:#8be9fd;font-style:italic">int</span>)
 </span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 寬資料表 轉 長資料表</span>
 </span></span><span style="display:flex;"><span>  df <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>melt(df, id_vars<span style="color:#ff79c6">=</span>[<span style="color:#f1fa8c">&#39;county&#39;</span>, <span style="color:#f1fa8c">&#39;town&#39;</span>, <span style="color:#f1fa8c">&#39;village&#39;</span>, <span style="color:#f1fa8c">&#39;polling_place&#39;</span>], var_name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;candidate_info&#34;</span>, value_name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;votes&#34;</span>)
@@ -269,7 +269,7 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 合併資料</span>
 </span></span><span style="display:flex;"><span>  country_data <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>DataFrame()
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> c <span style="color:#ff79c6">in</span> county_name:
-</span></span><span style="display:flex;"><span>      county_data <span style="color:#ff79c6">=</span> tidy_county_dataframe(c)
+</span></span><span style="display:flex;"><span>      county_data <span style="color:#ff79c6">=</span> tidy_county_dataframe(file_path, c)
 </span></span><span style="display:flex;"><span>      country_data <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>concat([country_data, county_data])
 </span></span><span style="display:flex;"><span>  <span style="color:#6272a4"># 分割 候選人編號(candidate_id) 資料</span>
 </span></span><span style="display:flex;"><span>  country_data[<span style="color:#f1fa8c">&#39;candidate_id&#39;</span>] <span style="color:#ff79c6">=</span> country_data[<span style="color:#f1fa8c">&#39;candidate_info&#39;</span>]<span style="color:#ff79c6">.</span>map(<span style="color:#ff79c6">lambda</span> i: re<span style="color:#ff79c6">.</span>split(<span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\\</span><span style="color:#f1fa8c">(|</span><span style="color:#f1fa8c">\\</span><span style="color:#f1fa8c">)&#34;</span>,i)[<span style="color:#bd93f9">1</span>])

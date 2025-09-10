@@ -218,7 +218,7 @@ cosine_similarity = (A · B) / (||A||·||B||) <br></p>
 </span></span><span style="display:flex;"><span><span style="color:#6272a4"># 調整小數點到第6位</span>
 </span></span><span style="display:flex;"><span>gradio_dataframe_list <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;candidate_1&#39;</span>, <span style="color:#f1fa8c">&#39;candidate_2&#39;</span>,<span style="color:#f1fa8c">&#39;candidate_3&#39;</span>, <span style="color:#f1fa8c">&#39;cosine_similarities&#39;</span>]
 </span></span><span style="display:flex;"><span>gradio_dataframe[gradio_dataframe_list] <span style="color:#ff79c6">=</span> gradio_dataframe[gradio_dataframe_list]<span style="color:#ff79c6">.</span>round(<span style="color:#bd93f9">6</span>)
-</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 猜分各</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 拆分各候選人比例</span>
 </span></span><span style="display:flex;"><span>ko_wu, lai_hsiao, hou_chao <span style="color:#ff79c6">=</span> country_percentage
 </span></span><span style="display:flex;"><span>interface <span style="color:#ff79c6">=</span> gr<span style="color:#ff79c6">.</span>Interface(fn<span style="color:#ff79c6">=</span>filter_county_town_village,
 </span></span><span style="display:flex;"><span>                        inputs<span style="color:#ff79c6">=</span>[gr<span style="color:#ff79c6">.</span>DataFrame(gradio_dataframe),
