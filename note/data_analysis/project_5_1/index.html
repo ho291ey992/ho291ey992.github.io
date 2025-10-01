@@ -5,7 +5,7 @@
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="學習筆記">
+  <meta name="description" content="練習專案五：大疫世代">
   <meta name="author" content="Steve">
     
   
@@ -115,136 +115,54 @@
 </header>
 <!-- /navigation -->
 
-
 <section class="section-sm">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8 mb-5 mb-lg-0">
-        <div class="row">
+      <div class="col-lg-10 mx-auto">
+        
+        <a href="/categories/data-analysis"
+          class="text-primary">Data analysis</a>
+        
+        <h2>練習專案五：大疫世代 1</h2>  
+        <div class="mb-3 post-meta">
+          <span>By Steve</span>
           
-          
-          
-           
-          <div class="col-md-10 border-bottom pl-0">  
-            <article class="card">
-              <div class="card-body px-0" >
-                
-                <a href="https://ho291ey992.github.io/categories/data-analysis/" class="h5 d-block my-3">Data Analysis</a>
-                <div class="mb-3 post-meta">
-                  <span>By Steve</span>
-                  
-                  <span class="border-bottom border-primary px-2 mx-1"></span>
-                  <span>2025-09-29</span>
-                  
-                </div>
-              </div>
-            </article>
-          </div>
-          
-           
-          <div class="col-md-10 border-bottom pl-0">  
-            <article class="card">
-              <div class="card-body px-0" >
-                
-                <a href="https://ho291ey992.github.io/categories/conda/" class="h5 d-block my-3">Conda</a>
-                <div class="mb-3 post-meta">
-                  <span>By Steve</span>
-                  
-                  <span class="border-bottom border-primary px-2 mx-1"></span>
-                  <span>2025-08-19</span>
-                  
-                </div>
-              </div>
-            </article>
-          </div>
-          
-           
-          <div class="col-md-10 border-bottom pl-0">  
-            <article class="card">
-              <div class="card-body px-0" >
-                
-                <a href="https://ho291ey992.github.io/categories/hugo/" class="h5 d-block my-3">Hugo</a>
-                <div class="mb-3 post-meta">
-                  <span>By Steve</span>
-                  
-                  <span class="border-bottom border-primary px-2 mx-1"></span>
-                  <span>2025-01-11</span>
-                  
-                </div>
-              </div>
-            </article>
-          </div>
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2025-09-29</span> 
           
         </div>
-      </div>
+        
+        <div class="content mb-5">
+          <br>
+<h3 id="專案介紹introduction">專案介紹(Introduction)</h3>
+<h4 id="大疫世代covid-19">大疫世代：Covid-19</h4>
+<p>本次專案以 <strong>Covid-19</strong> 公開資料為基礎，整理全球的 <strong>每日確診</strong>、<strong>死亡</strong> 與 <strong>疫苗接種</strong> 數據，製作<strong>頁籤式互動儀表板</strong>。資料處理使用 <strong>SQLite + Pandas</strong>（清理、正規化、寬轉長），視覺化與互動以 <strong>Plotly + Gradio</strong> 完成（Global Map／Country Time Series），並部署於 <strong>Hugging Face Spaces</strong> 上展示。</p>
+<blockquote>
+<p>專案說明：本專案聚焦於<strong>資料清理與儀表板建置</strong>，不包含進一步的<strong>統計分析</strong>。</p>
+</blockquote>
+<br>
+<p>本專案的互動式儀表板分為兩個部分：</p>
+<ul>
+<li><strong>世界地圖氣泡圖（每日報告）</strong>：呈現單日的全球疫情快照，依經緯度分布、氣泡大小與顏色對應累積確診。</li>
+<li><strong>各國折線圖（時間序列）</strong>：將確診、死亡（寬表）與疫苗（長表）統一鍵值後合併，彙總至國家層級，觀察跨日趨勢與施打進度。</li>
+</ul>
+<br>
+<p>資料來源：</p>
+<ul>
+<li><a href="https://github.com/CSSEGISandData/COVID-19">CSSE at Johns Hopkins University</a>：由約翰霍普金斯大學系統科學與工程中心（CSSE）整理，涵蓋全球每日確診、死亡與康復人數等統計。</li>
+<li><a href="https://github.com/govex/COVID-19">Johns Hopkins University COVID-19 Website</a>：由約翰霍普金斯大學治理研究中心（GovEx）提供，包含疫苗接種與公共衛生相關數據。</li>
+</ul>
+<hr>
+<p><a href="https://ho291ey992.github.io/note/data_analysis/project_5_2/">下一章</a></p>
 
-      
-      <div class="col-lg-4">
-  <div class="widgets">
-    
-    <div class="widget">
-      
-      <h4 class="widget-title">About Me</h4>
-      
-      <img src="https://ho291ey992.github.io/images/headshot_1.jpg" alt=""
-        class="img-fluid author-thumb-sm d-block mx-auto rounded-circle mb-4">
-      
-      <p></p>
-      <a href="https://ho291ey992.github.io/about/" class="btn btn-outline-primary">Know More</a>
-      
-    </div>
-    
-    <div class="widget">
-      <h4 class="widget-title">Category</h4>
-      <ul class="list-unstyled">
-        <li><a
-            href="/categories/conda/">Conda</a>
-        </li>
-        <li><a
-            href="/categories/data-analysis/">Data analysis</a>
-        </li>
-        <li><a
-            href="/categories/hugo/">Hugo</a>
-        </li>
-      </ul>
-    </div>
-    
-    <div class="widget">
-      <h4 class="widget-title">Tag</h4>
-      <ul class="list-inline">
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/conda/">Conda</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/config.toml/">Config.toml</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/hugo-%e5%ae%89%e8%a3%9d/">Hugo 安裝</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/markdown-%e8%aa%9e%e6%b3%95/">Markdown 語法</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/powerbi/">Powerbi</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/python/">Python</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/sql/">SQL</a></li>
-        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
-            href="/tags/sqlite/">Sqlite</a></li>
-      </ul>
-    </div>
-    
-    
-  </div>
-</div>
+        </div>
 
-      
-
-      
-      <div class="col-12 mt-5">
+        
         
       </div>
     </div>
   </div>
 </section>
-
 
 
 

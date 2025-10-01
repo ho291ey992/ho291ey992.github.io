@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-tw"><head>
+  <meta charset="utf-8">
+  <title>學習筆記</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="練習專案五：大疫世代">
+  <meta name="author" content="Steve">
+    
+  
+  <meta name="theme-name" content="liva-hugo" />
+  
+  <meta name="generator" content="Hugo 0.140.2">
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://ho291ey992.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://ho291ey992.github.io/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://ho291ey992.github.io/images/favicon.png " type="image/x-icon">
+
+  <!-- google analitycs -->
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'Your ID', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+</head>
+<body><!-- navigation -->
+<header class="navigation sticky"> 
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom pl-0">
+      <a class="navbar-brand mobile-view" href="https://ho291ey992.github.io/"><img class="img-fluid"
+          src="https://ho291ey992.github.io/images/favicon1.png" alt="學習筆記"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        
+        
+        
+        <a class="navbar-brand mx-auto desktop-view" href="https://ho291ey992.github.io/"><img class="img-fluid"
+          src="https://ho291ey992.github.io/images/favicon1.png" alt="學習筆記">
+        </a>
+
+        <ul class="navbar-nav">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://ho291ey992.github.io/about/">About</a>
+          </li>
+          
+          
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              筆記
+            </a>
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item" href="https://ho291ey992.github.io/note/hugo">hugo 網站建置</a>
+              
+              <a class="dropdown-item" href="https://ho291ey992.github.io/note/data_analysis">數據分析</a>
+              
+            </div>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search pl-lg-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="https://ho291ey992.github.io//search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        
+        <a href="/categories/data-analysis"
+          class="text-primary">Data analysis</a>
+        
+        <h2>練習專案五：大疫世代 2</h2>  
+        <div class="mb-3 post-meta">
+          <span>By Steve</span>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>2025-09-29</span> 
+          
+        </div>
+        
+        <div class="content mb-5">
+          <br>
+<h3 id="環境設定environment-setup">環境設定（Environment Setup）</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  建立新環境
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>base<span style="color:#ff79c6">)</span> conda create --name covid_19_pandemic <span style="color:#8be9fd;font-style:italic">python</span><span style="color:#ff79c6">=</span>3.12
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  進入新建立環境
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>base<span style="color:#ff79c6">)</span> conda activate covid_19_pandemic
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  安裝模組
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>covid_19_pandemic<span style="color:#ff79c6">)</span> conda install pandas
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>covid_19_pandemic<span style="color:#ff79c6">)</span> conda install plotly
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">(</span>covid_19_pandemic<span style="color:#ff79c6">)</span> pip install gradio
+</span></span></code></pre></div>   <br>
+<hr>
+<h3 id="數據準備data-preparation">數據準備（Data Preparation）</h3>
+<h4 id="數據來源data-sources">數據來源（Data Sources）</h4>
+<ul>
+<li>
+<p><a href="https://github.com/CSSEGISandData/COVID-19">CSSE at Johns Hopkins University</a>：由約翰霍普金斯大學系統科學與工程中心（CSSE）整理，涵蓋全球每日確診、死亡與康復人數等統計。</p>
+<ul>
+<li>每日統計：<a href="https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_daily_reports/03-09-2023.csv"><code>03-09-2023.csv</code></a></li>
+<li>全球確診：<a href="https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv"><code>time_series_covid19_confirmed_global.csv</code></a></li>
+<li>全球死亡：<a href="https://github.com/CSSEGISandData/COVID-19/blob/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv"><code>time_series_covid19_deaths_global.csv</code></a>
+<br></li>
+</ul>
+</li>
+<li>
+<p><a href="https://github.com/govex/COVID-19">Johns Hopkins University COVID-19 Website</a>：由約翰霍普金斯大學治理研究中心（GovEx）提供，包含疫苗接種與公共衛生相關數據。</p>
+<ul>
+<li>全球疫苗：<a href="https://github.com/govex/COVID-19/blob/master/data_tables/vaccine_data/global_data/time_series_covid19_vaccine_global.csv"><code>time_series_covid19_vaccine_global.csv</code></a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="數據結構data-structure">數據結構（Data Structure）</h4>
+<p>資料分為 <strong>每日報告</strong> 與 <strong>時間序列資料</strong> 兩個部分：</p>
+<ol>
+<li><strong>每日報告</strong>：單日全球疫情統計，非必要欄位較多，需移除多餘欄位以利地圖視覺化。</li>
+<li><strong>時間序列資料</strong>：<strong>確診、死亡資料</strong> 為 <strong>寬表格</strong> ，<strong>疫苗資料</strong> 為 <strong>長表格</strong>。三份資料的 <strong>欄位名稱與資料型態</strong> 略有不同，需先正規化（鍵值統一為<code> ['Province/State', 'Country/Region', 'Date']</code>）。</li>
+</ol>
+<br>
+<ul>
+<li>
+<p><strong>資料庫正規化（Normalization）</strong>：
+統一欄位名稱、資料型態與日期格式，確保後續合併與彙總正確。<br></p>
+</li>
+<li>
+<p><strong>每日報告</strong> 處理：<code>03-09-2023.csv</code>，內容涵蓋各國與地區在 <strong>2023-03-09</strong> 的疫情統計。</p>
+<ul>
+<li><strong>保留欄位</strong>：[&lsquo;Country_Region&rsquo;, &lsquo;Province_State&rsquo;, &lsquo;Admin2&rsquo;, &lsquo;Confirmed&rsquo;, &lsquo;Deaths&rsquo;, &lsquo;Lat&rsquo;, &lsquo;Long_&rsquo;]</li>
+<li><strong>調整名稱</strong>：[&lsquo;country&rsquo;, &lsquo;province&rsquo;, &lsquo;county&rsquo;, &lsquo;confirmed&rsquo;, &lsquo;deaths&rsquo;, &rsquo;latitude&rsquo;, &rsquo;longitude&rsquo;]</li>
+<li><strong>欄位介紹</strong>：
+<ul>
+<li>Admin2：次級行政區名稱（主要針對美國縣市）。</li>
+<li>Province_State：省份或州的名稱。</li>
+<li>Country_Region：國家名稱。</li>
+<li>Lat / Long_：緯度 / 經度。</li>
+<li>Confirmed / Deaths：累積確診數 / 累積死亡數。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<br>
+<ul>
+<li><strong>時間序列資料</strong> 處理：
+<ul>
+<li>
+<p><strong>全球確診資料（寬→長）</strong>：<code>time_series_covid19_confirmed_global.csv</code></p>
+<ul>
+<li>保留欄位：[&lsquo;Province/State&rsquo;, &lsquo;Country/Region&rsquo;, &lsquo;Date&rsquo;, &lsquo;Confirmed&rsquo;]</li>
+<li>Date：日期型態轉換 <code>1/22/20</code> → <code>2020-01-22</code></li>
+</ul>
+<br>
+</li>
+<li>
+<p><strong>全球死亡資料（寬→長）</strong>：<code>time_series_covid19_deaths_global.csv</code></p>
+<ul>
+<li>保留欄位：[&lsquo;Province_State&rsquo;, &lsquo;Country_Region&rsquo;, &lsquo;Date&rsquo;, &lsquo;Deaths&rsquo;]</li>
+<li>Date：日期型態轉換 <code>1/22/20</code> → <code>2020-01-22</code></li>
+</ul>
+<br>
+</li>
+<li>
+<p><strong>全球疫苗資料（長表格）</strong>：<code>time_series_covid19_vaccine_global.csv</code></p>
+<ul>
+<li>保留欄位：[&lsquo;Province_State&rsquo;, &lsquo;Country_Region&rsquo;, &lsquo;Date&rsquo;, &lsquo;Doses_admin&rsquo;]</li>
+<li>調整欄位名稱：[&lsquo;Province_State&rsquo;, &lsquo;Country_Region&rsquo;] → [&lsquo;Province/State&rsquo;, &lsquo;Country/Region&rsquo;]</li>
+<li>調整資料型態：Province/State <code>float64</code> → <code>object</code>、Doses_admin <code>float64</code> → <code>int64</code></li>
+</ul>
+<blockquote>
+<p>曾出現溢位（overflow）問題，改用 astype(&lsquo;int64&rsquo;)。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="數據導入data-import">數據導入（Data Import）</h4>
+<ul>
+<li>
+<p><strong>Step 1：載入與整理原始資料。</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#ff79c6">def</span> __init__(self, file_path, db_name):
+</span></span><span style="display:flex;"><span>    self<span style="color:#ff79c6">.</span>file_path <span style="color:#ff79c6">=</span> file_path
+</span></span><span style="display:flex;"><span>    self<span style="color:#ff79c6">.</span>db_name <span style="color:#ff79c6">=</span> db_name
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 每日報告</span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#ff79c6">.</span>daily_report <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>read_csv(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;</span><span style="color:#f1fa8c">{</span>file_path<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">03-09-2023.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 確診</span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#ff79c6">.</span>confirmed <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>read_csv(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;</span><span style="color:#f1fa8c">{</span>file_path<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">time_series_covid19_confirmed_global.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 疫苗</span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#ff79c6">.</span>vaccine <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>read_csv(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;</span><span style="color:#f1fa8c">{</span>file_path<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">time_series_covid19_vaccine_global.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 死亡人數</span>
+</span></span><span style="display:flex;"><span>    self<span style="color:#ff79c6">.</span>deaths <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>read_csv(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#39;</span><span style="color:#f1fa8c">{</span>file_path<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">time_series_covid19_deaths_global.csv&#39;</span>)
+</span></span></code></pre></div><br>
+</li>
+<li>
+<p><strong>Step 2：每日資料處理。</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">create_daily_report</span>(self):
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 處理每日資料 03-09-2023.csv</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4"># 清除多餘欄位、調整欄位位置和名稱。</span>
+</span></span><span style="display:flex;"><span>    daily_report <span style="color:#ff79c6">=</span> self<span style="color:#ff79c6">.</span>daily_report[[<span style="color:#f1fa8c">&#39;Country_Region&#39;</span>, <span style="color:#f1fa8c">&#39;Province_State&#39;</span>, <span style="color:#f1fa8c">&#39;Admin2&#39;</span>, <span style="color:#f1fa8c">&#39;Confirmed&#39;</span>, <span style="color:#f1fa8c">&#39;Deaths&#39;</span>,<span style="color:#f1fa8c">&#39;Lat&#39;</span>, <span style="color:#f1fa8c">&#39;Long_&#39;</span>]]
+</span></span><span style="display:flex;"><span>    daily_report<span style="color:#ff79c6">.</span>columns <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;country&#39;</span>, <span style="color:#f1fa8c">&#39;province&#39;</span>, <span style="color:#f1fa8c">&#39;county&#39;</span>, <span style="color:#f1fa8c">&#39;confirmed&#39;</span>, <span style="color:#f1fa8c">&#39;deaths&#39;</span>, <span style="color:#f1fa8c">&#39;latitude&#39;</span>, <span style="color:#f1fa8c">&#39;longitude&#39;</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#39;create_daily_report pass&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> daily_report
+</span></span></code></pre></div><br>
+</li>
+<li>
+<p><strong>Step 3：時間序列資料處理。</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">create_time_series</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># 合併 time_series 資料</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># 寬轉長</span>
+</span></span><span style="display:flex;"><span>        melt_list <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;Province/State&#39;</span>, <span style="color:#f1fa8c">&#39;Country/Region&#39;</span>, <span style="color:#f1fa8c">&#39;Lat&#39;</span>, <span style="color:#f1fa8c">&#39;Long&#39;</span>]
+</span></span><span style="display:flex;"><span>        confirmed <span style="color:#ff79c6">=</span> self<span style="color:#ff79c6">.</span>confirmed<span style="color:#ff79c6">.</span>melt(id_vars<span style="color:#ff79c6">=</span>melt_list, var_name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;date&#39;</span>, value_name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;Confirmed&#39;</span>)
+</span></span><span style="display:flex;"><span>        deaths <span style="color:#ff79c6">=</span> self<span style="color:#ff79c6">.</span>deaths<span style="color:#ff79c6">.</span>melt(id_vars<span style="color:#ff79c6">=</span>melt_list, var_name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;date&#39;</span>, value_name<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;Deaths&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># 調整欄位一致性</span>
+</span></span><span style="display:flex;"><span>        confirmed <span style="color:#ff79c6">=</span> confirmed<span style="color:#ff79c6">.</span>rename(columns<span style="color:#ff79c6">=</span>{<span style="color:#f1fa8c">&#39;date&#39;</span>:<span style="color:#f1fa8c">&#39;Date&#39;</span>})
+</span></span><span style="display:flex;"><span>        deaths <span style="color:#ff79c6">=</span> deaths<span style="color:#ff79c6">.</span>rename(columns<span style="color:#ff79c6">=</span>{<span style="color:#f1fa8c">&#39;date&#39;</span>:<span style="color:#f1fa8c">&#39;Date&#39;</span>})
+</span></span><span style="display:flex;"><span>        vaccine <span style="color:#ff79c6">=</span> self<span style="color:#ff79c6">.</span>vaccine<span style="color:#ff79c6">.</span>rename(columns<span style="color:#ff79c6">=</span>{<span style="color:#f1fa8c">&#39;Province_State&#39;</span>:<span style="color:#f1fa8c">&#39;Province/State&#39;</span>, <span style="color:#f1fa8c">&#39;Country_Region&#39;</span>:<span style="color:#f1fa8c">&#39;Country/Region&#39;</span>})
+</span></span><span style="display:flex;"><span>        vaccine[<span style="color:#f1fa8c">&#39;Province/State&#39;</span>] <span style="color:#ff79c6">=</span> vaccine[<span style="color:#f1fa8c">&#39;Province/State&#39;</span>]<span style="color:#ff79c6">.</span>astype(<span style="color:#f1fa8c">&#39;object&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># 轉換格式日期：重點 pd.to_datetime 看不懂需要補充(format=)</span>
+</span></span><span style="display:flex;"><span>        confirmed[<span style="color:#f1fa8c">&#39;Date&#39;</span>] <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>to_datetime(confirmed[<span style="color:#f1fa8c">&#39;Date&#39;</span>], <span style="color:#8be9fd;font-style:italic">format</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;%m/</span><span style="color:#f1fa8c">%d</span><span style="color:#f1fa8c">/%y&#39;</span>) 
+</span></span><span style="display:flex;"><span>        deaths[<span style="color:#f1fa8c">&#39;Date&#39;</span>] <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>to_datetime(deaths[<span style="color:#f1fa8c">&#39;Date&#39;</span>], <span style="color:#8be9fd;font-style:italic">format</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;%m/</span><span style="color:#f1fa8c">%d</span><span style="color:#f1fa8c">/%y&#39;</span>)
+</span></span><span style="display:flex;"><span>        vaccine[<span style="color:#f1fa8c">&#39;Date&#39;</span>] <span style="color:#ff79c6">=</span> pd<span style="color:#ff79c6">.</span>to_datetime(vaccine[<span style="color:#f1fa8c">&#39;Date&#39;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># 清除多餘欄位</span>
+</span></span><span style="display:flex;"><span>        confirmed <span style="color:#ff79c6">=</span> confirmed<span style="color:#ff79c6">.</span>drop(columns<span style="color:#ff79c6">=</span>[<span style="color:#f1fa8c">&#39;Lat&#39;</span>, <span style="color:#f1fa8c">&#39;Long&#39;</span>])
+</span></span><span style="display:flex;"><span>        deaths <span style="color:#ff79c6">=</span> deaths<span style="color:#ff79c6">.</span>drop(columns<span style="color:#ff79c6">=</span>[<span style="color:#f1fa8c">&#39;Lat&#39;</span>, <span style="color:#f1fa8c">&#39;Long&#39;</span>])
+</span></span><span style="display:flex;"><span>        vaccine <span style="color:#ff79c6">=</span> vaccine<span style="color:#ff79c6">.</span>drop(columns<span style="color:#ff79c6">=</span>[<span style="color:#f1fa8c">&#39;UID&#39;</span>, <span style="color:#f1fa8c">&#39;People_at_least_one_dose&#39;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4"># 合併</span>
+</span></span><span style="display:flex;"><span>        join_keys <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;Province/State&#39;</span>, <span style="color:#f1fa8c">&#39;Country/Region&#39;</span>, <span style="color:#f1fa8c">&#39;Date&#39;</span>]
+</span></span><span style="display:flex;"><span>        time_series <span style="color:#ff79c6">=</span> confirmed<span style="color:#ff79c6">.</span>merge(deaths, left_on<span style="color:#ff79c6">=</span>join_keys, right_on<span style="color:#ff79c6">=</span>join_keys, how<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;left&#39;</span>)
+</span></span><span style="display:flex;"><span>        time_series <span style="color:#ff79c6">=</span> time_series<span style="color:#ff79c6">.</span>merge(vaccine, left_on<span style="color:#ff79c6">=</span>join_keys, right_on<span style="color:#ff79c6">=</span>join_keys, how<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;left&#39;</span>)
+</span></span><span style="display:flex;"><span>        time_series <span style="color:#ff79c6">=</span> time_series<span style="color:#ff79c6">.</span>groupby([<span style="color:#f1fa8c">&#39;Country/Region&#39;</span>, <span style="color:#f1fa8c">&#39;Date&#39;</span>])[[<span style="color:#f1fa8c">&#39;Confirmed&#39;</span>,  <span style="color:#f1fa8c">&#39;Deaths&#39;</span>,  <span style="color:#f1fa8c">&#39;Doses_admin&#39;</span>]]<span style="color:#ff79c6">.</span>sum()<span style="color:#ff79c6">.</span>reset_index()
+</span></span><span style="display:flex;"><span>        time_series[<span style="color:#f1fa8c">&#39;Doses_admin&#39;</span>] <span style="color:#ff79c6">=</span> time_series[<span style="color:#f1fa8c">&#39;Doses_admin&#39;</span>]<span style="color:#ff79c6">.</span>astype(<span style="color:#f1fa8c">&#39;int64&#39;</span>)
+</span></span><span style="display:flex;"><span>        time_series<span style="color:#ff79c6">.</span>columns <span style="color:#ff79c6">=</span> [<span style="color:#f1fa8c">&#39;country&#39;</span>, <span style="color:#f1fa8c">&#39;reported_on&#39;</span>, <span style="color:#f1fa8c">&#39;confirmed&#39;</span>, <span style="color:#f1fa8c">&#39;deaths&#39;</span>, <span style="color:#f1fa8c">&#39;doses_administered&#39;</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#39;create_time_series pass&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> time_series
+</span></span></code></pre></div><br>
+</li>
+</ul>
+<hr>
+<p><a href="https://ho291ey992.github.io/note/data_analysis/project_5_1/">上一章</a></p>
+<p><a href="https://ho291ey992.github.io/note/data_analysis/project_5_3/">下一章</a></p>
+
+        </div>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<script>
+  var indexURL = "https://ho291ey992.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://ho291ey992.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/mark.js"></script>
+
+<script src="https://ho291ey992.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://ho291ey992.github.io/js/script.min.js"></script>
+
+
+
+</body>
+</html>
